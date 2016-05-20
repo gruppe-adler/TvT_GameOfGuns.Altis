@@ -35,8 +35,6 @@ while {_currentTier <= numberOfTiers} do {
 
 // CHOOSE MUZZLE ATTACHMENTS ===================================================
 {
-  diag_log format ["chooseWeapons.sqf - finding muzzle attachments for %1", _x];
-
   if (random 100 <= MUZZLEATTACHMENTPROB) then {
     _cfg = (configFile >> "CfgWeapons" >> _x >> "WeaponSlotsInfo" >> "MuzzleSlot" >> "compatibleItems");
     _allMuzzleItems = getArray _cfg;
