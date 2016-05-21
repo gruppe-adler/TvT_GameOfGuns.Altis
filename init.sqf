@@ -1,7 +1,8 @@
-/*  player variables:
+/*  player variables created during setup:
 *   groupname:  name of group; is also variable name of score
 *   spawnpos:   spawn position; gets updated at start of game and on every respawn
 *   isTeamlead: bool; saves if player is leader of team
+*   teammates:  UIDs of all teammates
 */
 
 PLAYAREACENTER = [15401.7,17088.9,0];
@@ -27,6 +28,7 @@ if (isServer) then {
   MUZZLEATTACHMENTPROB = 100;
   SPAWNGROUPMINDIST = 150;
   STARTDISTTOLEADER = 30;
+  SPAWNDISTTOLEADER = [50,100];
 
   //Broadcast
   publicVariable "WEATHER_SETTING";

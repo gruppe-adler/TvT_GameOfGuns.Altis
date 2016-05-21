@@ -5,11 +5,12 @@
 
 sleep 5;
 
+//Setup for each player ========================================================
 {
 	_x setVariable ["isTeamlead", false, true];
 	_x setVariable ["spawnpos", [0,0,0], true];
+	[_x] call mcd_fnc_addKilledEH;
 } forEach playableUnits;
-
 
 //Define TEAMLEADERS if random groups are off ==================================
 if (!(RANDOMTEAMS) || ((count playableUnits) == 1)) then {
@@ -87,6 +88,21 @@ if (RANDOMTEAMS) then {
 	};
 };
 
+//Save teammates ===============================================================
+{
+	_teamleader = _x;
+	{
+		_unit = _x;
+		_teammates = [];
+		{
+			_teammate = getPlayerUID _x;
+			_teammates pushBack _teammate;
+		} forEach (units group _unit);
+		_unit setVariable ["teammates", _teammates, true];
+		diag_log format ["Teammates for %1 are: %2.",(name _unit), _teammates];
+	} forEach (units group _teamleader);
+} forEach TEAMLEADERS;
+
 //Set groupnames ===============================================================
 {
 	//replace spaces in names
@@ -101,11 +117,6 @@ if (RANDOMTEAMS) then {
 		call compile (format ["%1 = 0", _groupname]);
 		diag_log format ["teamSetup.sqf - score variable %1 created.", _groupname];
 	};
-} forEach playableUnits;
-
-//Add killed EHs ===============================================================
-{
-	[_x] call mcd_fnc_addKilledEH;
 } forEach playableUnits;
 
 //Done =========================================================================

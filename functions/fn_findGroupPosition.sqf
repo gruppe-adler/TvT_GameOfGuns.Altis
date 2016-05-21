@@ -4,8 +4,10 @@
 *   0:  Teamlead
 */
 
-params ["_teamlead"];
+params ["_teamleadUID"];
 private ["_teamleadpos"];
+
+_teamlead = [_teamleadUID] call BIS_fnc_getUnitByUid;
 
 //find position for teamlead ===================================================
 _repetitions = 0;
@@ -38,7 +40,14 @@ _teamlead setVariable ["spawnpos", _teamleadpos, true];
 
 
 //find positions for groupmembers ==============================================
-_teammates = (_teamlead getVariable "TEAMMEMBERS") - [_teamlead];
+_teammateUIDs = (_teamlead getVariable "teammates");
+_teammates = [];
+{
+  _unit = [_x] call BIS_fnc_getUnitByUid;
+  _teammates pushBack _unit;
+} forEach _teammateUIDs;
+_teammates = _teammates - [_teamlead];
+
 {
   _isWater = true;
   while {_isWater} do {
