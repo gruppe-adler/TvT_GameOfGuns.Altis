@@ -73,13 +73,14 @@ if (!_teammatesalive) then {
 _respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
 hint composeText [_rule, _respawning, _lineBreak, _rule];
 //respawn player
+iJustSpawned = true;
 setPlayerRespawnTime 0;
 forceRespawn player;
 
-//close hint
-sleep 4;
-hint "";
-
 //make sure player doesn't instantly respawn next time
-sleep 6;
+sleep 1;
 setPlayerRespawnTime 9999;
+
+//close hint
+sleep 3;
+hint "";

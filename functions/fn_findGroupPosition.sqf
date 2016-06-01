@@ -9,6 +9,8 @@ private ["_teamleadpos"];
 
 _teamlead = [_teamleadUID] call BIS_fnc_getUnitByUid;
 
+diag_log format ["fnc_findGroupPosition - Finding positions for %1's team.", _teamlead];
+
 //find position for teamlead ===================================================
 _repetitions = 0;
 _tooCloseFound = true;

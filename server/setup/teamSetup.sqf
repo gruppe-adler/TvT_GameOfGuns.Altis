@@ -3,7 +3,8 @@
 * Executed via init.sqf on server
 */
 
-sleep 5;
+waitUntil {!isNil "VOTINGDONE"};
+waitUntil {VOTINGDONE};
 
 //Setup for each player ========================================================
 {
@@ -106,15 +107,15 @@ if (RANDOMTEAMS) then {
 //Set groupnames ===============================================================
 {
 	//replace spaces in names
-	_leaderName = [name leader _x] call mcd_fnc_strToLoadout;
+	_leaderName = [name leader _x] call mcd_fnc_strToVar;
 
 	//save groupname in players
-	_groupname = format ["group%1",_leaderName];
+	_groupname = format ["group_%1",_leaderName];
 	_x setVariable ["groupname", _groupname, true];
 
 	//create score variables
 	if (isNil _groupname) then {
-		call compile (format ["%1 = 0", _groupname]);
+		call compile (format ["%1 = 0; publicVariable '%1'", _groupname]);
 		diag_log format ["teamSetup.sqf - score variable %1 created.", _groupname];
 	};
 } forEach playableUnits;

@@ -3,6 +3,8 @@
 * executed via init.sqf on server
 */
 
+waitUntil {!isNil "VOTINGDONE"};
+waitUntil {VOTINGDONE};
 waitUntil {!isNil "TEAMSETUPDONE"};
 waitUntil {TEAMSETUPDONE};
 

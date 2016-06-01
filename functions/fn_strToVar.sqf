@@ -81,6 +81,4 @@ _IDarray = toArray _returnString;
 _IDarray = _IDarray - [65533];
 _returnString = toString _IDarray;
 
-//add underscore
-_returnString = "_" + _returnString;
 _returnString

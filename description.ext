@@ -1,3 +1,5 @@
+#include "player\setup\voteResources.hpp"
+
 // HEADER ======================================================================
 class Header
 {
@@ -14,7 +16,7 @@ loadScreen = "data\logo.paa";
 
 // MISC ========================================================================
 respawn = 3;
-respawnDelay = 0;
+respawnDelay = 9999;
 respawnVehicleDelay = 0;
 respawnTemplates[] = {"Base"};
 respawnOnStart = -1;
