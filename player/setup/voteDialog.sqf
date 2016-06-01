@@ -1,6 +1,7 @@
 waitUntil {!isNull player};
 waitUntil {player == player};
 waitUntil {!isNull (findDisplay 46)};
+waitUntil {!isNil "VOTINGTIMELEFT"};
 
 mcd_fnc_voteDialogText = {((_this select 0) displayCtrl 1402) ctrlSetText format ["TIME REMAINING: %1", ([VOTINGTIMELEFT,"MM:SS"] call BIS_fnc_secondsToString)]};
 

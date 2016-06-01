@@ -68,7 +68,7 @@ class RscTitles
       {
         moving = 1;
         idc = 1401;
-        text = "PLAYZONE VOTING"
+        text = "PLAYZONE VOTING";
         x = safeZoneX + safeZoneW - 0.6 * 3/4;
         y = safeZoneY + safeZoneH - 1.6;
       };

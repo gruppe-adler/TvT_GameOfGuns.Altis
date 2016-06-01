@@ -11,6 +11,13 @@ call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 
 if (isServer) then {
 
+  //island config
+  call compile preprocessFile "islandConfig.sqf";
+  ISWOODLAND = (ISLAND_CONFIG select (ISLANDS find worldName)) select 0;
+  MAPSTARTPOS = (ISLAND_CONFIG select (ISLANDS find worldName)) select 1;
+  publicVariable "ISWOODLAND";
+  publicVariable "MAPSTARTPOS";
+
   mcd_fnc_addKilledEH = compile preprocessFileLineNumbers "functions\fn_addKilledEH.sqf";
   mcd_fnc_setScore = compile preprocessFileLineNumbers "functions\fn_setScore.sqf";
   mcd_fnc_strToVar = compile preprocessFileLineNumbers "functions\fn_strToVar.sqf";
@@ -33,7 +40,7 @@ if (isServer) then {
   SPAWNGROUPMINDIST = 150;
   STARTDISTTOLEADER = 30;
   SPAWNDISTTOLEADER = [50,100];
-  VOTINGTIME = 15;
+  VOTINGTIME = 40;
 
   VOTINGDONE = false;
 

@@ -3,6 +3,9 @@
 *   automatically executed locally, on death
 */
 
+_shooter = player getVariable ["ACE_medical_lastDamageSource",player];
+[player, _shooter] remoteExec ["mcd_fnc_setScore", 2, false];
+
 //check JIP player is spawning for the first time
 if (serverTime-joinTime < 20 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
 

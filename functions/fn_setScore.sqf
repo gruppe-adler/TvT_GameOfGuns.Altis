@@ -3,10 +3,11 @@
 *   used in functions\fn_addKilledEH.sqf
 */
 
-_victim = (_this select 0) select 0;
+/*_victim = (_this select 0) select 0;*/
+params ["_victim", "_shooter"];
 
 //get shooter
-_shooter = _victim getVariable ["ACE_medical_lastDamageSource",_victim];
+/*_shooter = _victim getVariable ["ACE_medical_lastDamageSource",_victim];*/
 diag_log format ["fnc_setScore - %1 killed by %2",_victim,_shooter];
 
 //exit if self-kill
