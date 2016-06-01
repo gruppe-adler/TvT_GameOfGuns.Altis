@@ -90,3 +90,19 @@ class Params {
     default = 2;
   };
 };
+
+//Sounds =======================================================================
+
+class CfgSounds
+{
+  sounds[] = {};
+  class switchsound
+  {
+    // how the sound is referred to in the editor (e.g. trigger effects)
+    name = "switchsound";
+    // filename, volume, pitch
+    sound[] = {"data\switchsound.ogg", 1, 1};
+    // subtitle delay in seconds, subtitle text
+    titles[] = {0, ""};
+  };
+};

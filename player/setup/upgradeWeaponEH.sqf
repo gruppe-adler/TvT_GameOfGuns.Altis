@@ -6,7 +6,7 @@
 waitUntil {sleep 0.5; (player getVariable ["groupname", "GROUPNAMEUNDEFINED"]) != "GROUPNAMEUNDEFINED"};
 
 _groupname = player getVariable "groupname";
-call compile (format ["'%1' addPublicVariableEventHandler {[_this select 0, _this select 1] call mcd_fnc_upgradeWeapon}", _groupname]);
+call compile (format ["'%1' addPublicVariableEventHandler {[_this select 0, _this select 1] call mcd_fnc_upgradeWeapon; playSound "switchsound";}", _groupname]);
 
 //do this shit on localhost
 if (isServer && hasInterface) then {
