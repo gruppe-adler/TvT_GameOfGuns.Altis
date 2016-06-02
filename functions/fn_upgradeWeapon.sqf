@@ -17,6 +17,7 @@ if (_score > (count CHOSENWEAPONS) - 1) then {
 //get weapon
 _weapon = CHOSENWEAPONS select _score;
 _muzzleItem = MUZZLEITEMS select _score;
+_scope = SCOPES select _score;
 
 //get magazine
 _magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
@@ -30,9 +31,15 @@ if (primaryWeapon player == "") then {
   if (_muzzleItem != "EMPTY") then {
     player addHandgunItem _muzzleItem;
   };
+  if (_scope != "EMPTY") then {
+    player addHandgunItem _scope;
+  };
 } else {
   if (_muzzleItem != "EMPTY") then {
     player addPrimaryWeaponItem _muzzleItem;
+  };
+  if (_scope != "EMPTY") then {
+    player addPrimaryWeaponItem _scope;
   };
 };
 

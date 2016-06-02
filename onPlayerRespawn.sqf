@@ -2,9 +2,11 @@
 if (serverTime-joinTime < 20 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerRespawn.sqf"};
 if (isNil "STARTPOSDONE") exitWith {};
 
-[] execVM "player\setup\startLoadout.sqf";
+_lohndl = [] execVM "player\setup\startLoadout.sqf";
 _groupname = player getVariable "groupname";
 _score = call compile _groupname;
+
+waitUntil {scriptDone _lohndl};
 call compile format ["[%1,%2] call mcd_fnc_upgradeWeapon", _groupname, _score];
 
 _pos = player getVariable "spawnpos";
