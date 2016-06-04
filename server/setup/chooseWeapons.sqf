@@ -70,8 +70,24 @@ while {_currentTier <= numberOfTiers} do {
 _currentTier = 1;
 _tierScopesNeeded = _weaponsPerTier;
 {
-  if (random 100 <= SCOPESPROP) then {
-    _weapon = _x;
+  _weapon = _x;
+  _probability = SCOPESPROP;
+
+  //check if sniper
+  _isSniper = true;
+  _fireModes = getArray (configFile >> "CfgWeapons" >> _weapon >> "modes");
+  if (_fireModes find "FullAuto" != -1) then {_isSniper = false};
+  if (_fireModes find "Burst" != -1) then {_isSniper = false};
+  if (_fireModes find "Single" == -1) then {_isSniper = false};
+  if (count _fireModes <= 1) then {_isSniper = false};
+  if (_isSniper) then {
+    _probability = 100;
+    diag_log format ["chooseWeapons.sqf - %1 is a sniper.", _weapon];
+  };
+
+
+
+  if (random 100 <= _probability) then {
     _cfg = (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "CowsSlot" >> "compatibleItems");
     _attributes = configProperties [_cfg, "true", true];
     _compatibleScopes = [];
@@ -87,9 +103,14 @@ _tierScopesNeeded = _weaponsPerTier;
       SCOPES pushBack "EMPTY";
     } else {
       _scopeFound = false;
-      for [{_i=0}, {_i<10}, {_i=_i+1}] do {
+      for [{_i=0}, {_i<20}, {_i=_i+1}] do {
         _scope = selectRandom _compatibleScopes;
-        _scopeFound = [_scope] call compile format ["params ['_scope']; if (_scope in scopestier_%1) then {true} else {false};", _currentTier];
+        if (_isSniper) then {
+          _scopeFound = [_scope] call compile format ["params ['_scope']; if (_scope in sniperscopes_0) then {true} else {false};"];
+        } else {
+          _scopeFound = [_scope] call compile format ["params ['_scope']; if (_scope in scopestier_%1) then {true} else {false};", _currentTier];
+        };
+
         if (_scopeFound) exitWith {};
       };
       if (_scopeFound) then {

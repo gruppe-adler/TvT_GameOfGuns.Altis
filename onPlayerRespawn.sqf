@@ -9,6 +9,8 @@ _score = call compile _groupname;
 waitUntil {scriptDone _lohndl};
 call compile format ["[%1,%2] call mcd_fnc_upgradeWeapon", _groupname, _score];
 
+player setVariable ["ACE_medical_lastDamageSource",player];
+
 _pos = player getVariable "spawnpos";
 [player, _pos] call mcd_fnc_teleport;
 
