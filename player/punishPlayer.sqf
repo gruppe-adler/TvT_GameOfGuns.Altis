@@ -1,5 +1,5 @@
-waitUntil {!isNil "STARTPOSDONE"};
-waitUntil {STARTPOSDONE};
+waitUntil {!isNil "GAMESTARTED"};
+waitUntil {GAMESTARTED};
 
 sleep 2;
 

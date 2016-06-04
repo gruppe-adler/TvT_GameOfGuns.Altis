@@ -4,6 +4,8 @@
 */
 
 if (!hasInterface) exitWith {};
+waitUntil {!isNil "GAMESTARTED"};
+waitUntil {GAMESTARTED};
 
 private ["_teamlead"];
 

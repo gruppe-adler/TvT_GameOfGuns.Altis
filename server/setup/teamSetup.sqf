@@ -3,6 +3,8 @@
 * Executed via init.sqf on server
 */
 
+private ["_players","_numberOfTeams", "_teammember", "_teamleadernames", "_teamleadID"];
+
 waitUntil {!isNil "VOTINGDONE"};
 waitUntil {VOTINGDONE};
 
@@ -15,20 +17,21 @@ waitUntil {VOTINGDONE};
 
 //Define TEAMLEADERS if random groups are off ==================================
 if (!(RANDOMTEAMS) || ((count playableUnits) == 1)) then {
-		TEAMLEADERS = [];
-		{
+	TEAMLEADERS = [];
+	{
+		if (count units _x > 0) then {
 			_groupLeader = leader _x;
 			_groupLeader setVariable ["isTeamlead", true, true];
 			TEAMLEADERS = TEAMLEADERS + [_groupleader];
-		} forEach allGroups;
-	};
+		};
+	} forEach allGroups;
+};
 
 //Define Teams and TEAMLEADERS if random groups are on =========================
 if (RANDOMTEAMS) then {
 	["Randomizing teams...",0,0,2,0.3] remoteExec ["BIS_fnc_dynamicText",0,false];
 	sleep 5;
 
-	private ["_players","_numberOfTeams", "_teammember", "_teamleadernames", "_teamleadID"];
 	diag_log "Team randomizer starting...";
 
 	_players = playableUnits;
@@ -51,6 +54,10 @@ if (RANDOMTEAMS) then {
 	else
 	{
 		diag_log format ["Randomizing %1 players into %2 teams", (count _players), _numberOfTeams];
+	};
+
+	if (count playableUnits == 1) then {
+		_numberOfTeams = 1;
 	};
 
 	//Select teamleaders
@@ -119,6 +126,32 @@ if (RANDOMTEAMS) then {
 		diag_log format ["teamSetup.sqf - score variable %1 created.", _groupname];
 	};
 } forEach playableUnits;
+
+//Set uniforms =================================================================
+call compile preprocessFileLineNumbers "uniformConfig.sqf";
+
+["Randomizing team uniforms...",0,0,2,0.3] remoteExec ["BIS_fnc_dynamicText",0,false];
+sleep 3;
+{
+	_teamleader = _x;
+
+	//select uniform
+	_uniformsLeft = count randomUniforms;
+	_randomID = round (random _uniformsLeft);
+	_uniform = randomUniforms select _randomID;
+	if (_numberOfTeams < _uniformsLeft-5) then {
+		randomUniforms deleteAt _randomID;
+	};
+
+	//set variable
+	{
+		_x setVariable ["myUniform", _uniform, true];
+	} forEach (units group _teamleader);
+
+	diag_log format ["teamSetup.sqf - %1's team will wear uniform: %2", _teamleader, _uniform];
+} foreach TEAMLEADERS;
+[] remoteExec ["mcd_fnc_addGear", 0, false];
+sleep 2;
 
 //Done =========================================================================
 TEAMSETUPDONE = true;

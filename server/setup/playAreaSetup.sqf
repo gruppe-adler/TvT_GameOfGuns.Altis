@@ -7,7 +7,7 @@ PLAYAREASIZE = "PlayAreaSize" call BIS_fnc_getParamValue;
 //automatic size
 if (PLAYAREASIZE == -1) then {
   _playerAmount = count playableUnits;
-  PLAYAREASIZE = (_playerAmount ^ 0.4) * 500 - 400;
+  PLAYAREASIZE = ((_playerAmount ^ 0.4) * 500 - 400) max 300;
 };
 publicVariable "PLAYAREASIZE";
 

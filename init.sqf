@@ -11,6 +11,10 @@ call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 
 if (isServer) then {
 
+  if (isClass (configFile >> "CfgPatches" >> "task_force_radio")) then {
+  	[] execVM "tfarsettings.sqf";
+  };
+
   //island config
   call compile preprocessFile "islandConfig.sqf";
   ISWOODLAND = (ISLAND_CONFIG select (ISLANDS find worldName)) select 0;

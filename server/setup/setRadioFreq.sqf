@@ -12,7 +12,7 @@ private ["_swFrequencies", "_freq", "_alreadyIn", "_freqString", "_teamlead"];
 _swFrequencies = [];
 
 diag_log "SW Frequency setup starting.";
-["Setting SW frequency...",0,0,2,0.3] remoteExec ["BIS_fnc_dynamicText",0,false];
+["Randomizing SW frequency...",0,0,2,0.3] remoteExec ["BIS_fnc_dynamicText",0,false];
 
 //Frequencies for PRC-152
 _radioMin = 30;

@@ -4,7 +4,7 @@ waitUntil {VOTESYSTEMINITIALIZED};
 waitUntil {!isNull player};
 waitUntil {player == player};
 waitUntil {!isNull (findDisplay 46)};
-openMap [true, false];
+openMap [true, true];
 
 [] execVM "player\setup\voteDialog.sqf";
 

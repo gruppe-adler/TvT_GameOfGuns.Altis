@@ -17,7 +17,7 @@ STARTPOSITIONS = [];
 		//find position that is not over water
 		_isWater = true;
 		while {_isWater} do {
-			_teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE], [0,360], 1] call SHK_pos;
+			_teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-25], [0,360], 1] call SHK_pos;
 			_isWater = surfaceIsWater _teamleadpos;
 		};
 
@@ -49,6 +49,7 @@ STARTPOSITIONS = [];
 	};
 } forEach TEAMLEADERS;
 
-sleep 2;
+["Game starting in 10 seconds...",0,0,2,0.3] remoteExec ["BIS_fnc_dynamicText",0,false];
+sleep 10;
 STARTPOSDONE = true;
 publicVariable "STARTPOSDONE";

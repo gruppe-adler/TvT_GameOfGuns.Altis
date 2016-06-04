@@ -1,3 +1,9 @@
+if (!hasInterface) exitWith {};
+
+_gear = player getVariable ["myUniform", ["U_NikosAgedBody", "V_BandollierB_khk"]];
+_uniform = _gear select 0;
+_vest = _gear select 1;
+
 this = player;
 
 comment "Exported from Arsenal by McDiod";
@@ -13,10 +19,10 @@ removeHeadgear this;
 removeGoggles this;
 
 comment "Add containers";
-this forceAddUniform "U_BG_Guerilla1_1";
+this forceAddUniform _uniform;
 for "_i" from 1 to 6 do {this addItemToUniform "ACE_fieldDressing";};
 for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
-this addVest "V_BandollierB_rgr";
+this addVest _vest;
 
 comment "Add weapons";
 this addWeapon "Binocular";

@@ -3,6 +3,7 @@ mcd_fnc_teleport = compile preprocessFileLineNumbers "functions\fn_teleport.sqf"
 mcd_fnc_endMission = compile preprocessFileLineNumbers "functions\fn_endMission.sqf";
 mcd_fnc_findSoloPosition = compile preprocessFileLineNumbers "functions\fn_findSoloPosition.sqf";
 mcd_fnc_formattedHint = compile preprocessFileLineNumbers "functions\fn_formattedHint.sqf";
+mcd_fnc_addGear = compile preprocessFileLineNumbers "functions\fn_addGear.sqf";
 
 joinTime = serverTime;
 currentScore = 0;
