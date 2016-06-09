@@ -5,7 +5,7 @@
 *   keep numberOfTiers updated when adding new tiers!
 */
 
-numberOfTiers = 4;
+numberOfTiers = 5;
 
 sniperscopes_0 = [
   //vanilla
@@ -30,8 +30,109 @@ sniperscopes_0 = [
   "FHQ_optic_LeupoldERT_tan"
 ];
 
-//MODERN ASSAULT RIFLES 5.56, SHITTY MGs, SHITTY SNIPERS =======================
 weaponstier_1 = [
+  //vanilla
+  "srifle_GM6_camo_F",
+  "srifle_GM6_F",
+  "MMG_01_hex_F",
+  "MMG_01_tan_F",
+  "arifle_Katiba_F",
+  "MMG_02_black_F",
+  "MMG_02_camo_F",
+  "srifle_LRR_F",
+  "srifle_LRR_camo_F",
+  "arifle_MX_F",
+  "arifle_MX_Black_F",
+  "arifle_MX_SW_F",
+  "arifle_MX_SW_Black_F",
+  "arifle_MXM_F",
+  "arifle_MXM_Black_F",
+  "srifle_EBR_F",
+  "LMG_Zafir_F",
+  "srifle_DMR_01_F",
+
+  //rhs
+  "rhs_weap_hk416d145",
+  "rhs_weap_M107_d",
+  "rhs_weap_M107",
+  "rhs_weap_m14ebrri",
+  "rhs_weap_XM2010",
+  "rhs_weap_XM2010_wd",
+  "rhs_weap_m240B",
+  "rhs_weap_m240G",
+  "rhs_weap_m249_pip_L",
+  "rhs_weap_m27iar",
+  "rhs_weap_sr25",
+  "rhs_weap_pkp",
+  "rhs_weap_svdp",
+  "rhs_weap_svdp_npz",
+  "rhs_weap_svds",
+  "rhs_weap_svds_npz",
+
+  //thai
+  "Auto762x54_SVD63",
+  "Auto556x45_Minimi_A",
+  "Auto762x51_SCARH_DES",
+  "Auto762x51_SCARH",
+  "Bolt762x51_M24SWS_Blk",
+  "Bolt762x51_M24SWS_Grn",
+  "Auto762x51_SR25EC",
+
+  //sma
+  "SMA_ACRREM",
+  "SMA_ACRREMblk",
+  "SMA_HK417_16in_afg",
+  "SMA_HK417_16in_afg_tan",
+  "SMA_ACR",
+  "SMA_ACRblk",
+  "SMA_Mk17_16",
+  "SMA_Mk17_16_black"
+];
+
+scopestier_1 = [
+  //vanilla
+  "optic_Arco",
+  "optic_SOS",
+  "optic_MRCO",
+  "optic_Hamr",
+  "optic_Holosight",
+  "optic_ACO_grn",
+  "optic_Aco",
+
+  //rhs
+  "rhsusf_acc_ACOG_USMC",
+  "rhsusf_acc_ACOG",
+  "rhsusf_acc_eotech_552",
+  "rhsusf_acc_SpecterDR",
+  "rhsusf_acc_SpecterDR_OD",
+  "rhsusf_acc_ACOG_d",
+  "rhsusf_acc_ACOG_wd",
+  "rhs_acc_1p29",
+  "rhs_acc_1p63",
+  "rhs_acc_pso1m2",
+  "rhs_acc_pso1m21",
+  "rhs_acc_pkas",
+  "rhs_acc_ekp1",
+
+  //fhq
+  "FHQ_optic_AC11704",
+  "FHQ_optic_AC11704_tan",
+  "FHQ_optic_ACOG",
+  "FHQ_optic_ACOG_tan",
+  "FHQ_optic_AimM_BLK",
+  "FHQ_optic_AimM_TAN",
+  "FHQ_optic_AIM",
+  "FHQ_optic_AIM_tan",
+  "FHQ_optic_HWS_G33",
+  "FHQ_optic_HWS_G33_tan",
+  "FHQ_optic_MCCO_M_BLK",
+  "FHQ_optic_MCCO_M_TAN",
+  "FHQ_optic_MicroCCO",
+  "FHQ_optic_MicroCCO_tan"
+];
+
+//MODERN ASSAULT RIFLES 5.56, SHITTY MGs, SHITTY SNIPERS =======================
+weaponstier_2 = [
   //vanilla
   "srifle_DMR_03_F",
   "arifle_TRG21_F",
@@ -80,7 +181,7 @@ weaponstier_1 = [
   "SMA_MK16"
 ];
 
-scopestier_1 = [
+scopestier_2 = [
   //vanilla
   "optic_ACO_grn",
   "optic_Aco",
@@ -131,7 +232,7 @@ scopestier_1 = [
 
 
 // SHITTY ASSAULT RIFLES =======================================================
-weaponstier_2 = [
+weaponstier_3 = [
   //vanilla
   "arifle_Mk20_plain_F",
   "arifle_MXC_F",
@@ -173,7 +274,7 @@ weaponstier_2 = [
   "SMA_ACRREM"
 ];
 
-scopestier_2 = [
+scopestier_3 = [
   //vanilla
   "optic_ACO_grn",
   "optic_Holosight",
@@ -215,7 +316,7 @@ scopestier_2 = [
 ];
 
 //SMGs, SHOTGUNS, OLD RIFLES ===================================================
-weaponstier_3 = [
+weaponstier_4 = [
   //vanilla
   "hgun_PDW2000_F",
   "srifle_DMR_04_F",
@@ -253,7 +354,7 @@ weaponstier_3 = [
   "Auto762x51_M14_RIS"
 ];
 
-scopestier_3 = [
+scopestier_4 = [
   //vanilla
   "optic_Holosight",
   "optic_Holosight_smg",
@@ -290,7 +391,7 @@ scopestier_3 = [
 
 
 //PISTOLS ======================================================================
-weaponstier_4 = [
+weaponstier_5 = [
   //vanilla
   "hgun_Pistol_heavy_02_F",
   "hgun_ACPC2_F",
@@ -322,7 +423,7 @@ weaponstier_4 = [
   "Pstl11x23_Revolver"
 ];
 
-scopestier_4 = [
+scopestier_5 = [
   "optic_Yorris",
   "optic_MRD"
 ];

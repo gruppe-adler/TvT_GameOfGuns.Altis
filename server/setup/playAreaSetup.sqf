@@ -20,8 +20,12 @@ _mostUpvotedID = [MARKERVOTES] call mcd_fnc_findGreatestNum;
 
 //no areas --> random center
 if (count AREAMARKERS == 0) then {
-  PLAYAREACENTER = [[worldSize/2, worldSize/2, 0], [0, 1000], [0,360], 1] call SHK_pos;
   diag_log format ["playAreaSetup.sqf - No play areas proposed. Selecting at random."];
+  _isWater = true;
+  while {_isWater} do {
+    PLAYAREACENTER = [[worldSize/2, worldSize/2, 0], [0, 1000], [0,360], 1] call SHK_pos;
+    _isWater = surfaceIsWater PLAYAREACENTER;
+  };
 } else {
 
   //no single most upvoted

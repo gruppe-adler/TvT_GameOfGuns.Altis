@@ -13,7 +13,7 @@ MUZZLEITEMS = [];
 SCOPES = [];
 
 // CALCULATE NUMBER OF WEAPONS =================================================
-_weaponsNeeded = KILLSFORWIN + 1;
+_weaponsNeeded = KILLSFORWIN;
 _weaponsPerTier = ceil (_weaponsNeeded / numberOfTiers);
 diag_log format ["chooseWeapons.sqf - %1 weapons total needed. %2 per tier.", _weaponsNeeded, _weaponsPerTier];
 
@@ -71,7 +71,7 @@ _currentTier = 1;
 _tierScopesNeeded = _weaponsPerTier;
 {
   _weapon = _x;
-  _probability = SCOPESPROP;
+  _probability = SCOPESPROB;
 
   //check if sniper
   _isSniper = true;
@@ -99,12 +99,17 @@ _tierScopesNeeded = _weaponsPerTier;
     } forEach _attributes;
 
     if (count _compatibleScopes == 0) then {
-      diag_log format ["chooseWeapons.sqf - No compatible scopes found for weapon %1.", _x];
-      SCOPES pushBack "EMPTY";
+      _compatibleScopes = getArray (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "CowsSlot" >> "compatibleItems");
+      if (count _compatibleScopes == 0) then {
+        diag_log format ["chooseWeapons.sqf - No compatible scopes found for weapon %1.", _x];
+        SCOPES pushBack "EMPTY";
+      };
+
     } else {
       _scopeFound = false;
-      for [{_i=0}, {_i<20}, {_i=_i+1}] do {
-        _scope = selectRandom _compatibleScopes;
+      for [{_i=0}, {_i<50}, {_i=_i+1}] do {
+        _randomID = round (random ((count _compatibleScopes) - 1));
+        _scope = _compatibleScopes select _randomID;
         if (_isSniper) then {
           _scopeFound = [_scope] call compile format ["params ['_scope']; if (_scope in sniperscopes_0) then {true} else {false};"];
         } else {
@@ -112,6 +117,9 @@ _tierScopesNeeded = _weaponsPerTier;
         };
 
         if (_scopeFound) exitWith {};
+
+        _compatibleScopes deleteAt _randomID;
+        if (count _compatibleScopes == 0) exitWith {diag_log format ["chooseWeapons.sqf - No scopes in compatible scopes allowed for weapon %1.", _weapon]};
       };
       if (_scopeFound) then {
         SCOPES pushBack _scope;

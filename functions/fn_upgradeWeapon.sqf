@@ -49,4 +49,8 @@ if (currentScore > _score) then {
 };
 currentScore = _score;
 
+//call dialog
+_layer = (["wait1Layer"] call BIS_fnc_rscLayer);
+_layer cutRsc ["upgradeWeaponTitle", "PLAIN", 0.0001, true];
+
 diag_log format ["fnc_upgradeWeapon - Upgraded weapon to %1 with %2 muzzle attachment.", _weapon, _muzzleItem];
