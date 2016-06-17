@@ -11,8 +11,8 @@ currentScore = 0;
 iJustSpawned = false;
 
 [] execVM "player\setup\mapStartPos.sqf";
-[] execVM "player\setup\votePlayzone.sqf";
 [] execVM "player\setup\handleJIP.sqf";
+[] execVM "player\setup\votePlayzone.sqf";
 [] execVM "player\setup\upgradeWeaponEH.sqf";
 [] execVM "player\setup\startGame.sqf";
 [] execVm "player\setup\startLoadout.sqf";

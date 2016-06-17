@@ -3,6 +3,8 @@
 *   automatically executed locally, on death
 */
 
+if (isSpectator) exitWith {};
+
 _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [player, _shooter] remoteExec ["mcd_fnc_setScore", 2, false];
 

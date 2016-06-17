@@ -1,3 +1,6 @@
+waitUntil {!isNil "isSpectator"};
+if (isSpectator) exitWith {};
+
 waitUntil {!isNil "PLAYAREASIZE"};
 waitUntil {!isNil "VOTESYSTEMINITIALIZED"};
 waitUntil {VOTESYSTEMINITIALIZED};

@@ -3,6 +3,9 @@
 *   executed via initPlayerLocal on player
 */
 
+waitUntil {!isNil "isSpectator"};
+if (isSpectator) exitWith {};
+
 waitUntil {!isNil "STARTPOSDONE"};
 waitUntil {STARTPOSDONE};
 

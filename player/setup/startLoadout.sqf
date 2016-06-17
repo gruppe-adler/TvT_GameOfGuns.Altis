@@ -1,3 +1,6 @@
+waitUntil {!isNil "isSpectator"};
+if (isSpectator) exitWith {};
+
 this = player;
 
 comment "Exported from Arsenal by McDiod";

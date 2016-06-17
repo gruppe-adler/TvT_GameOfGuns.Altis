@@ -3,6 +3,8 @@
 *   executed via initPlayerLocal.sqf on player
 */
 
+waitUntil {!isNil "isSpectator"};
+if (isSpectator) exitWith {};
 waitUntil {sleep 0.5; (player getVariable ["groupname", "GROUPNAMEUNDEFINED"]) != "GROUPNAMEUNDEFINED"};
 
 _groupname = player getVariable "groupname";
