@@ -23,18 +23,28 @@ _radioMin = _radioMin * 10;
 _radioMax = _radioMax * 10;
 
 
-//Generate frequencies
-{
-	_alreadyIn = 1000;
-	while {_alreadyIn != -1} do {
-		_freq = (floor ((random (_radioMax - _radioMin)) + _radioMin)) / 10;
-		_alreadyIn = _swFrequencies find _freq;
+//Generate frequencies if more than one player per team
+if (TEAMSIZE > 1) then {
+	{
+		_alreadyIn = 1000;
+		while {_alreadyIn != -1} do {
+			_freq = (floor ((random (_radioMax - _radioMin)) + _radioMin)) / 10;
+			_alreadyIn = _swFrequencies find _freq;
 
-		if (_alreadyIn == -1) then {
-			_swFrequencies = _swFrequencies + [_freq];
+			if (_alreadyIn == -1) then {
+				_swFrequencies = _swFrequencies + [_freq];
+			};
 		};
-	};
-} forEach TEAMLEADERS;
+	} forEach TEAMLEADERS;
+};
+
+//Put everyone on the same frequency if one player per team
+if (TEAMSIZE == 1) then {
+	{
+		_swFrequencies pushBack 100;
+	} forEach TEAMLEADERS;
+};
+
 
 
 //Save frequencies as public variable in teamleaders

@@ -16,7 +16,7 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14665.183,24.546263,16755.68};
+		pos[]={14663.319,29.38232,16748.082};
 		dir[]={0.03213454,-0.3736327,0.92703009};
 		up[]={0.012944133,0.92757434,0.37341276};
 		aside[]={0.9994092,1.9512004e-007,-0.034643538};
@@ -206,11 +206,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3000.8738,-55.451691,2795.4106};
+				position[]={3000.874,-55.451996,2795.4109};
 			};
 			id=23;
 			type="ACE_ModuleMap";
-			atlOffset=130.51831;
+			atlOffset=130.51801;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -228,7 +228,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -4015,11 +4015,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={3101.1392,-8.853241,2797.615};
+				position[]={3101.1389,-8.8529968,2797.615};
 			};
 			id=228;
 			type="ACE_ModuleHearing";
-			atlOffset=177.11676;
+			atlOffset=177.117;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -4037,7 +4037,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -4056,7 +4056,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -4075,7 +4075,7 @@ class Mission
 									"BOOL"
 								};
 							};
-							value=1;
+							value=0;
 						};
 					};
 				};
@@ -4094,7 +4094,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=-1;
+							value=1;
 						};
 					};
 				};

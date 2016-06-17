@@ -22,9 +22,15 @@ _currentTier = 1;
 _tierWeaponsNeeded = _weaponsPerTier;
 while {_currentTier <= numberOfTiers} do {
 
-  _selectWeapon = compile (format ["selectrandom weaponstier_%1",_currentTier]);
   while {_tierWeaponsNeeded > 0} do {
-    _weapon = call _selectWeapon;
+    _countWeapons = compile format ["count weaponstier_%1", _currentTier];
+    _weaponsLeft = [] call _countWeapons;
+    _randomID = round (random _weaponsLeft);
+    _weapon = call compile format ["weaponstier_%1 select %2; weaponstier_%1 deleteAt %2", _currentTier, _randomID];
+    if ([] call _countWeapons == 0) then {
+      call compile preprocessFileLineNumbers "weaponConfig.sqf";
+    };
+
     CHOSENWEAPONS pushBack _weapon;
     _tierWeaponsNeeded = _tierWeaponsNeeded - 1;
   };

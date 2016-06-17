@@ -136,10 +136,10 @@ class RscTitles
 
 		class ControlsBackground
 		{
-			#define uw_x (safeZoneX + safeZoneW - 0.6 * 3/4)
+			#define uw_x (safeZoneX + safeZoneW - 0.5)
 			#define uw_y (safeZoneY + safeZoneH - 1.6)
-			#define uw_w (0.52 * 3/4)
-			#define uw_h (0.52 * 3/4)
+			#define uw_w (0.40)
+			#define uw_h (0.40 * 3/4)
 			#define uw_paddingX (uw_w * 0.1)
 			#define uw_paddingY (uw_h * 0.1)
 
@@ -156,9 +156,9 @@ class RscTitles
 			{
 				idc = 1502;
 				x = uw_x + uw_paddingX;
-				y = uw_y + uw_paddingY;
+				y = uw_y;
 				w = uw_w - 2*uw_paddingX;
-				h = uw_h - 2*uw_paddingY;
+				h = uw_h - uw_paddingY;
 				text = "";
 			};
 
@@ -167,7 +167,7 @@ class RscTitles
 				idc = 1503;
 				style = ST_CENTER;
 				x = uw_x;
-				y = uw_y + uw_h - uw_paddingY*1.2;
+				y = uw_y + uw_h - uw_paddingY*1.4;
 				w = uw_w;
 				h = uw_paddingY;
 

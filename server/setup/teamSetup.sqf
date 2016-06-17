@@ -8,6 +8,11 @@ private ["_players","_numberOfTeams", "_teammember", "_teamleadernames", "_teaml
 waitUntil {!isNil "VOTINGDONE"};
 waitUntil {VOTINGDONE};
 
+if (count playableUnits <= 2) then {
+	TEAMSIZE = 1;
+	publicVariable "TEAMSIZE";
+};
+
 //Setup for each player ========================================================
 {
 	_x setVariable ["isTeamlead", false, true];
@@ -139,8 +144,11 @@ sleep 3;
 	_uniformsLeft = count randomUniforms;
 	_randomID = round (random _uniformsLeft);
 	_uniform = randomUniforms select _randomID;
-	if (_numberOfTeams < _uniformsLeft-5) then {
-		randomUniforms deleteAt _randomID;
+	randomUniforms deleteAt _randomID;
+
+	//refill uniform array if all used up
+	if (count randomUniforms == 0) then {
+		call compile preprocessFileLineNumbers "uniformConfig.sqf";
 	};
 
 	//set variable

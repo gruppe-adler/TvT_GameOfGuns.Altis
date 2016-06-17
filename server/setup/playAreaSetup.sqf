@@ -5,9 +5,14 @@ private ["_mostUpvotedIDs"];
 PLAYAREASIZE = "PlayAreaSize" call BIS_fnc_getParamValue;
 
 //automatic size
-if (PLAYAREASIZE == -1) then {
+if (PLAYAREASIZE < 0) then {
+  _scalefactor = switch (PLAYAREASIZE) do {
+      case (-1): {1};   //normal
+      case (-2): {0.7}; //small
+      case (-3): {1.4}; //large
+  };
   _playerAmount = count playableUnits;
-  PLAYAREASIZE = ((_playerAmount ^ 0.4) * 500 - 400) max 300;
+  PLAYAREASIZE = (((_playerAmount ^ 0.5) * 500 - 400) max 500) * _scalefactor;
 };
 publicVariable "PLAYAREASIZE";
 
