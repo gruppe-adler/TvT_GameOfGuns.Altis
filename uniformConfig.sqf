@@ -41,7 +41,6 @@ if (ISWOODLAND) then {
     //RHS
     ['rhs_uniform_cu_ocp', 'rhsusf_iotv_ocp_SAW'],
     ['rhs_uniform_emr_patchless', 'rhs_6b23_digi_rifleman'],
-    ['rhs_uniform_flora_patchless', 'rhs_6b13_Flora'],
     ['rhs_uniform_flora_patchless_alt', 'rhs_6b23_ML'],
     ['rhs_uniform_FROG01_wd', 'rhsusf_spc'],
     ['rhs_uniform_g3_blk', 'V_TacVest_oli'],

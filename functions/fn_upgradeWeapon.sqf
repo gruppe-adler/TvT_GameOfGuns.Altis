@@ -23,10 +23,14 @@ _scope = SCOPES select _score;
 _magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
 _magazine = selectRandom _magazines;
 
+//remove old weapon and magazines
+{player removeWeapon _x} forEach weapons player;
+{player removeMagazine _x} forEach magazines player;
+
 //add weapon and attachments
-removeAllWeapons player;
-player addMagazines [_magazine, 6];
+player addMagazine _magazine;
 player addWeapon _weapon;
+player addMagazines [_magazine, 6];
 if (primaryWeapon player == "") then {
   if (_muzzleItem != "EMPTY") then {
     player addHandgunItem _muzzleItem;

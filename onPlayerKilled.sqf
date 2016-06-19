@@ -45,7 +45,8 @@ while {_timeleft > 0} do {
   sleep ((1-(time - _startTime)) max 0.1);
 };
 
-//team respawn
+//team respawn - find positions ================================================
+//whole team is dead
 if (!_teammatesalive) then {
   _timeleft = TEAMRESPAWNTIME;
   _isTeamlead = player getVariable "isTeamlead";
@@ -65,7 +66,7 @@ if (!_teammatesalive) then {
     sleep 1;
   };
 
-//solo respawn
+//someone is alive
 } else {
   _teammates = player getVariable "teammates";
   [getPlayerUID player, _teammates] call mcd_fnc_findSoloPosition;

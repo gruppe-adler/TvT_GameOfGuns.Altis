@@ -20,6 +20,7 @@ removeGoggles this;
 
 comment "Add containers";
 this forceAddUniform _uniform;
+waitUntil {uniform player != ""};
 for "_i" from 1 to 6 do {this addItemToUniform "ACE_fieldDressing";};
 for "_i" from 1 to 4 do {this addItemToUniform "ACE_morphine";};
 this addVest _vest;
