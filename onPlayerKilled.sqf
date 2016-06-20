@@ -69,7 +69,7 @@ if (!_teammatesalive) then {
 //someone is alive
 } else {
   _teammates = player getVariable "teammates";
-  [getPlayerUID player, _teammates] call mcd_fnc_findSoloPosition;
+  [player, _teammates] call mcd_fnc_findSoloPosition;
   sleep 2;
 };
 

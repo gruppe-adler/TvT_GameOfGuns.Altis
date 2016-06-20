@@ -19,7 +19,7 @@ while {_tooCloseFound} do {
   //find position that is not over water
   _isWater = true;
   while {_isWater} do {
-    _teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE], [0,360], 1] call SHK_pos;
+    _teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-10], [0,360], 1] call SHK_pos;
     _isWater = surfaceIsWater _teamleadpos;
   };
 

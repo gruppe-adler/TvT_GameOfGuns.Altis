@@ -8,8 +8,8 @@ _aliveTeammates = [];
   };
 } forEach _teammateUIDs;
 
-_currentLeader = leader (group (_aliveTeammates select 0));
-_leaderPos = getPos _currentLeader;
-_spawnpos = [_currentLeader, SPAWNDISTTOLEADER, [0,360], 1] call SHK_pos;
+_randomUnit = selectRandom _aliveTeammates;
+_randomUnitPos = getPos _randomUnit;
+_spawnpos = [_randomUnitPos, SPAWNDISTTOLEADER, [0,360], 0] call SHK_pos;
 
 _respawnUnit setVariable ["spawnpos", _spawnpos, true];
