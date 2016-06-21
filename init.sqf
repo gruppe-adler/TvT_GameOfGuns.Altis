@@ -29,6 +29,7 @@ if (isServer) then {
   mcd_fnc_receiveVote = compile preprocessFileLineNumbers "functions\fn_receiveVote.sqf";
   mcd_fnc_updateVotesMarker = compile preprocessFileLineNumbers "functions\fn_updateVotesMarker.sqf";
   mcd_fnc_findGreatestNum = compile preprocessFileLineNumbers "functions\fn_findGreatestNum.sqf";
+  mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
 
   //Parameters
   WEATHER_SETTING = "WeatherSetting" call BIS_fnc_getParamValue;
@@ -38,6 +39,7 @@ if (isServer) then {
   KILLSFORWIN = "KillsForWin" call BIS_fnc_getParamValue;
   RANDOMTEAMS = ("RandomTeams" call BIS_fnc_getParamValue) == 1;
   TEAMSIZE = "TeamSize" call BIS_fnc_getParamValue;
+  SAMEALTCHANNEL = ("SameAltChannel" call BIS_fnc_getParamValue) == 1;
 
   //Settings
   MUZZLEATTACHMENTPROB = 40;
@@ -45,7 +47,7 @@ if (isServer) then {
   SPAWNGROUPMINDIST = 150;
   STARTDISTTOLEADER = 30;
   SPAWNDISTTOLEADER = [50,100];
-  VOTINGTIME = 30;
+  VOTINGTIME = 10;
 
   VOTINGDONE = false;
 
@@ -57,6 +59,7 @@ if (isServer) then {
   publicVariable "KILLSFORWIN";
   publicVariable "RANDOMTEAMS";
   publicVariable "TEAMSIZE";
+  publicVariable "SAMEALTCHANNEL";
   publicVariable "MUZZLEATTACHMENTPROB";
   publicVariable "SPAWNGROUPMINDIST";
   publicVariable "STARTDISTTOLEADER";

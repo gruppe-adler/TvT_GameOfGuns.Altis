@@ -1,8 +1,9 @@
 if (!hasInterface) exitWith {};
 
-_gear = player getVariable ["myUniform", ["U_NikosAgedBody", "V_BandollierB_khk"]];
+_gear = player getVariable ["myUniform", ["U_NikosAgedBody", "V_PlateCarrier1_rgr"]];
 _uniform = _gear select 0;
-_vest = _gear select 1;
+/*_vest = _gear select 1;*/
+_vest = if (ISWOODLAND) then {"V_TacVest_oli"} else {"V_TacVest_khk"};
 
 this = player;
 

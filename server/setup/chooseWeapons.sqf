@@ -12,10 +12,12 @@ CHOSENWEAPONS = [];
 MUZZLEITEMS = [];
 SCOPES = [];
 
+_diagReport = [];
+
 // CALCULATE NUMBER OF WEAPONS =================================================
 _weaponsNeeded = KILLSFORWIN;
 _weaponsPerTier = ceil (_weaponsNeeded / numberOfTiers);
-diag_log format ["chooseWeapons.sqf - %1 weapons total needed. %2 per tier.", _weaponsNeeded, _weaponsPerTier];
+_diagReport pushBack (format ["%1 weapons total needed. %2 per tier.", _weaponsNeeded, _weaponsPerTier]);
 
 // CHOOSE WEAPONS ==============================================================
 _currentTier = 1;
@@ -23,10 +25,10 @@ _tierWeaponsNeeded = _weaponsPerTier;
 while {_currentTier <= numberOfTiers} do {
 
   while {_tierWeaponsNeeded > 0} do {
-    _countWeapons = compile format ["count weaponstier_%1", _currentTier];
+    _countWeapons = {call compile format ["count weaponstier_%1", _currentTier]};
     _weaponsLeft = [] call _countWeapons;
-    _randomID = round (random _weaponsLeft);
-    _weapon = call compile format ["weaponstier_%1 select %2; weaponstier_%1 deleteAt %2", _currentTier, _randomID];
+    _randomID = round (random (_weaponsLeft-1));
+    _weapon = call compile format ["_selected = weaponstier_%1 select %2; weaponstier_%1 deleteAt %2; _selected", _currentTier, _randomID];
     if ([] call _countWeapons == 0) then {
       call compile preprocessFileLineNumbers "weaponConfig.sqf";
     };
@@ -60,7 +62,7 @@ while {_currentTier <= numberOfTiers} do {
     };
 
     if (count _allMuzzleItems == 0) then {
-      diag_log format ["chooseWeapons.sqf - No muzzle items found for weapon %1.",_x];
+      _diagReport pushBack (format ["No muzzle items found for weapon %1.",_x]);
       MUZZLEITEMS pushBack "EMPTY";
     } else {
       _muzzleItem = selectRandom _allMuzzleItems;
@@ -88,7 +90,7 @@ _tierScopesNeeded = _weaponsPerTier;
   if (count _fireModes <= 1) then {_isSniper = false};
   if (_isSniper) then {
     _probability = 100;
-    diag_log format ["chooseWeapons.sqf - %1 is a sniper.", _weapon];
+    _diagReport pushBack (format ["%1 is a sniper.", _weapon]);
   };
 
 
@@ -107,7 +109,7 @@ _tierScopesNeeded = _weaponsPerTier;
     if (count _compatibleScopes == 0) then {
       _compatibleScopes = getArray (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "CowsSlot" >> "compatibleItems");
       if (count _compatibleScopes == 0) then {
-        diag_log format ["chooseWeapons.sqf - No compatible scopes found for weapon %1.", _x];
+        _diagReport pushBack (format ["No compatible scopes found for weapon %1.", _x]);
         SCOPES pushBack "EMPTY";
       };
 
@@ -125,7 +127,7 @@ _tierScopesNeeded = _weaponsPerTier;
         if (_scopeFound) exitWith {};
 
         _compatibleScopes deleteAt _randomID;
-        if (count _compatibleScopes == 0) exitWith {diag_log format ["chooseWeapons.sqf - No scopes in compatible scopes allowed for weapon %1.", _weapon]};
+        if (count _compatibleScopes == 0) exitWith {_diagReport pushBack (format ["No scopes in compatible scopes allowed for weapon %1.", _weapon])};
       };
       if (_scopeFound) then {
         SCOPES pushBack _scope;
@@ -144,8 +146,11 @@ _tierScopesNeeded = _weaponsPerTier;
   };
 } forEach CHOSENWEAPONS;
 
-
 publicVariable "CHOSENWEAPONS";
 publicVariable "MUZZLEITEMS";
 publicVariable "SCOPES";
-diag_log format ["chooseWeapons.sqf - %1 weapons selected.", (count CHOSENWEAPONS)];
+
+if (count CHOSENWEAPONS < KILLSFORWIN) then {
+  _diagReport pushBack (format ["ERROR: FEWER WEAPONS SELECTED THAN NEEDED (%1/%2)",count CHOSENWEAPONS, KILLSFORWIN]);
+};
+["chooseWeapons.sqf - REPORT:"]  + _diagReport + ["","SELECTED WEAPONS:"] + CHOSENWEAPONS call mcd_fnc_formattedLog;

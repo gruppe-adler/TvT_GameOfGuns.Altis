@@ -8,12 +8,14 @@
 params ["_groupname", "_score"];
 private ["_weapon"];
 
-
-//make sure score is not more than available weapons
-if (_score > (count CHOSENWEAPONS) - 1) then {
-  _score = (count CHOSENWEAPONS) - 1;
+//player won ===================================================================
+if (_score >= KILLSFORWIN) exitWith {
+  {player removeWeapon _x} forEach weapons player;
+  {player removeMagazine _x} forEach magazines player;
 };
 
+
+//player hasnt won yet =========================================================
 //get weapon
 _weapon = CHOSENWEAPONS select _score;
 _muzzleItem = MUZZLEITEMS select _score;

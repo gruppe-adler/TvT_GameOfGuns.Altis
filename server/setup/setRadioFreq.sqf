@@ -15,7 +15,7 @@ diag_log "SW Frequency setup starting.";
 ["Randomizing SW frequency...",0,0,2,0.3] remoteExec ["BIS_fnc_dynamicText",0,false];
 
 //Frequencies for PRC-152
-_radioMin = 30;
+_radioMin = 31;
 _radioMax = 512;
 
 //Set x10 for random number generator

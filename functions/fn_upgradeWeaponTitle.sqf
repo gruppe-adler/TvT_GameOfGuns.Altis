@@ -6,7 +6,7 @@ _weapon = CHOSENWEAPONS select _score;
 
 //weapon text
 _displayName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");
-_text = format ["(%1/%2) %3",_score, KILLSFORWIN, _displayName];
+_text = format ["(%1/%2) %3",_score+1, KILLSFORWIN, _displayName];
 (_dialog displayCtrl 1503) ctrlSetText _text;
 
 //weapon picture

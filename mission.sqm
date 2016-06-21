@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={14663.319,29.38232,16748.082};
-		dir[]={0.03213454,-0.3736327,0.92703009};
-		up[]={0.012944133,0.92757434,0.37341276};
-		aside[]={0.9994092,1.9512004e-007,-0.034643538};
+		pos[]={14654.972,51.075233,16656.113};
+		dir[]={-0.015702039,-0.41972145,0.90753525};
+		up[]={-0.007261104,0.90765023,0.41966787};
+		aside[]={0.99986774,2.5142799e-007,0.017298914};
 	};
 };
 binarizationWanted=0;
@@ -6596,11 +6596,11 @@ class Mission
 			dataType="Logic";
 			class PositionInfo
 			{
-				position[]={2800.4297,-7.8195343,3199.887};
+				position[]={2800.4299,-7.8200073,3199.887};
 			};
 			id=238;
 			type="ACE_moduleMedicalSettings";
-			atlOffset=178.15047;
+			atlOffset=178.14999;
 			class CustomAttributes
 			{
 				class Attribute0
@@ -6789,7 +6789,7 @@ class Mission
 									"SCALAR"
 								};
 							};
-							value=1;
+							value=0.80000001;
 						};
 					};
 				};

@@ -20,6 +20,14 @@ mcd_choosePlayzoneClick = [
   }
 ] call BIS_fnc_addStackedEventHandler;
 
+//CONFIRM SELECTION ============================================================
+/*mcd_onPlayzoneKeyDown = (findDisplay 46) displayAddEventHandler ["KeyDown", {
+  if ((_this select 1 == 28)||(_this select 1 == 156)) then {
+    diag_log "votePlayzone.sqf - Player pressed enter...";
+    (findDisplay 46) displayRemoveEventHandler ["KeyDown", mcd_onPlayzoneKeyDown];
+  };
+}];*/
+
 //==============================================================================
 waitUntil {!isNil "PLAYAREACENTER"};
 ["mcd_choosePlayzone", "onMapSingleClick"] call BIS_fnc_removeStackedEventHandler;

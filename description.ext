@@ -87,8 +87,16 @@ class Params {
     title = "Random Teams - Size";
     values[] = {1,2,3,4,5};
     texts[] = {"1","2","3","4","5"};
-    default = 2;
+    default = 1;
   };
+
+  class SameAltChannel
+  {
+    title = "Set alternative channel to same frequency for all teams.";
+    values[] = {true, false};
+    texts[] = {"On", "Off"};
+    default = true;
+  }
 };
 
 //SOUNDS =======================================================================

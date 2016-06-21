@@ -5,6 +5,7 @@ mcd_fnc_findSoloPosition = compile preprocessFileLineNumbers "functions\fn_findS
 mcd_fnc_formattedHint = compile preprocessFileLineNumbers "functions\fn_formattedHint.sqf";
 mcd_fnc_addGear = compile preprocessFileLineNumbers "functions\fn_addGear.sqf";
 mcd_fnc_upgradeWeaponTitle = compile preprocessFileLineNumbers "functions\fn_upgradeWeaponTitle.sqf";
+mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
 
 joinTime = serverTime;
 currentScore = 0;

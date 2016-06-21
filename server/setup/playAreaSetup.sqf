@@ -12,7 +12,7 @@ if (PLAYAREASIZE < 0) then {
       case (-3): {1.4}; //large
   };
   _playerAmount = count playableUnits;
-  PLAYAREASIZE = (((_playerAmount ^ 0.5) * 500 - 400) max 500) * _scalefactor;
+  PLAYAREASIZE = (((_playerAmount ^ 0.38) * 500 - 650) max 200) * _scalefactor;
 };
 publicVariable "PLAYAREASIZE";
 
