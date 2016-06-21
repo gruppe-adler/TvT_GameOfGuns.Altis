@@ -31,6 +31,7 @@ if (isServer) then {
   mcd_fnc_findGreatestNum = compile preprocessFileLineNumbers "functions\fn_findGreatestNum.sqf";
   mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
   mcd_fnc_weaponCleanup = compile preprocessFileLineNumbers "functions\fn_weaponCleanup.sqf";
+  mcd_fnc_skipVote = compile preprocessFileLineNumbers "functions\fn_skipVote.sqf";
 
   //Parameters
   WEATHER_SETTING = "WeatherSetting" call BIS_fnc_getParamValue;
@@ -48,7 +49,7 @@ if (isServer) then {
   SPAWNGROUPMINDIST = 150;
   STARTDISTTOLEADER = 30;
   SPAWNDISTTOLEADER = [50,100];
-  VOTINGTIME = 10;
+  VOTINGTIME = 60;
 
   VOTINGDONE = false;
 

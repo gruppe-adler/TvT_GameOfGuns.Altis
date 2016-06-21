@@ -111,15 +111,23 @@ class RscTitles
         idc = 1401;
         text = "PLAYZONE VOTING";
         x = safeZoneX + safeZoneW - 0.6 * 3/4;
-        y = safeZoneY + safeZoneH - 1.6;
+        y = safeZoneY + safeZoneH - 1.600;
       };
+
+			class skipMessage: mcd_RscMapTextSmall
+			{
+				idc = 1403;
+				text = "";
+				x = safeZoneX + safeZoneW - 0.6 * 3/4;
+				y = safeZoneY + safeZoneH - 1.545;
+			};
 
       class waitMessage: mcd_RscMapTextSmall
       {
         idc = 1402;
-        text = "PLEASE WAIT";
+        text = "";
         x = safeZoneX + safeZoneW - 0.6 * 3/4;
-        y = safeZoneY + safeZoneH - 1.545;
+        y = safeZoneY + safeZoneH - 1.490;
       };
     };
   };
