@@ -16,10 +16,12 @@ STARTPOSITIONS = [];
 
 		//find position that is not over water
 		_isWater = true;
-		while {_isWater} do {
+		for [{_i=0}, {_i<100}, {STEP}] do {
 			_teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-25], [0,360], 1] call SHK_pos;
 			_isWater = surfaceIsWater _teamleadpos;
+      if (!_isWater) exitWith {};
 		};
+    if (_isWater) then {diag_log format ["startPositions.sqf - Server found only water positions in 100 cycles around %1 with a searchradius of %2.", PLAYAREACENTER, PLAYAREASIZE-25]};
 
 		//make sure position is at least SPAWNGROUPMINDIST away from other positions
 		_tooCloseFound = false;

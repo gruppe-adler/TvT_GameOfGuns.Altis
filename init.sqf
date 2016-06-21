@@ -30,6 +30,7 @@ if (isServer) then {
   mcd_fnc_updateVotesMarker = compile preprocessFileLineNumbers "functions\fn_updateVotesMarker.sqf";
   mcd_fnc_findGreatestNum = compile preprocessFileLineNumbers "functions\fn_findGreatestNum.sqf";
   mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
+  mcd_fnc_weaponCleanup = compile preprocessFileLineNumbers "functions\fn_weaponCleanup.sqf";
 
   //Parameters
   WEATHER_SETTING = "WeatherSetting" call BIS_fnc_getParamValue;

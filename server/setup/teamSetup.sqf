@@ -17,7 +17,7 @@ if (count playableUnits <= 2) then {
 {
 	_x setVariable ["isTeamlead", false, true];
 	_x setVariable ["spawnpos", [0,0,0], true];
-	/*[_x] call mcd_fnc_addKilledEH;*/
+	[_x] call mcd_fnc_addKilledEH;
 } forEach playableUnits;
 
 //Define TEAMLEADERS if random groups are off ==================================
@@ -142,7 +142,7 @@ sleep 3;
 
 	//select uniform
 	_uniformsLeft = count randomUniforms;
-	_randomID = round (random _uniformsLeft);
+	_randomID = round (random (_uniformsLeft-1));
 	_uniform = randomUniforms select _randomID;
 	randomUniforms deleteAt _randomID;
 
