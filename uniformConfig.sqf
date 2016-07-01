@@ -87,9 +87,6 @@ if (ISWOODLAND) then {
     ['rhs_uniform_FROG01_d', 'rhsusf_spc'],
     ['rhs_uniform_g3_tan', 'V_TacVest_khk'],
     ['rhs_uniform_m88_patchless', 'rhs_6b23_ML'],
-    ['rhs_uniform_mflora_patchless', 'rhs_6b13_6sh92_vog'],
-
-    //SMA
-    ['SMA_UNIFORMS_TAN', 'V_Chestrig_khk']
+    ['rhs_uniform_mflora_patchless', 'rhs_6b13_6sh92_vog']
   ];
 };

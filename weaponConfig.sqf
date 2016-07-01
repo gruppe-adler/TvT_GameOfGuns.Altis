@@ -76,17 +76,17 @@ weaponstier_1 = [
   "Auto762x51_SCARH",
   "Bolt762x51_M24SWS_Blk",
   "Bolt762x51_M24SWS_Grn",
-  "Auto762x51_SR25EC",
+  "Auto762x51_SR25EC"
 
   //sma
-  "SMA_ACRREM",
+  /*"SMA_ACRREM",
   "SMA_ACRREMblk",
   "SMA_HK417_16in_afg",
   "SMA_HK417_16in_afg_tan",
   "SMA_ACR",
   "SMA_ACRblk",
   "SMA_Mk17_16",
-  "SMA_Mk17_16_black"
+  "SMA_Mk17_16_black"*/
 ];
 
 scopestier_1 = [
@@ -167,10 +167,10 @@ weaponstier_2 = [
   "Auto556x45_CQM4",
   "Auto762x51_SR25",
   "Auto556x45_TAR21",
-  "Auto762x54_UK59L",
+  "Auto762x54_UK59L"
 
   //sma
-  "SMA_HK416afg",
+  /*"SMA_HK416afg",
   "SMA_M4afg",
   "SMA_M4afg_OD",
   "SMA_ACR",
@@ -178,7 +178,7 @@ weaponstier_2 = [
   "SMA_MK18afgBLK",
   "SMA_MK18afgTANBLK_SM",
   "SMA_Mk16QCB",
-  "SMA_MK16"
+  "SMA_MK16"*/
 ];
 
 scopestier_2 = [
@@ -223,11 +223,11 @@ scopestier_2 = [
   "FHQ_optic_VCOG",
   "FHQ_optic_VCOG_tan",
   "FHQ_optic_ACOG",
-  "FHQ_optic_ACOG_tan",
+  "FHQ_optic_ACOG_tan"
 
   //sma
-  "SMA_AIMPOINT",
-  "SMA_AIMPOINT_GLARE"
+  /*"SMA_AIMPOINT",
+  "SMA_AIMPOINT_GLARE"*/
 ];
 
 
@@ -267,11 +267,11 @@ weaponstier_3 = [
   "Auto556x45_M16A4",
   "Auto762x54_UK59L",
   "Auto556x45_FAMASG2",
-  "Auto556x45_FAMASG2_C",
+  "Auto556x45_FAMASG2_C"
 
   //sma
-  "SMA_ACRREMblk",
-  "SMA_ACRREM"
+  /*"SMA_ACRREMblk",
+  "SMA_ACRREM"*/
 ];
 
 scopestier_3 = [
@@ -309,10 +309,10 @@ scopestier_3 = [
   "FHQ_optic_MicroCCO_tan",
   "FHQ_optic_MCCO_M_BLK",
   "FHQ_optic_MCCO_M_TAN",
-  "FHQ_optic_MicroCCO_low_tan",
+  "FHQ_optic_MicroCCO_low_tan"
 
   //sma
-  "SMA_AIMPOINT"
+  /*"SMA_AIMPOINT"*/
 ];
 
 //SMGs, SHOTGUNS, OLD RIFLES ===================================================
@@ -382,11 +382,11 @@ scopestier_4 = [
   "FHQ_optic_MicroCCO",
   "FHQ_optic_MicroCCO_tan",
   "FHQ_optic_MicroCCO_low",
-  "FHQ_optic_MicroCCO_low_tan",
+  "FHQ_optic_MicroCCO_low_tan"
 
   //sma
-  "SMA_AIMPOINT",
-  "SMA_AIMPOINT_GLARE"
+  /*"SMA_AIMPOINT",
+  "SMA_AIMPOINT_GLARE"*/
 ];
 
 
@@ -427,56 +427,3 @@ scopestier_5 = [
   "optic_Yorris",
   "optic_MRD"
 ];
-
-
-
-
-
-/*
-MK20:
-modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2","ACE_Burst_far"};
-
-MXM:
-modes[] = {"Single","FullAuto","fullauto_medium","single_medium_optics1","single_far_optics2","ACE_Burst_far"};
-
-RHS M4A1 ACOG:
-modes[] = {"Single","FullAuto","single_medium_optics1","single_far_optics2"};
-
-M107:
-modes[] = {"Single","far_optic1","medium_optic2","far_optic2"};
-
-RHS PKM:
-modes[] = {"manual","close","short","medium","far_optic1","far_optic2"};
-
-RHS PKP:
-modes[] = {"FullAuto","Single","close","short","medium","far_optic1","far_optic2"};
-
-SMA ACR:
-modes[] = {"Single","FullAuto"};
-
-srifle_DMR_01:
-modes[] = {"Single","FullAuto","single_close_optics1","single_medium_optics1","single_far_optics1","fullauto_medium"};
-
-GM6:
-modes[] = {"Single","far_optic1","medium_optic2","far_optic2"};
-
-M240:
-modes[] = {"manual","close","short","medium","far"};
-
-M16:
-modes[] = {"Single","Burst","single_medium_optics1","single_far_optics2"};
-
-RHS SVDP:
-modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
-
-RHS M2010:
-modes[] = {"Single","far_optic1","medium_optic2","far_optic2"};
-
-Thai K98K:
-modes[] = {"Single","single_close_optics1","single_medium_optics1","single_far_optics1"};
-
-hgun_acp2:
-modes[] = {"Single"};
-
-RHS Glock17:
-modes[] = {"Single"};
