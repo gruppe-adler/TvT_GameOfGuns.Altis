@@ -5,17 +5,23 @@ cpbo_path="$1"
 missionname="TvT_GameOfGuns"
 
 islands=(
+	Abel
 	Altis
+	Cain
 	Chernarus
+	Desert_Island
+	eden
 	fata
 	IslaDuala3
 	namalsk
+	noe
 	Panthera3
 	Porto
 	Sara_dbe1
 	Stratis
 	SugarLake
 	Takistan
+	Tanoa
 	utes
 	vt5
 	Zargabad

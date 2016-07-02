@@ -1,4 +1,4 @@
-params ["_clickPos", "_player"];
+params ["_clickPos", "_player", "_size"];
 private ["_closestMarker"];
 
 //make sure only one instance of function runs at a time
@@ -63,8 +63,9 @@ _isVote = false;
 _closestDistance = 9999999;
 {
   _markerPos = getMarkerPos _x;
+  _markerSize = (getMarkerSize _x) select 0;
   _distance = _clickPos distance2D _markerPos;
-  if (_distance < PLAYAREASIZE) then {
+  if (_distance < _markerSize) then {
     _isVote = true;
     if (_distance < _closestDistance) then {
       _closestMarker = _x;
@@ -91,9 +92,13 @@ if (_isVote) then {
 
 //create marker if proposal ====================================================
 if (!_isVote) then {
+
+  if (_size < PLAYAREAMINSIZE) then {_size = PLAYAREAMINSIZE};
+  if (_size > PLAYAREAMAXSIZE) then {_size = PLAYAREAMAXSIZE};
+
   _areaMarker = createMarker [_markerName, _clickPos];
   _areaMarker setMarkerShape "ELLIPSE";
-  _areaMarker setMarkerSize [PLAYAREASIZE,PLAYAREASIZE];
+  _areaMarker setMarkerSize [_size,_size];
   _areaMarker setMarkerBrush "BORDER";
   _areaMarker setMarkerColor "COLORWEST";
 
@@ -110,7 +115,7 @@ if (!_isVote) then {
 
   _player setVariable ["playerVote", _markerName];
   [_areaMarker] call mcd_fnc_updateVotesMarker;
-  diag_log format ["fnc_receiveVote - Player %1 proposed play area around %2", name _player, _clickPos];
+  diag_log format ["fnc_receiveVote - Player %1 proposed play area around %2 with radius %3.", name _player, _clickPos, _size];
 };
 
 

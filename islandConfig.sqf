@@ -30,17 +30,23 @@
 
 
 ISLANDS = [
+	'Abel',
 	'Altis',
+	'Cain',
 	'Chernarus',
+	'Desert_Island',
+	'eden',
 	'fata',
 	'IslaDuala3',
 	'namalsk',
+	'noe',
 	'Panthera3',
 	'Porto',
 	'Sara_dbe1',
 	'Stratis',
 	'SugarLake',
 	'Takistan',
+	'Tanoa',
 	'utes',
 	'vt5',
 	'Zargabad'
@@ -49,17 +55,23 @@ ISLANDS = [
 //[is woodland, startposition, mapname]
 //[true, ,''],
 ISLAND_CONFIG = [
+	[true, [9721.53,3954.22,0], 'Malden'],
 	[true,[14782.4,16649,0],'Altis'],
-	[true,[4382.42,10510,0],'Chernarus'],
+	[true, [5063.03,6340.83,0], 'Kolgujev'],
+	[true, [4382.42,10510,0],'Chernarus'],
+	[false, [10021.7,2221.94,0], 'Desert Island'],
+	[true, [4802.94,11552,0], 'Everon'],
 	[false, [8989.75,5837.9,0],'Fata'],
 	[false, [4495.91,2237.83,0],'Isla Duala'],
 	[true, [6235.44,9443.9,0],'Namalsk'],
+	[true, [1545.72,5106.86,0], 'Nogova'],
 	[true, [2386.32,3492.82,0],'Panthera'],
 	[false, [1389.02,2287.22,0],'Porto'],
 	[true, [9492.42,10077.1,0],'Sarahni'],
 	[true, [1710.57,5507.4,0],'Stratis'],
 	[true, [4195.32,7135.65,0],'Sugar Lake'],
 	[false, [7861.16,1742.09,0],'Takistan'],
+	[true, [2240,13355,0], 'Tanoa'],
 	[true, [3822.11,3574.4,0],'Utes'],
 	[true, [3129.09,3400.02,0],'Suomi'],
 	[true, [-1063.61,604.564,0],'Zargabad']

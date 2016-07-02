@@ -1,11 +1,9 @@
 private ["_mostUpvotedIDs"];
 
 //DEFINE PLAY AREA SIZE ========================================================
-//get param
-PLAYAREASIZE = "PlayAreaSize" call BIS_fnc_getParamValue;
-
+/*PLAYAREASIZE = "PlayAreaSize" call BIS_fnc_getParamValue;*/
 //automatic size
-if (PLAYAREASIZE < 0) then {
+/*if (PLAYAREASIZE < 0) then {
   _scalefactor = switch (PLAYAREASIZE) do {
       case (-1): {1};   //normal
       case (-2): {0.7}; //small
@@ -14,7 +12,7 @@ if (PLAYAREASIZE < 0) then {
   _playerAmount = count playableUnits;
   PLAYAREASIZE = (((_playerAmount ^ 0.38) * 500 - 650) max 200) * _scalefactor;
 };
-publicVariable "PLAYAREASIZE";
+publicVariable "PLAYAREASIZE";*/
 
 //wait for players to pick center
 waitUntil {!isNil "VOTINGDONE"};
@@ -31,6 +29,9 @@ if (count AREAMARKERS == 0) then {
     PLAYAREACENTER = [[worldSize/2, worldSize/2, 0], [0, 1000], [0,360], 1] call SHK_pos;
     _isWater = surfaceIsWater PLAYAREACENTER;
   };
+  _playerAmount = count playableUnits;
+  PLAYAREASIZE = (((_playerAmount ^ 0.38) * 500 - 650) max 200);
+  publicVariable "PLAYAREASIZE";
 } else {
 
   //no single most upvoted
@@ -55,16 +56,19 @@ if (count AREAMARKERS == 0) then {
     _randomID = selectRandom _mostUpvotedIDs;
     _selectedMarker = AREAMARKERS select _randomID;
     PLAYAREACENTER = getMarkerPos _selectedMarker;
+    PLAYAREASIZE = (getMarkerSize _selectedMarker) select 0;
 
   //most upvoted
   } else {
     _selectedMarker = AREAMARKERS select _mostUpvotedID;
     PLAYAREACENTER = getMarkerPos _selectedMarker;
+    PLAYAREASIZE = (getMarkerSize _selectedMarker) select 0;
     diag_log format ["playAreaSetup.sqf - Most upvoted playarea is %1", _selectedMarker];
   };
 };
 
 publicVariable "PLAYAREACENTER";
+publicVariable "PLAYAREASIZE";
 
 //DELETE VOTING MARKERS ========================================================
 {

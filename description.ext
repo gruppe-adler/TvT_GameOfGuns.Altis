@@ -42,14 +42,6 @@ class Params {
     default = 1000;
   };
 
-  class PlayAreaSize
-  {
-    title = "Play Area Size (Diameter in m)";
-    values[] = {-1,-2,-3,150,250,375,500,750,1000,1250,1500};
-    texts[] = {"Automatic","Automatic (small)", "Automatic (large)","300","500","750","1000","1500","2000","2500","3000"};
-    default = -1;
-  }
-
   class SoloRespawnTime
   {
     title = "Solo Respawn Time (Seconds)";

@@ -32,6 +32,7 @@ if (isServer) then {
   mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
   mcd_fnc_weaponCleanup = compile preprocessFileLineNumbers "functions\fn_weaponCleanup.sqf";
   mcd_fnc_skipVote = compile preprocessFileLineNumbers "functions\fn_skipVote.sqf";
+  KK_fnc_fileExists = compile preprocessFileLineNumbers "functions\fn_fileExists.sqf";
 
   //Parameters
   WEATHER_SETTING = "WeatherSetting" call BIS_fnc_getParamValue;
@@ -44,6 +45,8 @@ if (isServer) then {
   SAMEALTCHANNEL = ("SameAltChannel" call BIS_fnc_getParamValue) == 1;
 
   //Settings
+  PLAYAREAMINSIZE = 100;
+  PLAYAREAMAXSIZE = 2000;
   MUZZLEATTACHMENTPROB = 40;
   SCOPESPROB = 60;
   SPAWNGROUPMINDIST = 150;
@@ -62,6 +65,8 @@ if (isServer) then {
   publicVariable "RANDOMTEAMS";
   publicVariable "TEAMSIZE";
   publicVariable "SAMEALTCHANNEL";
+  publicVariable "PLAYAREAMINSIZE";
+  publicVariable "PLAYAREAMAXSIZE";
   publicVariable "MUZZLEATTACHMENTPROB";
   publicVariable "SPAWNGROUPMINDIST";
   publicVariable "STARTDISTTOLEADER";
@@ -70,6 +75,7 @@ if (isServer) then {
   publicVariable "VOTINGDONE";
 
   //Setup
+  [] execVM "customMap\customMapInit.sqf";
   [] execVM "server\setup\setTime.sqf";
   [] execVM "server\setup\setWeather.sqf";
   [] execVM "server\setup\voteSystemInit.sqf";
