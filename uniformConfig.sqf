@@ -19,7 +19,7 @@ if (ISWOODLAND) then {
     ['ARC_GER_Flecktarn_Uniform', 'ARC_GER_Flecktarn_Plate_Carrier'],
 
     //THAI
-    ['U_AFASoldierUni_A', 'V_PlateCarrier1_rgr'],
+    /*['U_AFASoldierUni_A', 'V_PlateCarrier1_rgr'],
     ['U_CombatUniVest_A', 'V_Chestrig_blk'],
     ['U_CDFSoldierUni_A', 'V_PlateCarrier1_rgr'],
     ['U_CombatUniLong_A', 'V_PlateCarrier1_rgr'],
@@ -36,7 +36,7 @@ if (ISWOODLAND) then {
     ['U_CombatUniSleevesShort_C', 'V_FlakJacket_SH_Woodland'],
     ['U_CombatUniSleeves_B', 'V_TacVest_oli'],
     ['U_CombatUniSleeves_A', 'V_TacVest_oli'],
-    ['U_CombatUniSleeves_D', 'V_TacVest_oli'],
+    ['U_CombatUniSleeves_D', 'V_TacVest_oli'],*/
 
     //RHS
     ['rhs_uniform_cu_ocp', 'rhsusf_iotv_ocp_SAW'],
@@ -69,7 +69,7 @@ if (ISWOODLAND) then {
     ['ARC_GER_Tropentarn_Uniform', 'ARC_GER_Tropentarn_Plate_Carrier'],
 
     //THAI
-    ['U_MilitiaUniTShirt_E', 'V_TacVest_brn'],
+    /*['U_MilitiaUniTShirt_E', 'V_TacVest_brn'],
     ['U_InsUniShirt_C', 'V_ChestRig_light_A'],
     ['U_TKSpecialUni_A', 'V_TacVestEX_A'],
     ['U_TKSoldierUni_A', 'V_TacVestEX_A'],
@@ -79,7 +79,7 @@ if (ISWOODLAND) then {
     ['U_DressTKLocalUni_E_A', 'V_TacVest_khk'],
     ['U_TKLocalUni_A', 'V_Vest_light_Invisible'],
     ['U_MilitiaUniShirt_E', 'V_Chestrig_khk'],
-    ['U_CombatUniSleeves_F', 'V_ChestRig_light_C'],
+    ['U_CombatUniSleeves_F', 'V_ChestRig_light_C'],*/
 
     //RHS
     ['rhs_uniform_cu_ucp', 'rhsusf_iotv_ucp_SAW'],
