@@ -34,6 +34,7 @@ while {_tooCloseFound} do {
   //unless this has been repeated too often -> use position anyway
   if (_repetitions >= 10) then {
     _tooCloseFound = false;
+    diag_log format ["fnc_findGroupPosition - Could not find a position for %1's team that is more than %2m away from enemy players.", _teamlead, SPAWNGROUPMINDIST];
   };
 
   _repetitions = _repetitions +1;

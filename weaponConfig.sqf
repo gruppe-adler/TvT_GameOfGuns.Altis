@@ -67,16 +67,16 @@ weaponstier_1 = [
   "rhs_weap_svdp",
   "rhs_weap_svdp_npz",
   "rhs_weap_svds",
-  "rhs_weap_svds_npz",
+  "rhs_weap_svds_npz"
 
   //thai
-  "Auto762x54_SVD63",
+  /*"Auto762x54_SVD63",
   "Auto556x45_Minimi_A",
   "Auto762x51_SCARH_DES",
   "Auto762x51_SCARH",
   "Bolt762x51_M24SWS_Blk",
   "Bolt762x51_M24SWS_Grn",
-  "Auto762x51_SR25EC"
+  "Auto762x51_SR25EC"*/
 
   //sma
   /*"SMA_ACRREM",
@@ -153,10 +153,10 @@ weaponstier_2 = [
   "rhs_weap_m4a1_blockII",
   "rhs_weap_m4a1",
   "rhs_weap_mk18",
-  "rhs_weap_pkm",
+  "rhs_weap_pkm"
 
   //thai
-  "Auto762x39_AK104",
+  /*"Auto762x39_AK104",
   "Auto556x45_TAR20",
   "Auto556x45_Minimi_A",
   "Auto556x45_SCARL",
@@ -167,7 +167,7 @@ weaponstier_2 = [
   "Auto556x45_CQM4",
   "Auto762x51_SR25",
   "Auto556x45_TAR21",
-  "Auto762x54_UK59L"
+  "Auto762x54_UK59L"*/
 
   //sma
   /*"SMA_HK416afg",
@@ -251,10 +251,10 @@ weaponstier_3 = [
   "rhs_weap_sr25",
   "rhs_weap_ak74m",
   "rhs_weap_ak74m_camo",
-  "rhs_weap_ak74m_camo_npz",
+  "rhs_weap_ak74m_camo_npz"
 
   //thai
-  "Auto762x39_AKMSU_RIS",
+  /*"Auto762x39_AKMSU_RIS",
   "Auto545x39_AKS74U_RIS",
   "Auto762x51_FAL",
   "Auto762x51_MAG58",
@@ -267,7 +267,7 @@ weaponstier_3 = [
   "Auto556x45_M16A4",
   "Auto762x54_UK59L",
   "Auto556x45_FAMASG2",
-  "Auto556x45_FAMASG2_C"
+  "Auto556x45_FAMASG2_C"*/
 
   //sma
   /*"SMA_ACRREMblk",
@@ -335,10 +335,10 @@ weaponstier_4 = [
   "rhs_weap_pp2000",
   "rhs_weap_asval",
   "rhs_weap_asval_grip",
-  "rhs_weap_asval_npz",
+  "rhs_weap_asval_npz"
 
   //thai
-  "Bolt792x57_Kar98K_RIS",
+  /*"Bolt792x57_Kar98K_RIS",
   "Bolt762x54_M9130_RIS",
   "Bolt792x57_CZ550",
   "Bolt77x56_SMLE_RIS",
@@ -351,7 +351,7 @@ weaponstier_4 = [
   "Smg762x25_PPSh41_B",
   "Auto792x33_MP44",
   "Auto762x39_Type63",
-  "Auto762x51_M14_RIS"
+  "Auto762x51_M14_RIS"*/
 ];
 
 scopestier_4 = [
@@ -405,10 +405,10 @@ weaponstier_5 = [
   "rhsusf_weap_m9",
   "rhs_weap_pya",
   "rhs_weap_makarov_pm",
-  "rhs_weap_makarov_pmm",
+  "rhs_weap_makarov_pmm"
 
   //thai
-  "Pstl9x19_92FS",
+  /*"Pstl9x19_92FS",
   "Pstl9x19_FNGP35",
   "Pstl762x25_CZ52",
   "Pstl9x19_CZSP01",
@@ -420,7 +420,7 @@ weaponstier_5 = [
   "Pstl9x19_P99",
   "Pstl11x23_SAARevolver",
   "Pstl762x25_TT33",
-  "Pstl11x23_Revolver"
+  "Pstl11x23_Revolver"*/
 ];
 
 scopestier_5 = [

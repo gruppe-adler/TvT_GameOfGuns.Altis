@@ -111,8 +111,6 @@ if (!_isVote) then {
   MARKERVOTES pushBack 1;
   VOTERS pushBack [_player];
 
-  asd = _areaMarker;
-
   _player setVariable ["playerVote", _markerName];
   [_areaMarker] call mcd_fnc_updateVotesMarker;
   diag_log format ["fnc_receiveVote - Player %1 proposed play area around %2 with radius %3.", name _player, _clickPos, _size];
