@@ -13,8 +13,14 @@ diag_log format ["fnc_setScore - %1 killed by %2",_victim,_shooter];
 //exit if self-kill
 if (_victim == _shooter) exitWith {};
 
+//get groupnames
+_vgroup = _victim getVariable "groupname";
+_sgroup = _shooter getVariable "groupname";
+if (isNil "_vgroup") exitWith {diag_log format ["fnc_setScore - Victim %1 does not have a groupname.", _victim]};
+if (isNil "_sgroup") exitWith {diag_log format ["fnc_setScore - Shooter %1 does not have a groupname.", _shooter]};
+
 //teamkill
-_teamkill = (_victim getVariable "groupname") == (_shooter getVariable "groupname");
+_teamkill = (_vgroup == _sgroup);
 if (_teamkill) then {
   diag_log format ["fnc_setScore - %1 teamkilled %2.", name _shooter, name _victim];
 };

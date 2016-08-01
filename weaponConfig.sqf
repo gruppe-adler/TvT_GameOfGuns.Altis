@@ -47,7 +47,6 @@ weaponstier_1 = [
   "arifle_MX_SW_Black_F",
   "arifle_MXM_F",
   "arifle_MXM_Black_F",
-  "srifle_EBR_F",
   "LMG_Zafir_F",
   "srifle_DMR_01_F",
 
