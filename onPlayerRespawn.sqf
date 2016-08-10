@@ -19,3 +19,4 @@ player setVariable ["isCamping", false];
 
 sleep 1;
 iJustSpawned = false;
+[] call mcd_fnc_scoreBoard;

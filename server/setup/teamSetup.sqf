@@ -117,20 +117,28 @@ if (RANDOMTEAMS) then {
 } forEach TEAMLEADERS;
 
 //Set groupnames ===============================================================
+CURRENTRANKING = [];
 {
 	//replace spaces in names
 	_leaderName = [name leader _x] call mcd_fnc_strToVar;
 
 	//save groupname in players
 	_groupname = format ["group_%1",_leaderName];
+	_groupDisplayName = if (TEAMSIZE > 1) then {format ["Team %1", _leaderName]} else {_leaderName};
 	_x setVariable ["groupname", _groupname, true];
+	_x setVariable ["groupdisplayname", _groupDisplayName, true];
 
 	//create score variables
 	if (isNil _groupname) then {
-		call compile (format ["%1 = 0; publicVariable '%1'", _groupname]);
+		call compile (format ["
+			%1 = 0;
+			publicVariable '%1';
+			CURRENTRANKING pushBack [0, '%2']
+		", _groupname, _groupDisplayName]);
 		diag_log format ["teamSetup.sqf - score variable %1 created.", _groupname];
 	};
 } forEach playableUnits;
+publicVariable "CURRENTRANKING";
 
 //Set uniforms =================================================================
 call compile preprocessFileLineNumbers "uniformConfig.sqf";

@@ -96,9 +96,9 @@ class ScoreBoardItem
  h = sb_itemH;
  font = "PuristaLight";
  sizeEx = (0.04 * TEXT_SCALE);
- colorBackground[] = {0,0,0,1};
+ colorBackground[] = {0,0,0,0};
  colorText[] = {1,1,1,1};
- text = "ASD";
+ text = "";
  fixedWidth = 0;
  shadow = 0;
 };
@@ -153,7 +153,7 @@ class RscTitles
 
 	class upgradeWeaponTitle
 	{
-		idd = 1500;
+		idd = UPGRADEWEAPON_DIALOG;
 		duration = 99999;
 
 		enableSimulation = 1;
@@ -163,16 +163,9 @@ class RscTitles
 
 		class ControlsBackground
 		{
-			#define uw_x (safeZoneX + safeZoneW - 0.5)
-			#define uw_y (safeZoneY + safeZoneH - 1.6)
-			#define uw_w (0.40)
-			#define uw_h (0.40 * 3/4)
-			#define uw_paddingX (uw_w * 0.1)
-			#define uw_paddingY (uw_h * 0.1)
-
 			class Background: IGUIBack
 			{
-				idc = 1501;
+				idc = UPGRADEWEAPON_BG;
 				x = uw_x;
         y = uw_y;
 				w = uw_w;
@@ -181,7 +174,7 @@ class RscTitles
 
 			class WeaponPicture: mcd_RscPicture
 			{
-				idc = 1502;
+				idc = UPGRADEWEAPON_PIC;
 				x = uw_x + uw_paddingX;
 				y = uw_y;
 				w = uw_w - 2*uw_paddingX;
@@ -191,7 +184,7 @@ class RscTitles
 
 			class WeaponText: RscText
 			{
-				idc = 1503;
+				idc = UPGRADEWEAPON_TEXT;
 				style = ST_CENTER;
 				x = uw_x;
 				y = uw_y + uw_h - uw_paddingY*1.4;

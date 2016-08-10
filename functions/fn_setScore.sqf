@@ -27,7 +27,9 @@ if (_teamkill) then {
 
 //add score
 _group = _shooter getVariable "groupname";
+_groupDisplayName = _shooter getVariable "groupdisplayname";
 _score = call compile (format ["%1", _group]);
+_rankID = CURRENTRANKING find [_score, _groupDisplayName];
 if (_teamkill) then {
   if (_score > 0) then {
     _score = call compile (format ["%1 = %1 - 1; publicVariable '%1'; %1", _group]);
@@ -36,7 +38,19 @@ if (_teamkill) then {
   _score = call compile (format ["%1 = %1 + 1; publicVariable '%1'; %1", _group]);
 };
 
+//update ranking
+if (_rankdID != -1) then {
+  _rankArray = (CURRENTRANKING select _rankID);
+  _rankArray set [0, _score];
+} else {
+  diag_log format ["fn_setScore - ERROR: COULT NOT FIND %1 in CURRENTRANKING ARRAY.", _group];
+};
+CURRENTRANKING sort false;
+publicVariable "CURRENTRANKING";
+
+
 diag_log format ["fnc_setScore - %1 now has %2 points.", _group, _score];
+
 
 if (_score >= KILLSFORWIN) then {
   [_shooter] remoteExec ["mcd_fnc_endMission",0,false];

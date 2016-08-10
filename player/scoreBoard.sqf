@@ -1,11 +1,24 @@
-_delay = 1;
-_function = {
-  params ["_layer"];
-  if (!alive player) exitWith {};
-  if (isNull (uiNamespace getVariable "ScoreBoard_Display")) then {
-    cutRsc ["ScoreBoard", "PLAIN", 1];
+#include "defines.hpp"
+
+waitUntil {!isNil "isSpectator"};
+if (isSpectator) exitWith {};
+
+waitUntil {!isNil "CURRENTRANKING"};
+waitUntil {!isNil "GAMESTARTED"};
+waitUntil {GAMESTARTED};
+
+//ADD PVEH =====================================================================
+"CURRENTRANKING" addPublicVariableEventHandler {[] call mcd_fnc_scoreBoard};
+
+//RUN MANUALLY ONCE ============================================================
+[] call mcd_fnc_scoreBoard;
+
+//PLAYER HOST ==================================================================
+if (isServer && hasInterface) then {
+  _oldRanking = str CURRENTRANKING;
+  while {true} do {
+    waitUntil {sleep 1; (str CURRENTRANKING) != _oldRanking};
+    _oldRanking = str CURRENTRANKING;
+    [] call mcd_fnc_scoreBoard;
   };
-
-
 };
-[_function, _delay] call CBA_fnc_addPerFrameHandler;
