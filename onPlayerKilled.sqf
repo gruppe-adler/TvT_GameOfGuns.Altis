@@ -5,11 +5,15 @@
 
 if (isSpectator) exitWith {};
 
+//check JIP player is spawning for the first time
+if (serverTime-joinTime < 20 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
+
+//send killer to server
 _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [player, _shooter] remoteExec ["mcd_fnc_setScore", 2, false];
 
-//check JIP player is spawning for the first time
-if (serverTime-joinTime < 20 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
+//create kill cam
+[(SOLORESPAWNTIME min TEAMRESPAWNTIME) min 10] execVM "player\killCam.sqf";
 
 //keep player from respawning
 setPlayerRespawnTime 9999;
@@ -58,7 +62,7 @@ if (!_teammatesalive) then {
   diag_log "onPlayerKilled.sqf - Starting team respawn...";
   while {_timeleft > 0} do {
     _timestr = [_timeleft, "MM:SS"] call BIS_fnc_secondsToString;
-    _teamDead = parseText format ["<t align='center' size='1.4'>Team is dead.</t>"];
+    _teamDead = if (TEAMSIZE>1) then {parseText format ["<t align='center' size='1.4'>Team is dead.</t>"]} else {parseText format ["<t align='center' size='1.4'>You are dead.</t>"]};
     _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn in: <t color='#ffff00'>%1</t></t>", _timestr];
     hint composeText [_rule,_teamDead,_linebreak,_respawnin,_linebreak,_rule];
 
@@ -78,10 +82,12 @@ if (!_teammatesalive) then {
 //respawn hint
 _respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
 hint composeText [_rule, _respawning, _lineBreak, _rule];
+
 //respawn player
 iJustSpawned = true;
 setPlayerRespawnTime 0;
 forceRespawn player;
+cutText ["", "BLACK IN", 0.5];
 
 //make sure player doesn't instantly respawn next time
 sleep 1;

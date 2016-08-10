@@ -1,4 +1,4 @@
-#include "leaderboard\ui_toolkit.hpp"
+#include "ui_toolkit.hpp"
 #include "leaderboard\base.hpp"
 #include "leaderboard\dialog.hpp"
 #include "player\dialogs.hpp"
@@ -69,6 +69,14 @@ class Params {
     default = 20;
   };
 
+  class ReverseMode
+  {
+    title = "Reverse Mode (weak weapons first)";
+    values[] = {true, false};
+    texts[] = {"On", "Off"};
+    default = false;
+  };
+
   class RandomTeams
   {
     title = "Random Teams";
@@ -91,7 +99,7 @@ class Params {
     values[] = {true, false};
     texts[] = {"On", "Off"};
     default = true;
-  }
+  };
 };
 
 //SOUNDS =======================================================================

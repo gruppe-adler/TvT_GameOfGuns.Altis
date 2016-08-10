@@ -40,6 +40,7 @@ if (isServer) then {
   SOLORESPAWNTIME = "SoloRespawnTime" call BIS_fnc_getParamValue;
   TEAMRESPAWNTIME = "TeamRespawnTime" call BIS_fnc_getParamValue;
   KILLSFORWIN = "KillsForWin" call BIS_fnc_getParamValue;
+  REVERSEMODE = ("ReverseMode" call BIS_fnc_getParamValue) == 1;
   RANDOMTEAMS = ("RandomTeams" call BIS_fnc_getParamValue) == 1;
   TEAMSIZE = "TeamSize" call BIS_fnc_getParamValue;
   SAMEALTCHANNEL = ("SameAltChannel" call BIS_fnc_getParamValue) == 1;
@@ -62,6 +63,7 @@ if (isServer) then {
   publicVariable "SOLORESPAWNTIME";
   publicVariable "TEAMRESPAWNTIME";
   publicVariable "KILLSFORWIN";
+  publicVariable "REVERSEMODE";
   publicVariable "RANDOMTEAMS";
   publicVariable "TEAMSIZE";
   publicVariable "SAMEALTCHANNEL";

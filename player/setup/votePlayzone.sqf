@@ -70,6 +70,7 @@ mcd_mouseMovingEvent = {
   vp_distanceMarker setMarkerPosLocal [(_currentPos select 0)+100, (_currentPos select 1)-100];
   vp_distanceMarker setMarkerTextLocal (format ["Diameter: %1m", round (_distance*2)]);
   vp_currentMarker setMarkerSizeLocal [_distance,_distance];
+  false
 };
 
 mcd_mouseButtonUpEvent = {
@@ -88,6 +89,7 @@ mcd_mouseButtonUpEvent = {
 
   [vp_start, player, _size] remoteExec ["mcd_fnc_receiveVote", 2, false];
   vp_EventRunning = false;
+  true
 };
 
 
@@ -99,6 +101,7 @@ mcd_keyDownEvent = {
     (findDisplay 46) displayRemoveEventHandler ["KeyDown", mcd_onPlayzoneKeyDown];
     playzoneSkipVote = true;
     [player, true] remoteExec ["mcd_fnc_skipVote", 2, false];
+    true
   };
 };
 

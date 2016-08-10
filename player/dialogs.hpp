@@ -1,3 +1,7 @@
+#include "killCamDefines.hpp"
+
+#define CT_STATIC           0
+
 #define ST_LEFT           0x00
 #define ST_CENTER         0x02
 
@@ -67,6 +71,23 @@ class mcd_RscPicture
 	tooltipColorText[] = {1,1,1,1};
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
+};
+
+
+class KillCamText
+{
+  access = 0;
+  type = CT_STATIC;
+  idc = -1;
+  style = ST_CENTER;
+  w = 0.1; h = 0.05;
+  font = "PuristaMedium";
+  sizeEx = 0.08;
+  colorBackground[] = {0,0,0,0};
+  colorText[] = {1,1,1,1};
+  text = "";
+  fixedWidth = 0;
+  shadow = 0;
 };
 
 class RscTitles
@@ -158,5 +179,31 @@ class RscTitles
 
 			};
 		};
+	};
+
+	class KillCamTitle
+	{
+	  idd = KILLCAMTITLE_DIALOG;
+	  enableDisplay = true;
+	  enableSimulation = true;
+		duration = 8;
+		onLoad = "uiNamespace setVariable [""KillCamTitle_Display"", _this select 0]";
+
+	  class ControlsBackground
+	  {
+	    #define kc_W (1 * X_SCALE)
+	    #define kc_H (0.1 * Y_SCALE)
+	    #define kc_titleX CENTER(1, kc_W)
+	    #define kc_titleY (0.65 * Y_SCALE)
+
+	    class Title: KillCamText
+	    {
+	      idc = KILLCAMTITLE_TITLE;
+	      x = kc_titleX;
+	      y = kc_titleY;
+	      w = kc_W;
+	      h = kc_H;
+	    };
+	  };
 	};
 };

@@ -146,10 +146,19 @@ _tierScopesNeeded = _weaponsPerTier;
   };
 } forEach CHOSENWEAPONS;
 
+//REVERSE MODE =================================================================
+if (REVERSEMODE) then {
+  reverse CHOSENWEAPONS;
+  reverse MUZZLEITEMS;
+  reverse SCOPES;
+};
+
+//BROADCAST ====================================================================
 publicVariable "CHOSENWEAPONS";
 publicVariable "MUZZLEITEMS";
 publicVariable "SCOPES";
 
+//LOG ==========================================================================
 if (count CHOSENWEAPONS < KILLSFORWIN) then {
   _diagReport pushBack (format ["ERROR: FEWER WEAPONS SELECTED THAN NEEDED (%1/%2)",count CHOSENWEAPONS, KILLSFORWIN]);
 };
