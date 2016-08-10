@@ -1,9 +1,4 @@
-#include "killCamDefines.hpp"
-
-#define CT_STATIC           0
-
-#define ST_LEFT           0x00
-#define ST_CENTER         0x02
+#include "defines.hpp"
 
 class RscText
 {
@@ -88,6 +83,32 @@ class KillCamText
   text = "";
   fixedWidth = 0;
   shadow = 0;
+};
+
+class ScoreBoardItem
+{
+ access = 0;
+ type = CT_STATIC;
+ idc = -1;
+ style = ST_LEFT;
+ x = sb_totalX + sb_scoreW + sb_itemSpacingX;
+ w = sb_itemW;
+ h = sb_itemH;
+ font = "PuristaLight";
+ sizeEx = (0.04 * TEXT_SCALE);
+ colorBackground[] = {0,0,0,1};
+ colorText[] = {1,1,1,1};
+ text = "ASD";
+ fixedWidth = 0;
+ shadow = 0;
+};
+
+class ScoreBoardScore: ScoreBoardItem
+{
+  style = ST_CENTER;
+  x = sb_totalX;
+  w = sb_scoreW;
+  text = "";
 };
 
 class RscTitles
@@ -191,11 +212,6 @@ class RscTitles
 
 	  class ControlsBackground
 	  {
-	    #define kc_W (1 * X_SCALE)
-	    #define kc_H (0.1 * Y_SCALE)
-	    #define kc_titleX CENTER(1, kc_W)
-	    #define kc_titleY (0.65 * Y_SCALE)
-
 	    class Title: KillCamText
 	    {
 	      idc = KILLCAMTITLE_TITLE;
@@ -205,5 +221,64 @@ class RscTitles
 	      h = kc_H;
 	    };
 	  };
+	};
+
+	class ScoreBoard
+	{
+		idd = SCOREBOARD_DIALOG;
+		enableDisplay = true;
+		enableSimulation = true;
+		duration = 1e+1000;
+		onLoad = "uiNamespace setVariable [""ScoreBoard_Display"", _this select 0]";
+
+		class ControlsBackground {
+			class Item1: ScoreBoardItem
+			{
+				idc = SCOREBOARD_ITEM1;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 0);
+			};
+
+			class Score1: ScoreBoardScore
+			{
+				idc = SCOREBOARD_SCORE1;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 0);
+			};
+
+			class Item2: ScoreBoardItem
+			{
+				idc = SCOREBOARD_ITEM2;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 1);
+			};
+
+			class Score2: ScoreBoardScore
+			{
+				idc = SCOREBOARD_SCORE2;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 1);
+			};
+
+			class Item3: ScoreBoardItem
+			{
+				idc = SCOREBOARD_ITEM3;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 2);
+			};
+
+			class Score3: ScoreBoardScore
+			{
+				idc = SCOREBOARD_SCORE3;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 2);
+			};
+
+			class Item4: ScoreBoardItem
+			{
+				idc = SCOREBOARD_ITEM4;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 3);
+			};
+
+			class Score4: ScoreBoardScore
+			{
+				idc = SCOREBOARD_SCORE4;
+				y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 3);
+			};
+		};
 	};
 };

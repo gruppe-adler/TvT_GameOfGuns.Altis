@@ -1,4 +1,4 @@
-#include "killCamDefines.hpp"
+#include "defines.hpp"
 
 params ["_totalTime"];
 disableSerialization;
