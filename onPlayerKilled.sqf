@@ -8,6 +8,9 @@ if (isSpectator) exitWith {};
 //check JIP player is spawning for the first time
 if (serverTime-joinTime < 20 && didJIP) exitWith {diag_log "Player is JIP, not executing onPlayerKilled.sqf"};
 
+//reset recent distance
+player setVariable ["recentDistanceArray", [0]];
+
 //send killer to server
 _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [player, _shooter] remoteExec ["mcd_fnc_setScore", 2, false];

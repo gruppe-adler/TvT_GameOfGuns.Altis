@@ -12,6 +12,10 @@ player setVariable ["ACE_medical_lastDamageSource",player];
 
 _pos = player getVariable "spawnpos";
 [player, _pos] call mcd_fnc_teleport;
+waitUntil {(getPos player) distance2D _pos < 20};
+player setVariable ["lastPosition", getPos player];
+player setVariable ["recentDistance", 0];
+player setVariable ["isCamping", false];
 
 sleep 1;
 iJustSpawned = false;

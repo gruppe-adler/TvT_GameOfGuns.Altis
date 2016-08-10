@@ -25,7 +25,7 @@ respawnTemplates[] = {"Base"};
 respawnOnStart = -1;
 respawnDialog = 0;
 disabledAI = 1;
-enableDebugConsole = 1;
+enableDebugConsole = 2;
 
 //PARAMS =======================================================================
 class Params {

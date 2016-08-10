@@ -6,6 +6,8 @@ mcd_fnc_formattedHint = compile preprocessFileLineNumbers "functions\fn_formatte
 mcd_fnc_addGear = compile preprocessFileLineNumbers "functions\fn_addGear.sqf";
 mcd_fnc_upgradeWeaponTitle = compile preprocessFileLineNumbers "functions\fn_upgradeWeaponTitle.sqf";
 mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
+mcd_fnc_showCamper = compile preprocessFileLineNumbers "functions\fn_showCamper.sqf";
+mcd_fnc_hideCamper = compile preprocessFileLineNumbers "functions\fn_hideCamper.sqf";
 
 joinTime = serverTime;
 currentScore = 0;
@@ -16,5 +18,6 @@ iJustSpawned = false;
 [] execVM "player\setup\votePlayzone.sqf";
 [] execVM "player\setup\upgradeWeaponEH.sqf";
 [] execVM "player\setup\startGame.sqf";
-[] execVm "player\setup\startLoadout.sqf";
+[] execVM "player\setup\startLoadout.sqf";
 [] execVM "player\punishPlayer.sqf";
+[] execVM "player\recordDistance.sqf";

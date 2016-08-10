@@ -32,6 +32,8 @@ if (isServer) then {
   mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formattedLog.sqf";
   mcd_fnc_weaponCleanup = compile preprocessFileLineNumbers "functions\fn_weaponCleanup.sqf";
   mcd_fnc_skipVote = compile preprocessFileLineNumbers "functions\fn_skipVote.sqf";
+  mcd_fnc_showCamper = compile preprocessFileLineNumbers "functions\fn_showCamper.sqf";
+  mcd_fnc_hideCamper = compile preprocessFileLineNumbers "functions\fn_hideCamper.sqf";
   KK_fnc_fileExists = compile preprocessFileLineNumbers "functions\fn_fileExists.sqf";
 
   //Parameters
