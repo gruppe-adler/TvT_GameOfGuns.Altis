@@ -3,10 +3,12 @@ if (serverTime-joinTime < 20 && didJIP) exitWith {diag_log "Player is JIP, not e
 if (isNil "STARTPOSDONE") exitWith {};
 
 [] call mcd_fnc_addGear;
+if (GAMEENDED) exitWith {};
+
 _groupname = player getVariable "groupname";
 _score = call compile _groupname;
 
-call compile format ["[%1,%2] call mcd_fnc_upgradeWeapon", _groupname, _score];
+call compile format ["[%1] call mcd_fnc_upgradeWeapon", _score];
 
 player setVariable ["ACE_medical_lastDamageSource",player];
 

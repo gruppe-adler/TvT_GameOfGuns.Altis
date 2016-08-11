@@ -59,6 +59,7 @@ if (isServer) then {
   VOTINGTIME = 60;
 
   VOTINGDONE = false;
+  GAMEENDED = false;
 
   //Broadcast
   publicVariable "WEATHER_SETTING";
@@ -79,6 +80,7 @@ if (isServer) then {
   publicVariable "SPAWNDISTTOLEADER";
   publicVariable "VOTINGTIME";
   publicVariable "VOTINGDONE";
+  publicVariable "GAMEENDED";
 
   //Setup
   [] execVM "customMap\customMapInit.sqf";

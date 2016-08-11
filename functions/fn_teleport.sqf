@@ -5,12 +5,16 @@
 *   1:  destination
 */
 
-params ["_unit", "_pos"];
+if (!hasInterface) exitWith {};
+
+params [["_unit", player], "_pos", ["_allowDamage", true]];
 
 _unit allowDamage false;
 _unit setPos _pos;
-[_unit] spawn {
-  params ["_unit"];
+[_unit, _allowDamage] spawn {
+  params ["_unit", "_allowDamage"];
   sleep 1;
-  _unit allowDamage true;
+  if (_allowDamage) then {
+    _unit allowDamage true;
+  };
 };

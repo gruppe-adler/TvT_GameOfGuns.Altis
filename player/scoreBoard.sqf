@@ -15,10 +15,9 @@ waitUntil {GAMESTARTED};
 
 //PLAYER HOST ==================================================================
 if (isServer && hasInterface) then {
-  _oldRanking = str CURRENTRANKING;
   while {true} do {
-    waitUntil {sleep 1; (str CURRENTRANKING) != _oldRanking};
     _oldRanking = str CURRENTRANKING;
+    waitUntil {sleep 1; (str CURRENTRANKING) != _oldRanking};
     [] call mcd_fnc_scoreBoard;
   };
 };

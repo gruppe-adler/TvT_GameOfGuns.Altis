@@ -34,6 +34,8 @@ _lineBreak = parseText "<br />";
 
 //main =========================================================================
 while {_timeleft > 0} do {
+  if (GAMEENDED) exitWith {};
+
   _startTime = time;
 
   //hint
@@ -65,6 +67,8 @@ if (!_teammatesalive) then {
 
   diag_log "onPlayerKilled.sqf - Starting team respawn...";
   while {_timeleft > 0} do {
+    if (GAMEENDED) exitWith {};
+
     _timestr = [_timeleft, "MM:SS"] call BIS_fnc_secondsToString;
     _teamDead = if (TEAMSIZE>1) then {parseText format ["<t align='center' size='1.4'>Team is dead.</t>"]} else {parseText format ["<t align='center' size='1.4'>You are dead.</t>"]};
     _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn in: <t color='#ffff00'>%1</t></t>", _timestr];
@@ -82,7 +86,7 @@ if (!_teammatesalive) then {
 };
 
 //respawn ======================================================================
-
+if (GAMEENDED) exitWith {};
 //respawn hint
 _respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
 hint composeText [_rule, _respawning, _lineBreak, _rule];

@@ -53,5 +53,5 @@ diag_log format ["fnc_setScore - %1 now has %2 points.", _group, _score];
 
 
 if (_score >= KILLSFORWIN) then {
-  [_shooter] remoteExec ["mcd_fnc_endMission",0,false];
+  [_shooter] execVM "server\endGame.sqf";
 };

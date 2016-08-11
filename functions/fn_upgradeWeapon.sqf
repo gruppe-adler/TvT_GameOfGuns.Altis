@@ -5,7 +5,7 @@
 *   1:  score of group
 */
 
-params ["_groupname", "_score"];
+params ["_score"];
 private ["_weapon"];
 
 //player won ===================================================================

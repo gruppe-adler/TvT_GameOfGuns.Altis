@@ -12,7 +12,7 @@ waitUntil {STARTPOSDONE};
 _spawnpos = player getVariable "spawnpos";
 _groupname = player getVariable "groupname";
 
-call compile format ["[%1,0] call mcd_fnc_upgradeWeapon;", _groupname];
+[0] call mcd_fnc_upgradeWeapon;
 [player, _spawnpos] spawn mcd_fnc_teleport;
 
 GAMESTARTED = true;

@@ -9,6 +9,7 @@ mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formatted
 mcd_fnc_showCamper = compile preprocessFileLineNumbers "functions\fn_showCamper.sqf";
 mcd_fnc_hideCamper = compile preprocessFileLineNumbers "functions\fn_hideCamper.sqf";
 mcd_fnc_scoreBoard = compile preprocessFileLineNumbers "functions\fn_scoreBoard.sqf";
+mcd_fnc_endingCeremony = compile preprocessFileLineNumbers "functions\fn_endingCeremony.sqf";
 
 joinTime = serverTime;
 currentScore = 0;
