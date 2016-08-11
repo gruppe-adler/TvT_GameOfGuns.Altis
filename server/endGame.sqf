@@ -128,6 +128,13 @@ _eloArray = [];
   _playerPointsArray set [1, _playerElo + _playerEloGain];
 } forEach allPlayers;
 
+diag_log "endGame.sqf - Points have been updated. Here is the new array:";
+diag_log "NAME, POINTS =========================================================";
+{
+  diag_log str _x;
+} forEach _gogPoints;
+diag_log "======================================================================";
+
 //sort and broadcast
 _gogPoints sort false;
 CURRENTLEADERBOARD = _gogPoints;
