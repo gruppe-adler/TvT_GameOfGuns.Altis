@@ -20,6 +20,7 @@ if (count playableUnits <= 2) then {
 	_x setVariable ["kills", 0, true];
 	_x setVariable ["deaths", 0, true];
 	_x setVariable ["longestKill", 0, true];
+	_x setVariable ["eloThisGame", 0, true];
 	/*[_x] call mcd_fnc_addKilledEH;*/
 } forEach playableUnits;
 

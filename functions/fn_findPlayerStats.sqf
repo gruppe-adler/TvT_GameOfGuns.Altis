@@ -8,11 +8,21 @@
 *   index of playername in stats (-1 if not found)
 */
 
-params ["_statsArray", "_playerName"];
+params ["_statsArray", "_playerName", ["_searchIndex", 0]];
 
 _ID = -1;
 {
-  if (_x select 0 == _playerName) exitWith {_ID = _forEachIndex};
+  _currentIndex = _forEachIndex;
+  _item = _x select _searchIndex;
+  if (typeName _item == "STRING") then {
+    if (_item == _playerName) then {_ID = _currentIndex};
+  };
+
+  if (typeName _item == "ARRAY") then {
+    {
+      if (_x == _playerName) then {_ID = _currentIndex};
+    } forEach _item;
+  };
 } forEach _statsArray;
 
 _ID
