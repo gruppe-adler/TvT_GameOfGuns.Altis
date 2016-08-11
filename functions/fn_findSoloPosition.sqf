@@ -9,7 +9,11 @@ _aliveTeammates = [];
 } forEach _teammateUIDs;
 
 _randomUnit = selectRandom _aliveTeammates;
-_randomUnitPos = getPos _randomUnit;
-_spawnpos = [_randomUnitPos, SPAWNDISTTOLEADER, [0,360], 0] call SHK_pos;
+_spawnpos = [];
+while {str _spawnpos == "[]"} do {
+  _randomUnitPos = getPos _randomUnit;
+  _spawnpos = _randomUnitPos findEmptyPosition [SPAWNDISTTOLEADER select 0, (random 1) * (SPAWNDISTTOLEADER select 1)];
+  /*_spawnpos = [_randomUnitPos, SPAWNDISTTOLEADER, [0,360], 0] call SHK_pos;*/
+};
 
 _respawnUnit setVariable ["spawnpos", _spawnpos, true];

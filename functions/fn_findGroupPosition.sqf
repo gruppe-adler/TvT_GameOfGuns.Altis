@@ -18,9 +18,13 @@ while {_tooCloseFound} do {
 
   //find position that is not over water
   _isWater = true;
-  while {_isWater} do {
-    _teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-10], [0,360], 1] call SHK_pos;
+  _isEmpty = true
+  while {_isWater || _isEmpty} do {
+    /*_teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-10], [0,360], 1] call SHK_pos;*/
+    _randomPos = PLAYAREACENTER getPos [random (PLAYAREASIZE-40), random 360];
+    _teamleadpos = _randomPos findEmptyPosition [0,30];
     _isWater = surfaceIsWater _teamleadpos;
+    _isEmpty = ((str _teamleadpos) == "[]");
   };
 
   //check min distance
@@ -53,8 +57,11 @@ _teammates = _teammates - [_teamlead];
 
 {
   _isWater = true;
-  while {_isWater} do {
-    _matepos = [_teamleadpos, [0, STARTDISTTOLEADER], [0,360], 1] call SHK_pos;
+  _isEmpty = true
+  while {_isWater || _isEmpty} do {
+    /*_matepos = [_teamleadpos, [0, STARTDISTTOLEADER], [0,360], 1] call SHK_pos;*/
+    _randomPos = _teamleadPos getPos [random STARTDISTTOLEADER, random 360];
+    _matePos = _randomPos findEmptyPosition [0,30];
     _isWater = surfaceIsWater _matepos;
   };
 
