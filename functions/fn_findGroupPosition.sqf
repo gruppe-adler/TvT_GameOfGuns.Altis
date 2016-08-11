@@ -18,7 +18,7 @@ while {_tooCloseFound} do {
 
   //find position that is not over water
   _isWater = true;
-  _isEmpty = true
+  _isEmpty = true;
   while {_isWater || _isEmpty} do {
     /*_teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-10], [0,360], 1] call SHK_pos;*/
     _randomPos = PLAYAREACENTER getPos [random (PLAYAREASIZE-40), random 360];
@@ -57,7 +57,7 @@ _teammates = _teammates - [_teamlead];
 
 {
   _isWater = true;
-  _isEmpty = true
+  _isEmpty = true;
   while {_isWater || _isEmpty} do {
     /*_matepos = [_teamleadpos, [0, STARTDISTTOLEADER], [0,360], 1] call SHK_pos;*/
     _randomPos = _teamleadPos getPos [random STARTDISTTOLEADER, random 360];

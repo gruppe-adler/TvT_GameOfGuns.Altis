@@ -17,7 +17,7 @@ if (count playableUnits <= 2) then {
 {
 	_x setVariable ["isTeamlead", false, true];
 	_x setVariable ["spawnpos", [0,0,0], true];
-	[_x] call mcd_fnc_addKilledEH;
+	/*[_x] call mcd_fnc_addKilledEH;*/
 } forEach playableUnits;
 
 //Define TEAMLEADERS if random groups are off ==================================

@@ -4,6 +4,10 @@
 *   executed on mission start via server\setup\teamSetup.sqf for all playable units
 */
 
+
+// THIS IS UNUSED RIGHT NOW!
+
+
 params ["_unit"];
 
 _unit addEventHandler ["killed", {[_this] spawn mcd_fnc_weaponCleanup}];

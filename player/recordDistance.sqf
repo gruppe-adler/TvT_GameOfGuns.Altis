@@ -1,10 +1,11 @@
 waitUntil {!isNil "isSpectator"};
 if (isSpectator) exitWith {};
 
+waitUntil {!isNil "CAMPTIME"};
 waitUntil {!isNil "GAMESTARTED"};
 waitUntil {GAMESTARTED};
 
-#define CAMPTIME 120                                                            //time after which you are camping if you moved below CAMPTHRESHOLD meters
+
 #define CAMPTHRESHOLD 50                                                        //distance you have to move in CAMPTIME to not be considered camping
 #define INTERVAL 5                                                              //interval in which PFH is executed
 #define MAXDISTPERINTERVAL 30                                                   //max distance that a player can travel per interval
@@ -28,16 +29,22 @@ _function = {
   _currentDistance = _currentPosition distance2D _lastPosition;
   player setVariable ["lastPosition", _currentPosition];
 
+  //calculate total distance
+  player setVariable ["totalDistance", (player getVariable ["totalDistance", 0]) + _currentDistance];
+
+  if (CAMPTIME <= 0) exitWith {};
+
   //calculate recent distance
   _recentDistanceArray = player getVariable ["recentDistanceArray", [0,0]];
   _recentDistance = player getVariable ["recentDistance", 0];
-  _recentDistance = (_recentDistance - (_recentDistanceArray select 0) + _currentDistance) min MAXDISTPERINTERVAL;
+  if (count _recentDistanceArray >= CAMPTIME/INTERVAL) then {
+    _recentDistance = _recentDistance - (_recentDistanceArray select 0) + (_currentDistance min MAXDISTPERINTERVAL);
+    _recentDistanceArray deleteAt 0;
+  } else {
+    _recentDistance = _recentDistance + (_currentDistance min MAXDISTPERINTERVAL);
+  };
   player setVariable ["recentDistance", _recentDistance];
-  if (count _recentDistanceArray >= CAMPTIME/INTERVAL) then {_recentDistanceArray deleteAt 0};
   _recentDistanceArray pushBack _currentDistance;
-
-  //calculate total distance
-  player setVariable ["totalDistance", (player getVariable ["totalDistance", 0]) + _currentDistance];
 
   //camp warning
   if (count _recentDistanceArray >= CAMPTIME/INTERVAL && (player getVariable ["recentDistance", 0]) < CAMPTHRESHOLD) then {

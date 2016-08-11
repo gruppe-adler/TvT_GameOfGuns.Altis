@@ -14,6 +14,7 @@ player setVariable ["recentDistanceArray", [0]];
 //send killer to server
 _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [player, _shooter] remoteExec ["mcd_fnc_setScore", 2, false];
+[getPos player, profileName] remoteExec ["mcd_fnc_weaponCleanup", 2, false];
 
 //create kill cam
 [(SOLORESPAWNTIME min TEAMRESPAWNTIME) min 10] execVM "player\killCam.sqf";
