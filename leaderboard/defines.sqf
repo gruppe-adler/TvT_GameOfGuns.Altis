@@ -65,3 +65,5 @@
 
 #define lb_mystatsTitleY (lb_mainY + lb_mainH + 2*lb_elementPaddingY)
 #define lb_mystatsY (lb_mystatsTitleY + lb_titleH + lb_elementPaddingY)
+
+#define lb_DURATION 20

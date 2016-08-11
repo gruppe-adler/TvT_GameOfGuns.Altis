@@ -4,7 +4,7 @@
 */
 
 /*_victim = (_this select 0) select 0;*/
-params ["_victim", "_shooter"];
+params ["_victim", "_shooter", ["_victimPos", [0,0,0]], ["_victimName", "Someone"]];
 
 //get shooter
 /*_shooter = _victim getVariable ["ACE_medical_lastDamageSource",_victim];*/
@@ -12,6 +12,14 @@ diag_log format ["fnc_setScore - %1 killed by %2",_victim,_shooter];
 
 //exit if self-kill
 if (_victim == _shooter) exitWith {};
+
+//update kills, deaths and longest kill
+_victim setVariable ["deaths",(_victim getVariable ["deaths", 0]) + 1, true];
+_shooter setVariable ["kills",(_shooter getVariable ["kills", 0]) + 1, true];
+_shotDistance = (getPos _shooter) distance2D _victimPos;
+if (_shotDistance > (_shooter getVariable ["longestKill", 0])) then {
+  _shooter setVariable ["longestKill", _shotDistance, true];
+};
 
 //get groupnames
 _vgroup = _victim getVariable "groupname";

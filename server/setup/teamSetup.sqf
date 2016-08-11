@@ -17,6 +17,9 @@ if (count playableUnits <= 2) then {
 {
 	_x setVariable ["isTeamlead", false, true];
 	_x setVariable ["spawnpos", [0,0,0], true];
+	_x setVariable ["kills", 0, true];
+	_x setVariable ["deaths", 0, true];
+	_x setVariable ["longestKill", 0, true];
 	/*[_x] call mcd_fnc_addKilledEH;*/
 } forEach playableUnits;
 
@@ -119,25 +122,31 @@ if (RANDOMTEAMS) then {
 //Set groupnames ===============================================================
 CURRENTRANKING = [];
 {
-	//replace spaces in names
-	_leaderName = [name leader _x] call mcd_fnc_strToVar;
+	_group = _x;
+	if (isPlayer (leader _group)) then {
+		_leaderName = [name leader _group] call mcd_fnc_strToVar;
+		_groupName = format ["group_%1", _leaderName];
+		_groupDisplayName = if (TEAMSIZE > 1) then {format ["Team %1", _leaderName]} else {_leaderName};
 
-	//save groupname in players
-	_groupname = format ["group_%1",_leaderName];
-	_groupDisplayName = if (TEAMSIZE > 1) then {format ["Team %1", _leaderName]} else {_leaderName};
-	_x setVariable ["groupname", _groupname, true];
-	_x setVariable ["groupdisplayname", _groupDisplayName, true];
-
-	//create score variables
-	if (isNil _groupname) then {
-		call compile (format ["
-			%1 = 0;
-			publicVariable '%1';
-			CURRENTRANKING pushBack [0, '%2']
-		", _groupname, _groupDisplayName]);
+		//create score variable
+		call compile (format ["%1 = 0; publicVariable '%1'", _groupname, _groupDisplayName]);
 		diag_log format ["teamSetup.sqf - score variable %1 created.", _groupname];
+
+		//save groupname in players
+		_groupPlayers = [];
+		{
+			_unit = _x;
+			_groupPlayers pushBack (name _unit);
+			_unit setVariable ["groupname", _groupname, true];
+			_unit setVariable ["groupdisplayname", _groupDisplayName, true];
+		} forEach (units _group);
+
+		//add to ranking array
+		call compile (format ["
+			CURRENTRANKING pushBack [0, '%1', '%2', %3];
+		", _groupDisplayName, _groupName, _groupPlayers])
 	};
-} forEach playableUnits;
+} forEach allGroups;
 publicVariable "CURRENTRANKING";
 
 //Set uniforms =================================================================
