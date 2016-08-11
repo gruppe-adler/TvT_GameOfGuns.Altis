@@ -146,11 +146,17 @@ _tierScopesNeeded = _weaponsPerTier;
   };
 } forEach CHOSENWEAPONS;
 
-//REVERSE MODE =================================================================
-if (REVERSEMODE) then {
-  reverse CHOSENWEAPONS;
-  reverse MUZZLEITEMS;
-  reverse SCOPES;
+//GAME MODE ====================================================================
+switch (GAMEMODE) do {
+  case "STANDARD": {};
+  case "REVERSE": {
+    reverse CHOSENWEAPONS;
+    reverse MUZZLEITEMS;
+    reverse SCOPES;
+  };
+  case "RANDOM": {
+    [CHOSENWEAPONS, MUZZLEITEMS, SCOPES] call mcd_fnc_randomizeArrays;
+  };
 };
 
 //BROADCAST ====================================================================

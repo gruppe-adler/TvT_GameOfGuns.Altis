@@ -34,6 +34,7 @@ if (isServer) then {
   mcd_fnc_skipVote = compile preprocessFileLineNumbers "functions\fn_skipVote.sqf";
   mcd_fnc_showCamper = compile preprocessFileLineNumbers "functions\fn_showCamper.sqf";
   mcd_fnc_hideCamper = compile preprocessFileLineNumbers "functions\fn_hideCamper.sqf";
+  mcd_fnc_randomizeArrays = compile preprocessFileLineNumbers "functions\fn_randomizeArrays.sqf";
   KK_fnc_fileExists = compile preprocessFileLineNumbers "functions\fn_fileExists.sqf";
 
   //Parameters
@@ -42,7 +43,7 @@ if (isServer) then {
   SOLORESPAWNTIME = "SoloRespawnTime" call BIS_fnc_getParamValue;
   TEAMRESPAWNTIME = "TeamRespawnTime" call BIS_fnc_getParamValue;
   KILLSFORWIN = "KillsForWin" call BIS_fnc_getParamValue;
-  REVERSEMODE = ("ReverseMode" call BIS_fnc_getParamValue) == 1;
+  GAMEMODE = "GameMode" call BIS_fnc_getParamValue;
   CAMPTIME = "CampProtection" call BIS_fnc_getParamValue;
   RANDOMTEAMS = ("RandomTeams" call BIS_fnc_getParamValue) == 1;
   TEAMSIZE = "TeamSize" call BIS_fnc_getParamValue;
@@ -67,7 +68,7 @@ if (isServer) then {
   publicVariable "SOLORESPAWNTIME";
   publicVariable "TEAMRESPAWNTIME";
   publicVariable "KILLSFORWIN";
-  publicVariable "REVERSEMODE";
+  publicVariable "GAMEMODE";
   publicVariable "CAMPTIME";
   publicVariable "RANDOMTEAMS";
   publicVariable "TEAMSIZE";

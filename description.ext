@@ -68,12 +68,12 @@ class Params {
     default = 20;
   };
 
-  class ReverseMode
+  class GameMode
   {
-    title = "Reverse Mode (weak weapons first)";
-    values[] = {true, false};
-    texts[] = {"On", "Off"};
-    default = false;
+    title = "Game Mode";
+    values[] = {"STANDARD", "REVERSE", "RANDOM"};
+    texts[] = {"Standard (Strong Weapons First)", "Reverse (Weak Weapons First)", "Random (Random Weapon Order)"};
+    default = "STANDARD";
   };
 
   class CampProtection
