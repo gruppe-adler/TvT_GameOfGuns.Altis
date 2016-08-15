@@ -17,7 +17,8 @@ _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [getPos player, profileName] remoteExec ["mcd_fnc_weaponCleanup", 2, false];
 
 //create kill cam
-[(SOLORESPAWNTIME min TEAMRESPAWNTIME) min 10] execVM "player\killCam.sqf";
+_killCamHandle = [(SOLORESPAWNTIME min TEAMRESPAWNTIME) min 10] execVM "player\killCam.sqf";
+player setVariable ["killCamHandle", [_killCamHandle]];
 
 //keep player from respawning
 setPlayerRespawnTime 9999;
@@ -90,6 +91,15 @@ if (GAMEENDED) exitWith {};
 //respawn hint
 _respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
 hint composeText [_rule, _respawning, _lineBreak, _rule];
+
+//destroy killcam
+_camera = player getVariable "killCam";
+if (!isNil "_camera") then {
+  _killCamHandle = (player getVariable ["killCamHandle", [scriptNull]]) select 0;
+  terminate _killCamHandle;
+  camDestroy _camera;
+  showCinemaBorder false;
+};
 
 //respawn player
 iJustSpawned = true;

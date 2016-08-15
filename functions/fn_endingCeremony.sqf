@@ -10,6 +10,14 @@ GAMEENDED = true;
 
 //respawn player instantly if dead
 if (!alive player) then {
+  _camera = player getVariable "killCam";
+  if (!isNil "_camera") then {
+    _killCamHandle = (player getVariable ["killCamHandle", [scriptNull]]) select 0;
+    terminate _killCamHandle;
+    camDestroy _camera;
+    showCinemaBorder false;
+  };
+
   iJustSpawned = true;
   setPlayerRespawnTime 0;
   forceRespawn player;

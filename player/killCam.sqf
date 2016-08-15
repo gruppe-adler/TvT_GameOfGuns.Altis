@@ -15,6 +15,7 @@ _title = _display displayCtrl KILLCAMTITLE_TITLE;
 _title ctrlSetText _killMessage;
 
 _camera = "camera" camCreate ((getPos _unit) vectorAdd [0,0,2]);
+player setVariable ["killCam", _camera];
 _camera cameraEffect ["internal","back"];
 
 showCinemaBorder true;

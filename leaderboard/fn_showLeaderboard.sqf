@@ -35,10 +35,9 @@ _distanceMoved = round (player getVariable ["totalDistance", 0]);
 //DISPLAY LEADERBOARD ==========================================================
 //fill one row function
 _fillRow = {
-  params ["_display","_startID","_playerArray"];
+  params ["_display","_startID","_playerArray", "_rank"];
   _statsArray = _playerArray select 3;
 
-  _rank = _playerArray select 0;
   (_display displayCtrl _startID) ctrlSetText (str _rank);
 
   _name = _playerArray select 2;
@@ -53,19 +52,19 @@ _fillRow = {
   _playerUnit = [_playerArray select 1] call BIS_fnc_getUnitByUID;
   _playerPointsGained = _playerUnit getVariable ["eloThisGame", 0];
   _points = round (_playerArray select 0);
-  _sign = if (_playerPointsGained < 0) then {"-"} else {"+"};
+  _sign = if (_playerPointsGained < 0) then {""} else {"+"};
   _pointsText = format ["%1 (%2%3)", _points, _sign, _playerPointsGained];
   (_display displayCtrl (_startID+4)) ctrlSetText _pointsText;
 };
 
 //fill first 4 rows
-for [{_i=0}, {_i< count _gogStats}, {_i=_i+1}] do {
-  [_display, lb_0_0 + (_i*100), _gogStats select _i] call _fillRow;
+for [{_i=0}, {_i< ((count _gogStats) min 4)}, {_i=_i+1}] do {
+  [_display, lb_0_0 + (_i*100), _gogStats select _i, _i+1] call _fillRow;
 };
 
 //fill row 5
 if (count _gogStats > 4) then {
   _playerID = [_gogStats, getPlayerUID player, 1] call mcd_fnc_findStringInArray;
   _rowFiveID = if (_playerID < 4) then {4} else {_playerID};
-  [_display, lb_4_0, _gogStats select _rowFiveID] call _fillRow;
+  [_display, lb_4_0, _gogStats select _rowFiveID, _rowFiveID + 1] call _fillRow;
 };
