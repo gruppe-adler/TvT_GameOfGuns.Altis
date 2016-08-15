@@ -105,15 +105,11 @@ _tierScopesNeeded = _weaponsPerTier;
       _scopeName = _strArray select ((count _strArray) -1);
       _compatibleScopes pushBack _scopeName;
     } forEach _attributes;
-
     if (count _compatibleScopes == 0) then {
       _compatibleScopes = getArray (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "CowsSlot" >> "compatibleItems");
-      if (count _compatibleScopes == 0) then {
-        _diagReport pushBack (format ["No compatible scopes found for weapon %1.", _x]);
-        SCOPES pushBack "EMPTY";
-      };
+    };
 
-    } else {
+    if (count _compatibleScopes > 0) then {
       _scopeFound = false;
       for [{_i=0}, {_i<50}, {_i=_i+1}] do {
         _randomID = round (random ((count _compatibleScopes) - 1));
@@ -129,12 +125,13 @@ _tierScopesNeeded = _weaponsPerTier;
         _compatibleScopes deleteAt _randomID;
         if (count _compatibleScopes == 0) exitWith {_diagReport pushBack (format ["No scopes in compatible scopes allowed for weapon %1.", _weapon])};
       };
-      if (_scopeFound) then {
-        SCOPES pushBack _scope;
-      } else {
-        SCOPES pushBack "EMPTY";
-      };
+
+      if (_scopeFound) then {SCOPES pushBack _scope} else {SCOPES pushBack "EMPTY"};
+    } else {
+      _diagReport pushBack (format ["No compatible scopes found for weapon %1.", _x]);
+      SCOPES pushBack "EMPTY";
     };
+
   } else {
     SCOPES pushBack "EMPTY";
   };
@@ -148,13 +145,13 @@ _tierScopesNeeded = _weaponsPerTier;
 
 //GAME MODE ====================================================================
 switch (GAMEMODE) do {
-  case "STANDARD": {};
-  case "REVERSE": {
+  case 0: {};
+  case 1: {
     reverse CHOSENWEAPONS;
     reverse MUZZLEITEMS;
     reverse SCOPES;
   };
-  case "RANDOM": {
+  case 2: {
     [CHOSENWEAPONS, MUZZLEITEMS, SCOPES] call mcd_fnc_randomizeArrays;
   };
 };

@@ -20,7 +20,7 @@ _deaths = player getVariable ["deaths", 0];
 (_display displayCtrl mystats_1) ctrlSetText (str _deaths);
 
 //K/D
-_kd = _kills / _deaths;
+_kd = (_kills max 1) / (_deaths max 1);
 (_display displayCtrl mystats_2) ctrlSetText (str _kd);
 
 //longest kill
@@ -44,7 +44,7 @@ _fillRow = {
   _name = _playerArray select 2;
   (_display displayCtrl (_startID+1)) ctrlSetText (str _name);
 
-  _kd = (round (((_statsArray select 0) / (_statsArray select 1)) * 100)) / 100;
+  _kd = (round ((((_statsArray select 0) max 1) / ((_statsArray select 1) max 1)) * 100)) / 100;
   (_display displayCtrl (_startID+2)) ctrlSetText (str _kd);
 
   _games = _statsArray select 2;

@@ -1,5 +1,5 @@
-waitUntil {!isNil "TEAMSETUPDONE"};
-waitUntil {TEAMSETUPDONE};
+waitUntil {!isNil "RADIOFREQDONE"};
+waitUntil {RADIOFREQDONE};
 
 diag_log "startPositions.sqf starting...";
 

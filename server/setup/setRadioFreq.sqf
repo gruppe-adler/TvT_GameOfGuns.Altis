@@ -65,3 +65,7 @@ sleep 2;
 
 //Make players set their frequency
 [[], "player\setup\setRadioFreq.sqf"] remoteExec ["execVM",0,false];
+sleep 2;
+
+RADIOFREQDONE = true;
+publicVariable "RADIOFREQDONE";

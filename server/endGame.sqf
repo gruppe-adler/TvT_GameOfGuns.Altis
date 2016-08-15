@@ -17,5 +17,5 @@ sleep ((10 - (serverTime - _startTime)) max 0);
 //show leaderboard on clients
 [GOGSTATS] remoteExec ["mcd_fnc_showLeaderboard", 0, false];
 
-sleep 15;
+sleep 17;
 [_winner] remoteExec ["mcd_fnc_endMission",0,false];

@@ -1,6 +1,6 @@
 /*  Adds score points to group
 *
-*   used in functions\fn_addKilledEH.sqf
+*   remote executed by killed player (onPlayerKilled.sqf)
 */
 
 /*_victim = (_this select 0) select 0;*/
@@ -35,9 +35,7 @@ if (_teamkill) then {
 
 //add score
 _group = _shooter getVariable "groupname";
-_groupDisplayName = _shooter getVariable "groupdisplayname";
 _score = call compile (format ["%1", _group]);
-_rankID = CURRENTRANKING find [_score, _groupDisplayName];
 if (_teamkill) then {
   if (_score > 0) then {
     _score = call compile (format ["%1 = %1 - 1; publicVariable '%1'; %1", _group]);
@@ -47,7 +45,9 @@ if (_teamkill) then {
 };
 
 //update ranking
-if (_rankdID != -1) then {
+_groupDisplayName = _shooter getVariable "groupdisplayname";
+_rankID = [CURRENTRANKING, _groupDisplayName, 1] call mcd_fnc_findStringInArray;
+if (_rankID != -1) then {
   _rankArray = (CURRENTRANKING select _rankID);
   _rankArray set [0, _score];
 } else {
