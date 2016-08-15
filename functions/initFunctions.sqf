@@ -21,5 +21,7 @@ mcd_fnc_formattedLog = compile preprocessFileLineNumbers "functions\fn_formatted
 mcd_fnc_weaponCleanup = compile preprocessFileLineNumbers "functions\fn_weaponCleanup.sqf";
 mcd_fnc_skipVote = compile preprocessFileLineNumbers "functions\fn_skipVote.sqf";
 mcd_fnc_randomizeArrays = compile preprocessFileLineNumbers "functions\fn_randomizeArrays.sqf";
-mcd_fnc_findPlayerStats = compile preprocessFileLineNumbers "functions\fn_findPlayerStats.sqf";
+mcd_fnc_findStringInArray = compile preprocessFileLineNumbers "functions\fn_findStringInArray.sqf";
 KK_fnc_fileExists = compile preprocessFileLineNumbers "functions\fn_fileExists.sqf";
+
+mcd_fnc_showLeaderboard = compile preprocessFileLineNumbers "leaderboard\fn_showLeaderboard.sqf";

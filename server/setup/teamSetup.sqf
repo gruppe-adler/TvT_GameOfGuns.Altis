@@ -14,6 +14,13 @@ if (count playableUnits <= 2) then {
 };
 
 //Setup for each player ========================================================
+_gogStats = profileNameSpace getVariable "mcd_gameofguns_stats";
+if (isNil "_gogStats") then {
+	profileNameSpace setVariable ["mcd_gameofguns_stats", []];
+	_gogStats = profileNameSpace getVariable "mcd_gameofguns_stats";
+	diag_log "endGame.sqf - STATS NOT FOUND ON SERVER. STATS ARRAY HAS BEEN CREATED IN PROFILENAMESPACE.";
+};
+ALLPLAYERUIDS = [];
 {
 	_x setVariable ["isTeamlead", false, true];
 	_x setVariable ["spawnpos", [0,0,0], true];
@@ -21,8 +28,19 @@ if (count playableUnits <= 2) then {
 	_x setVariable ["deaths", 0, true];
 	_x setVariable ["longestKill", 0, true];
 	_x setVariable ["eloThisGame", 0, true];
-	/*[_x] call mcd_fnc_addKilledEH;*/
-} forEach playableUnits;
+
+	//save UID of everyone who is playing
+	_playerUID = getPlayerUID _x;
+	ALLPLAYERUIDS pushBack _playerUID;
+
+	//add new players to stats
+	if ([_gogStats, _playerUID, 1] call mcd_fnc_findStringInArray == -1) then {
+		//elo, uid, name, [kills, deaths, games]
+		_gogStats pushBack [100, _playerUID, name _x, [0,0,0]];
+	};
+
+} forEach allPlayers;
+saveProfileNamespace;
 
 //Define TEAMLEADERS if random groups are off ==================================
 if (!(RANDOMTEAMS) || ((count playableUnits) == 1)) then {
@@ -134,10 +152,10 @@ CURRENTRANKING = [];
 		diag_log format ["teamSetup.sqf - score variable %1 created.", _groupname];
 
 		//save groupname in players
-		_groupPlayers = [];
+		_groupPlayerUIDs = [];
 		{
 			_unit = _x;
-			_groupPlayers pushBack (name _unit);
+			_groupPlayerUIDs pushBack (getPlayerUID _unit);
 			_unit setVariable ["groupname", _groupname, true];
 			_unit setVariable ["groupdisplayname", _groupDisplayName, true];
 		} forEach (units _group);
@@ -145,7 +163,7 @@ CURRENTRANKING = [];
 		//add to ranking array
 		call compile (format ["
 			CURRENTRANKING pushBack [0, '%1', '%2', %3];
-		", _groupDisplayName, _groupName, _groupPlayers])
+		", _groupDisplayName, _groupName, _groupPlayerUIDs])
 	};
 } forEach allGroups;
 publicVariable "CURRENTRANKING";
