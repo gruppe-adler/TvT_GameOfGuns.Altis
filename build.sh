@@ -7,12 +7,14 @@ missionname="TvT_GameOfGuns"
 islands=(
 	Abel
 	Altis
+	Beketov
 	Cain
 	Chernarus
 	Desert_Island
 	eden
 	fata
 	IslaDuala3
+	mbg_celle2
 	namalsk
 	noe
 	Panthera3
@@ -22,6 +24,7 @@ islands=(
 	SugarLake
 	Takistan
 	Tanoa
+	Taviana
 	utes
 	vt5
 	Zargabad
