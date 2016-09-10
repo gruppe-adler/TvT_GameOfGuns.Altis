@@ -305,7 +305,185 @@ class leaderboard
       y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (4 * (lb_cellH + lb_cellPaddingY));
     };
 
+    class Cell50: Cell
+    {
+      idc = lb_5_0;
+      x = lb_mainX + lb_cellPaddingX + (0 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (5 * (lb_cellH + lb_cellPaddingY));
+      style = ST_LEFT;
+    };
 
+    class Cell51: Cell
+    {
+      idc = lb_5_1;
+      x = lb_mainX + lb_cellPaddingX + (1 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (5 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell52: Cell
+    {
+      idc = lb_5_2;
+      x = lb_mainX + lb_cellPaddingX + (2 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (5 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell53: Cell
+    {
+      idc = lb_5_3;
+      x = lb_mainX + lb_cellPaddingX + (3 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (5 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell54: Cell
+    {
+      idc = lb_5_4;
+      x = lb_mainX + lb_cellPaddingX + (4 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (5 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell60: Cell
+    {
+      idc = lb_6_0;
+      x = lb_mainX + lb_cellPaddingX + (0 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (6 * (lb_cellH + lb_cellPaddingY));
+      style = ST_LEFT;
+    };
+
+    class Cell61: Cell
+    {
+      idc = lb_6_1;
+      x = lb_mainX + lb_cellPaddingX + (1 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (6 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell62: Cell
+    {
+      idc = lb_6_2;
+      x = lb_mainX + lb_cellPaddingX + (2 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (6 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell63: Cell
+    {
+      idc = lb_6_3;
+      x = lb_mainX + lb_cellPaddingX + (3 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (6 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell64: Cell
+    {
+      idc = lb_6_4;
+      x = lb_mainX + lb_cellPaddingX + (4 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (6 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell70: Cell
+    {
+      idc = lb_7_0;
+      x = lb_mainX + lb_cellPaddingX + (0 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (7 * (lb_cellH + lb_cellPaddingY));
+      style = ST_LEFT;
+    };
+
+    class Cell71: Cell
+    {
+      idc = lb_7_1;
+      x = lb_mainX + lb_cellPaddingX + (1 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (7 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell72: Cell
+    {
+      idc = lb_7_2;
+      x = lb_mainX + lb_cellPaddingX + (2 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (7 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell73: Cell
+    {
+      idc = lb_7_3;
+      x = lb_mainX + lb_cellPaddingX + (3 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (7 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell74: Cell
+    {
+      idc = lb_7_4;
+      x = lb_mainX + lb_cellPaddingX + (4 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (7 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell80: Cell
+    {
+      idc = lb_8_0;
+      x = lb_mainX + lb_cellPaddingX + (0 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (8 * (lb_cellH + lb_cellPaddingY));
+      style = ST_LEFT;
+    };
+
+    class Cell81: Cell
+    {
+      idc = lb_8_1;
+      x = lb_mainX + lb_cellPaddingX + (1 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (8 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell82: Cell
+    {
+      idc = lb_8_2;
+      x = lb_mainX + lb_cellPaddingX + (2 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (8 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell83: Cell
+    {
+      idc = lb_8_3;
+      x = lb_mainX + lb_cellPaddingX + (3 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (8 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell84: Cell
+    {
+      idc = lb_8_4;
+      x = lb_mainX + lb_cellPaddingX + (4 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (8 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell90: Cell
+    {
+      idc = lb_9_0;
+      x = lb_mainX + lb_cellPaddingX + (0 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (9 * (lb_cellH + lb_cellPaddingY));
+      style = ST_LEFT;
+    };
+
+    class Cell91: Cell
+    {
+      idc = lb_9_1;
+      x = lb_mainX + lb_cellPaddingX + (1 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (9 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell92: Cell
+    {
+      idc = lb_9_2;
+      x = lb_mainX + lb_cellPaddingX + (2 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (9 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell93: Cell
+    {
+      idc = lb_9_3;
+      x = lb_mainX + lb_cellPaddingX + (3 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (9 * (lb_cellH + lb_cellPaddingY));
+    };
+
+    class Cell94: Cell
+    {
+      idc = lb_9_4;
+      x = lb_mainX + lb_cellPaddingX + (4 * (lb_cellW + lb_cellPaddingX));
+      y = lb_mainY + lb_cellPaddingY + lb_titleH + lb_cellPaddingY + (9 * (lb_cellH + lb_cellPaddingY));
+    };
 
     class MyStatsTitle0: TitleCell
     {

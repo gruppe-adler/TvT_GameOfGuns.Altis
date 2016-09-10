@@ -50,21 +50,21 @@ _fillRow = {
   (_display displayCtrl (_startID+3)) ctrlSetText (str _games);
 
   _playerUnit = [_playerArray select 1] call BIS_fnc_getUnitByUID;
-  _playerPointsGained = _playerUnit getVariable ["eloThisGame", 0];
+  _playerPointsGained = round (_playerUnit getVariable ["eloThisGame", 0]);
   _points = round (_playerArray select 0);
   _sign = if (_playerPointsGained < 0) then {""} else {"+"};
   _pointsText = format ["%1 (%2%3)", _points, _sign, _playerPointsGained];
   (_display displayCtrl (_startID+4)) ctrlSetText _pointsText;
 };
 
-//fill first 4 rows
-for [{_i=0}, {_i< ((count _gogStats) min 4)}, {_i=_i+1}] do {
+//fill all but last rows
+for [{_i=0}, {_i< ((count _gogStats) min (lb_numberOfRows-1))}, {_i=_i+1}] do {
   [_display, lb_0_0 + (_i*100), _gogStats select _i, _i+1] call _fillRow;
 };
 
-//fill row 5
-if (count _gogStats > 4) then {
+//fill last row
+if (count _gogStats > (lb_numberOfRows-1)) then {
   _playerID = [_gogStats, getPlayerUID player, 1] call mcd_fnc_findStringInArray;
-  _rowFiveID = if (_playerID < 4) then {4} else {_playerID};
-  [_display, lb_4_0, _gogStats select _rowFiveID, _rowFiveID + 1] call _fillRow;
+  _rowFiveID = if (_playerID < (lb_numberOfRows-1)) then {(lb_numberOfRows-1)} else {_playerID};
+  [_display, lb_9_0, _gogStats select _rowFiveID, _rowFiveID + 1] call _fillRow;
 };
