@@ -42,7 +42,7 @@ _insult = selectRandom [
 _function = {
   params ["_camper", "_handle"];
   if (isNull _camper || !alive _camper) exitWith {[_handle] call CBA_fnc_removePerFrameHandler};
-	drawIcon3D ["a3\ui_f\data\gui\Rsc\RscDisplayIntel\azimuth_ca.paa", [1,1,1,1], (getPos _camper) vectorAdd [0,0,1], 1, 1, 45, name _camper, 1, 0.05, "PuristaMedium"];
+	drawIcon3D ["a3\ui_f\data\gui\Rsc\RscDisplayIntel\azimuth_ca.paa", [1,1,1,1], (getPosATL _camper) vectorAdd [0,0,1], 1, 1, 45, format ["%1 (%2m)", name _camper, round (player distance _camper)], 1, 0.04, "PuristaMedium"];
 };
 _handle = [_function, 0, _camper] call CBA_fnc_addPerFrameHandler;
 
