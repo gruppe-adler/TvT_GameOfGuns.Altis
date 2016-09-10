@@ -44,7 +44,7 @@ _scoreBoardItem = _display displayCtrl SCOREBOARD_ITEM4;
 _scoreBoardScore = _display displayCtrl SCOREBOARD_SCORE4;
 _teamName = player getVariable "groupdisplayname";
 _teamScore = call compile (player getVariable "groupname");
-if (CURRENTRANKING find [_teamScore, _teamName] > 2) then {
+if (([CURRENTRANKING, _teamName, 1] call mcd_fnc_findStringInArray) > 2) then {
   _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0.4];
   _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0.4];
   _scoreBoardItem ctrlSetText _teamName;
@@ -52,4 +52,6 @@ if (CURRENTRANKING find [_teamScore, _teamName] > 2) then {
 } else {
   _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0];
   _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0];
+  _scoreBoardItem ctrlSetText "";
+  _scoreBoardScore ctrlSetText "";
 };
