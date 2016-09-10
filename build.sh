@@ -19,7 +19,7 @@ islands=(
 	SugarLake
 	Takistan
 	Tanoa
-	Taviana
+	taviana
 	utes
 	Zargabad
 )
