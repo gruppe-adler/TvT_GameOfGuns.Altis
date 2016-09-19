@@ -16,7 +16,7 @@ STARTPOSITIONS = [];
 
 		//find position that is not over water
 		_isWater = true;
-		for [{_i=0}, {_i<100}, {STEP}] do {
+		for [{_i=0}, {_i<100}, {_i = _i + 1}] do {
 			_teamleadpos = [PLAYAREACENTER, [0, PLAYAREASIZE-25], [0,360], 1] call SHK_pos;
 			_isWater = surfaceIsWater _teamleadpos;
       if (!_isWater) exitWith {};
