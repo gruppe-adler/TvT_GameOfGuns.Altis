@@ -10,9 +10,7 @@ islands=(
 	Chernarus
 	Desert_Island
 	fata
-	IslaDuala3
 	mbg_celle2
-	namalsk
 	Porto
 	Sara_dbe1
 	Stratis
