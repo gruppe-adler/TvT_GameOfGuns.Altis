@@ -6,7 +6,7 @@
 */
 
 params ["_score"];
-private ["_weapon"];
+private ["_weapon","_magazine"];
 
 //player won ===================================================================
 if (_score >= KILLSFORWIN) exitWith {
@@ -23,7 +23,11 @@ _scope = SCOPES select _score;
 
 //get magazine
 _magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
-_magazine = selectRandom _magazines;
+_isBlank = true;
+while {_isBlank} do {
+    _magazine = selectRandom _magazines;
+    _isBlank = ([configFile >> "CfgMagazines" >> _magazine >> "initSpeed", "number", 900] call CBA_fnc_getConfigEntry) < 15;
+};
 
 //remove old weapon and magazines
 {player removeWeapon _x} forEach weapons player;
