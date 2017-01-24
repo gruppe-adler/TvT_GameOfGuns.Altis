@@ -11,9 +11,6 @@ MAPSTARTPOS = (ISLAND_CONFIG select (ISLANDS find worldName)) select 1;
 publicVariable "ISWOODLAND";
 publicVariable "MAPSTARTPOS";
 
-_initFunctions = [] execVM "functions\initFunctions.sqf";
-waitUntil {scriptDone _initFunctions};
-
 //Parameters
 WEATHER_SETTING = "WeatherSetting" call BIS_fnc_getParamValue;
 TIME_OF_DAY = "TimeOfDay" call BIS_fnc_getParamValue;

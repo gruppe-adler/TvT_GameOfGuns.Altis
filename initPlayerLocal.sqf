@@ -1,8 +1,5 @@
 call compile preprocessfile "SHK_pos\shk_pos_init.sqf";
 
-_initFunctions = [] execVM "functions\initFunctions.sqf";
-waitUntil {scriptDone _initFunctions};
-
 joinTime = serverTime;
 currentScore = 0;
 iJustSpawned = false;
