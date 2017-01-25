@@ -10,12 +10,12 @@ params ["_winner"];
 
 //update stats
 _startTime = serverTime;
-/*_updateStats = [] execVM "server\updateLeaderboard.sqf";*/
-waitUntil {scriptDone _updateStats};
-sleep ((10 - (serverTime - _startTime)) max 0);
+_stats = [] call mcd_fnc_updateLeaderboard;
+_compiledStats = [_stats] call mcd_fnc_compileForGRADScoreboard;
 
-//show leaderboard on clients
-/*[GOGSTATS] remoteExec ["mcd_fnc_showLeaderboard", 0, false];*/
+//show on clients
+[_compiledStats] remoteExec ["mcd_fnc_showGRADScoreboard",0,false];
 
-sleep 27;
+//end mission
+sleep 24;
 [_winner] remoteExec ["mcd_fnc_endMission",0,false];

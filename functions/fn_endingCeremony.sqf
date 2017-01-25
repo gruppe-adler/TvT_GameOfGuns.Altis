@@ -1,6 +1,6 @@
-/*  Plays game end procedure
+/*    Plays game end procedure
 *
-*   remote executed by server via server\endGame.sqf
+*     remote executed by server via server\endGame.sqf
 */
 
 if (!hasInterface) exitWith {};
@@ -10,19 +10,19 @@ GAMEENDED = true;
 
 //respawn player instantly if dead
 if (!alive player) then {
-  _camera = player getVariable "killCam";
-  if (!isNil "_camera") then {
-    _killCamHandle = (player getVariable ["killCamHandle", [scriptNull]]) select 0;
-    terminate _killCamHandle;
-    camDestroy _camera;
-    showCinemaBorder false;
-  };
+    _camera = player getVariable "killCam";
+    if (!isNil "_camera") then {
+        _killCamHandle = (player getVariable ["killCamHandle", [scriptNull]]) select 0;
+        terminate _killCamHandle;
+        camDestroy _camera;
+        showCinemaBorder false;
+    };
 
-  iJustSpawned = true;
-  setPlayerRespawnTime 0;
-  forceRespawn player;
-  waitUntil {alive player};
-  cutText ["", "BLACK IN", 0.5];
+    iJustSpawned = true;
+    setPlayerRespawnTime 0;
+    forceRespawn player;
+    waitUntil {alive player};
+    cutText ["", "BLACK IN", 0.5];
 };
 
 player allowDamage false;

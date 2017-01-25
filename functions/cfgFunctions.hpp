@@ -4,6 +4,7 @@ class mcd {
         file = functions;
         class addGear {};
         class addKilledEH {};
+        class compileForGRADScoreboard {};
         class endingCeremony {};
         class endMission {};
         class findGreatestNum {};
@@ -18,9 +19,11 @@ class mcd {
         class scoreBoard {};
         class setScore {};
         class showCamper {};
+        class showGRADScoreboard {};
         class skipVote {};
         class strToVar {};
         class teleport {};
+        class updateLeaderboard {};
         class updateVotesMarker {};
         class upgradeWeapon {};
         class upgradeWeaponTitle {};
