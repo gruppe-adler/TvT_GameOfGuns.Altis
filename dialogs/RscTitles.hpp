@@ -48,7 +48,7 @@ class upgradeWeaponTitle
 
 	class ControlsBackground
 	{
-		class Background: IGUIBack
+		class Background: mcd_IGUIBack
 		{
 			idc = UPGRADEWEAPON_BG;
 			x = uw_x;
