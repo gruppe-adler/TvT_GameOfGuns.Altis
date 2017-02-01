@@ -4,9 +4,9 @@
 #include "cfgDialogs.hpp"
 
 #include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
+#include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
 
-class CfgFunctions {
-    #include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
+class CfgFunctions {    
     #include "functions\cfgFunctions.hpp"
 };
 
