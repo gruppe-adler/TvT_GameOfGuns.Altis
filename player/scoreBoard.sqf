@@ -1,4 +1,4 @@
-#include "defines.hpp"
+#include "..\dialogs\scoreboard\defines.hpp"
 
 waitUntil {!isNil "isSpectator"};
 if (isSpectator) exitWith {};

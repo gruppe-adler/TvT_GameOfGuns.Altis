@@ -21,7 +21,7 @@ class mcd_IGUIBack
 	};
 };
 
-class RscText
+class mcd_RscText
 {
 	access = 0;
 	type = 0;
@@ -42,7 +42,7 @@ class RscText
 	linespacing = 1;
 };
 
-class mcd_RscMapText: RscText
+class mcd_RscMapText: mcd_RscText
 {
 	idc = -1;
 	type = CT_STATIC;
@@ -56,7 +56,7 @@ class mcd_RscMapText: RscText
 	duration = 1e+1000;
 };
 
-class mcd_RscMapTextSmall: RscText
+class mcd_RscMapTextSmall: mcd_RscText
 {
 	idc = -1;
 	type = CT_STATIC;

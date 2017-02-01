@@ -1,46 +1,88 @@
-//TYPES AND STYLES =============================================================
+// Control types
 #define CT_STATIC           0
+#define CT_BUTTON           1
+#define CT_EDIT             2
+#define CT_SLIDER           3
+#define CT_COMBO            4
+#define CT_LISTBOX          5
+#define CT_TOOLBOX          6
+#define CT_CHECKBOXES       7
+#define CT_PROGRESS         8
+#define CT_HTML             9
+#define CT_STATIC_SKEW      10
+#define CT_ACTIVETEXT       11
+#define CT_TREE             12
+#define CT_STRUCTURED_TEXT  13
+#define CT_CONTEXT_MENU     14
+#define CT_CONTROLS_GROUP   15
+#define CT_SHORTCUTBUTTON   16
+#define CT_XKEYDESC         40
+#define CT_XBUTTON          41
+#define CT_XLISTBOX         42
+#define CT_XSLIDER          43
+#define CT_XCOMBO           44
+#define CT_ANIMATED_TEXTURE 45
+#define CT_OBJECT           80
+#define CT_OBJECT_ZOOM      81
+#define CT_OBJECT_CONTAINER 82
+#define CT_OBJECT_CONT_ANIM 83
+#define CT_LINEBREAK        98
+#define CT_USER             99
+#define CT_MAP              100
+#define CT_MAP_MAIN         101
+#define CT_LISTNBOX         102
 
+// Static styles
+#define ST_POS            0x0F
+#define ST_HPOS           0x03
+#define ST_VPOS           0x0C
 #define ST_LEFT           0x00
+#define ST_RIGHT          0x01
 #define ST_CENTER         0x02
+#define ST_DOWN           0x04
+#define ST_UP             0x08
+#define ST_VCENTER        0x0C
 
-//KILLCAM ======================================================================
-#define KILLCAMTITLE_DIALOG 5000
-#define KILLCAMTITLE_TITLE 5001
+#define ST_TYPE           0xF0
+#define ST_SINGLE         0x00
+#define ST_MULTI          0x10
+#define ST_TITLE_BAR      0x20
+#define ST_PICTURE        0x30
+#define ST_FRAME          0x40
+#define ST_BACKGROUND     0x50
+#define ST_GROUP_BOX      0x60
+#define ST_GROUP_BOX2     0x70
+#define ST_HUD_BACKGROUND 0x80
+#define ST_TILE_PICTURE   0x90
+#define ST_WITH_RECT      0xA0
+#define ST_LINE           0xB0
 
-#define kc_W (1 * X_SCALE)
-#define kc_H (0.1 * Y_SCALE)
-#define kc_titleX CENTER(1, kc_W)
-#define kc_titleY (0.65 * Y_SCALE)
+#define ST_SHADOW         0x100
+#define ST_NO_RECT        0x200
+#define ST_KEEP_ASPECT_RATIO  0x800
 
-//UPGRADE WEAPON ===============================================================
-#define UPGRADEWEAPON_DIALOG 6000
-#define UPGRADEWEAPON_BG 6001
-#define UPGRADEWEAPON_PIC 6002
-#define UPGRADEWEAPON_TEXT 6003
+#define ST_TITLE          ST_TITLE_BAR + ST_CENTER
 
-#define uw_x (SZ_RIGHT - 0.442)
-#define uw_y (SZ_TOP + 0.33)
-#define uw_w (0.30 * X_SCALE)
-#define uw_h (uw_w * 0.75)
-#define uw_paddingX (uw_w * 0.1)
-#define uw_paddingY (uw_h * 0.1)
+// Slider styles
+#define SL_DIR            0x400
+#define SL_VERT           0
+#define SL_HORZ           0x400
 
-//SCOREBOARD ===================================================================
-#define SCOREBOARD_DIALOG 7000
-#define SCOREBOARD_ITEM1 7001
-#define SCOREBOARD_ITEM2 7002
-#define SCOREBOARD_ITEM3 7003
-#define SCOREBOARD_ITEM4 7004
-#define SCOREBOARD_SCORE1 7011
-#define SCOREBOARD_SCORE2 7012
-#define SCOREBOARD_SCORE3 7013
-#define SCOREBOARD_SCORE4 7014
+#define SL_TEXTURES       0x10
 
-#define sb_itemW (0.25 * X_SCALE)
-#define sb_itemH (0.025 * Y_SCALE)
-#define sb_scoreW (sb_itemH * 0.75)
-#define sb_totalX (SZ_RIGHT - 0.25)
-#define sb_totalY (0.135 * Y_SCALE)
-#define sb_itemSpacingX (0.03 * sb_itemH * X_SCALE)
-#define sb_itemSpacingY (0.03 * sb_itemH * Y_SCALE)
+// progress bar
+#define ST_VERTICAL       0x01
+#define ST_HORIZONTAL     0
+
+// Listbox styles
+#define LB_TEXTURES       0x10
+#define LB_MULTI          0x20
+
+// Tree styles
+#define TR_SHOWROOT       1
+#define TR_AUTOCOLLAPSE   2
+
+// MessageBox styles
+#define MB_BUTTON_OK      1
+#define MB_BUTTON_CANCEL  2
+#define MB_BUTTON_USER    4

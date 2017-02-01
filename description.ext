@@ -1,13 +1,13 @@
 #define MODULES_DIRECTORY node_modules
 
 #include "cfgParams.hpp"
-#include "cfgDialogs.hpp"
+#include "dialogs\cfgDialogs.hpp"
 
 #include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
-#include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
 
-class CfgFunctions {    
+class CfgFunctions {
     #include "functions\cfgFunctions.hpp"
+    #include "node_modules\grad-scoreboard\cfgFunctions.hpp"
 };
 
 // HEADER ======================================================================

@@ -14,6 +14,7 @@ _stats = [] call mcd_fnc_updateLeaderboard;
 _compiledStats = [_stats] call mcd_fnc_compileForGRADScoreboard;
 
 //show on clients
+sleep 10;
 [_compiledStats] remoteExec ["mcd_fnc_showGRADScoreboard",0,false];
 
 //end mission

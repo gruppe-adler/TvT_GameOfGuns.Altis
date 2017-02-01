@@ -12,4 +12,4 @@ _myStats = [
     [_kills,_deaths,(round (_kd*100))/100,format ["%1m",round _longestKill],format ["%1m",_distanceMoved]]
 ];
 
-[20,_compiledStats,"GAME OF GUNS LEADERBOARD",false,_myStats,"MY STATS THIS GAME",false,false] call grad_scoreboard_fnc_loadScoreboard;
+[20,_serverStats,"GAME OF GUNS LEADERBOARD",false,false,_myStats,"MY STATS THIS GAME",false,false] call grad_scoreboard_fnc_loadScoreboard;

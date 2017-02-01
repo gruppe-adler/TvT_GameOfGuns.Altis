@@ -1,4 +1,4 @@
-/*#include "..\player\defines.hpp"*/
+#include "..\dialogs\scoreboard\defines.hpp"
 
 private ["_display", "_teamScore", "_teamName"];
 if (!alive player) exitWith {};

@@ -1,4 +1,4 @@
-#include "defines.hpp"
+#include "..\dialogs\killcam\defines.hpp"
 
 params ["_totalTime"];
 disableSerialization;

@@ -1,4 +1,4 @@
-/*#include "..\player\defines.hpp"*/
+#include "..\dialogs\upgradeWeaponTitle\defines.hpp"
 
 params ["_dialog"];
 
