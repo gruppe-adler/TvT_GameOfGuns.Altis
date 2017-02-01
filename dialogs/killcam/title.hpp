@@ -1,3 +1,19 @@
+class KillCamText
+{
+    access = 0;
+    type = CT_STATIC;
+    idc = -1;
+    style = ST_CENTER;
+    w = 0.1; h = 0.05;
+    font = "PuristaMedium";
+    sizeEx = 0.08;
+    colorBackground[] = {0,0,0,0};
+    colorText[] = {1,1,1,1};
+    text = "";
+    fixedWidth = 0;
+    shadow = 0;
+};
+
 class KillCamTitle
 {
     idd = KILLCAMTITLE_DIALOG;

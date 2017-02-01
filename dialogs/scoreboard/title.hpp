@@ -1,3 +1,29 @@
+class ScoreBoardItem
+{
+    access = 0;
+    type = CT_STATIC;
+    idc = -1;
+    style = ST_LEFT;
+    x = sb_totalX + sb_scoreW + sb_itemSpacingX;
+    w = sb_itemW;
+    h = sb_itemH;
+    font = "PuristaLight";
+    sizeEx = (0.04 * TEXT_SCALE);
+    colorBackground[] = {0,0,0,0};
+    colorText[] = {1,1,1,1};
+    text = "";
+    fixedWidth = 0;
+    shadow = 0;
+};
+
+class ScoreBoardScore: ScoreBoardItem
+{
+    style = ST_CENTER;
+    x = sb_totalX;
+    w = sb_scoreW;
+    text = "";
+};
+
 class ScoreBoard
 {
 	idd = SCOREBOARD_DIALOG;
