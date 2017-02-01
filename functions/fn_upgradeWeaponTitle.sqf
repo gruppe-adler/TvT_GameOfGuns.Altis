@@ -1,4 +1,4 @@
-#include "..\player\defines.hpp"
+/*#include "..\player\defines.hpp"*/
 
 params ["_dialog"];
 
