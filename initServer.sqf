@@ -22,6 +22,7 @@ CAMPTIME = "CampProtection" call BIS_fnc_getParamValue;
 RANDOMTEAMS = ("RandomTeams" call BIS_fnc_getParamValue) == 1;
 TEAMSIZE = "TeamSize" call BIS_fnc_getParamValue;
 SAMEALTCHANNEL = ("SameAltChannel" call BIS_fnc_getParamValue) == 1;
+RANKEDMODE = ("RankedMode" call BIS_fnc_getParamValue) == 1;
 
 //Settings
 PLAYAREAMINSIZE = 100;
@@ -48,6 +49,7 @@ publicVariable "CAMPTIME";
 publicVariable "RANDOMTEAMS";
 publicVariable "TEAMSIZE";
 publicVariable "SAMEALTCHANNEL";
+publicVariable "RANKEDMODE";
 publicVariable "PLAYAREAMINSIZE";
 publicVariable "PLAYAREAMAXSIZE";
 publicVariable "MUZZLEATTACHMENTPROB";

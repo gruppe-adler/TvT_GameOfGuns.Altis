@@ -78,4 +78,12 @@ class Params {
         texts[] = {"On", "Off"};
         default = true;
     };
+
+    class RankedMode
+    {
+        title = "Ranked Mode";
+        values[] = {1,0};
+        texts[] = {"On","Off"};
+        default = 1;
+    };
 };
