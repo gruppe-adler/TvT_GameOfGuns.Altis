@@ -9,15 +9,16 @@ islands=(
 	Beketov
 	Chernarus
 	Desert_Island
+	dingor
+	fallujah
 	fata
+	lingor3
 	mbg_celle2
 	Porto
 	Sara_dbe1
 	Stratis
-	SugarLake
 	Takistan
 	Tanoa
-	taviana
 	utes
 	Zargabad
 )
