@@ -15,7 +15,6 @@ if (ISWOODLAND) then {
     ['U_B_CombatUniform_mcam_vest', 'V_PlateCarrier1_rgr'],
 
     //ARC
-    ['ARC_Common_MC_Uniform', 'ARC_Common_TAN_PlateCarrier_1'],
     ['ARC_GER_Flecktarn_Uniform', 'ARC_GER_Flecktarn_Plate_Carrier'],
 
     //THAI
