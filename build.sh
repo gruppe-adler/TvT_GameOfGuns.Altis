@@ -11,6 +11,7 @@ islands=(
 	Desert_Island
 	fallujah
 	fata
+	lythium
 	Malden
 	mbg_celle2
 	Porto
