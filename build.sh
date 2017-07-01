@@ -9,10 +9,9 @@ islands=(
 	Beketov
 	Chernarus
 	Desert_Island
-	dingor
 	fallujah
 	fata
-	lingor3
+	Malden
 	mbg_celle2
 	Porto
 	Sara_dbe1
