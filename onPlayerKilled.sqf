@@ -42,7 +42,7 @@ while {_timeleft > 0} do {
   //hint
   _timestr = [_timeleft, "MM:SS"] call BIS_fnc_secondsToString;
   _respawnIn = parseText format ["<t align='center' size='1.4'>Respawn in: <t color='#ffff00'>%1</t></t>", _timestr];
-  hint composeText [_rule,_respawnin,_linebreak,_rule];
+  hintSilent composeText [_rule,_respawnin,_linebreak,_rule];
 
   //check if teammates alive
   _teammatesalive = false;
