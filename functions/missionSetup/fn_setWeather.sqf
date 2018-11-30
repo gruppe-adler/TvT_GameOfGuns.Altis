@@ -4,16 +4,17 @@ params ["_timeOfDay"];
 
 //OVERCAST =====================================================================
 private _overcast = 0;
+private _weatherSetting = "WeatherSetting" call BIS_fnc_getParamValue;
 
 //random
-if (WEATHER_SETTING == -1) then {
+if (_weatherSetting == -1) then {
     _availableSettings = getArray (missionConfigFile >> "Params" >> "WeatherSetting" >> "values");
     _availableSettings = _availableSettings - [-1];
     _overcast = selectRandom _availableSettings;
 
 //fixed
 } else {
-    _overcast = WEATHER_SETTING;
+    _overcast = _weatherSetting;
 };
 
 INFO_1("Setting overcast to %1.", _overcast);

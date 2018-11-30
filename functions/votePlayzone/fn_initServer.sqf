@@ -14,8 +14,7 @@ GVAR(votingTimeLeft) = [missionConfigFile >> "cfgMission","votingTime",60] call 
     missionNamespace setVariable [QGVAR(votingTimeLeft),GVAR(votingTimeLeft) - 1,true];
 
     if (GVAR(votingTimeLeft) <= 0) exitWith {
-        missionNamespace setVariable [QGVAR(votingComplete),true,true];
-        [] call EFUNC(missionSetup,playAreaSetup);
+        missionNamespace setVariable [QGVAR(votingComplete),true,true];        
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
 

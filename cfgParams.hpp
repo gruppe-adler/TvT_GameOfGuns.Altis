@@ -12,4 +12,32 @@ class Params {
         texts[] = {"Random","Clear","Cloudy","Overcast","Rainy","Stormy"};
         default = -1;
     };
+
+    class KillsForWin {
+        title = "Kills Needed To Win (Per Team)";
+        values[] = {10,20,30,40,50,60};
+        texts[] = {"10","20","30","40","50","60"};
+        default = 20;
+    };
+
+    class GameMode {
+        title = "Game Mode";
+        values[] = {0,1,2};
+        texts[] = {"Standard (Strong Weapons First)", "Reverse (Weak Weapons First)", "Random (Random Weapon Order)"};
+        default = 0;
+    };
+
+    class RandomTeams {
+        title = "Random Teams";
+        values[] = {1,0};
+        texts[] = {"On", "Off"};
+        default = 1;
+    };
+
+    class TeamSize {
+        title = "Random Teams - Size";
+        values[] = {1,2,3,4,5};
+        texts[] = {"1","2","3","4","5"};
+        default = 1;
+    };
 };

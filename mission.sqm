@@ -16,10 +16,10 @@ class EditorData
 	};
 	class Camera
 	{
-		pos[]={2594.364,72.837334,3245.1311};
-		dir[]={0.096638352,-0.63910097,0.76302958};
-		up[]={0.080301538,0.76912129,0.63403863};
-		aside[]={0.99207723,6.7520887e-009,-0.12564746};
+		pos[]={2599.4934,23.387144,3412.6453};
+		dir[]={0.18550017,-0.31522676,-0.9307161};
+		up[]={0.061617021,0.9490152,-0.30915239};
+		aside[]={-0.98071486,1.0756776e-007,-0.19546595};
 	};
 };
 binarizationWanted=0;
@@ -112,7 +112,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=47;
+									items=48;
 									class Item0
 									{
 										class data
@@ -771,6 +771,20 @@ class CustomAttributes
 											value="ace_advanced_fatigue_loadfactor";
 										};
 									};
+									class Item47
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="ace_interaction_enableteammanagement";
+										};
+									};
 								};
 							};
 						};
@@ -787,7 +801,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=47;
+									items=48;
 									class Item0
 									{
 										class data
@@ -2884,6 +2898,51 @@ class CustomAttributes
 															};
 														};
 														value=0.75;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item47
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=0;
 													};
 												};
 												class Item1
