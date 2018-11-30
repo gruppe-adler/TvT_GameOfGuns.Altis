@@ -10,7 +10,7 @@ params ["_unit",["_pos", [0,0,0]],["_onTPStart",{}],["_onTPEnd",{}],["_codeParam
 if (!local _unit) exitWith {};
 
 if (_fade && ACE_player == _unit) then {
-    titleCut ["","BLACK OUT",0];
+    titleCut ["","BLACK OUT",0.01];
     titleCut ["","BLACK IN",1.5];
 };
 

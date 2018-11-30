@@ -24,6 +24,7 @@ loadScreen = "data\logo.paa";
 respawn = 3;
 respawnDelay = 9999;
 respawnVehicleDelay = 0;
+allowFunctionsRecompile = 1;
 respawnTemplates[] = {"Base"};
 respawnOnStart = -1;
 respawnDialog = 0;
@@ -50,10 +51,10 @@ class CfgNotifications {
 class CfgSounds
 {
     sounds[] = {};
-    class switchsound
+    class gungame_upgradeWeaponSound
     {
         // how the sound is referred to in the editor (e.g. trigger effects)
-        name = "switchsound";
+        name = "gungame_upgradeWeaponSound";
         // filename, volume, pitch
         sound[] = {"data\switchsound.ogg", 1, 1};
         // subtitle delay in seconds, subtitle text

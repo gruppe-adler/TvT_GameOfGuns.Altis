@@ -55,8 +55,10 @@ if (!(_randomTeams) || ((count playableUnits) == 1)) then {
 if (_randomTeams) then {
     [] call FUNC(randomizeTeams);
 };
+
 private _allPlayerGroups = allGroups select {isPlayer leader _x};
 
+publicVariable QGVAR(teamLeaders);
 
 //create persistent global namespace for all player groups =====================
 {
@@ -70,8 +72,9 @@ private _allPlayerGroups = allGroups select {isPlayer leader _x};
 
 //Save teammates ===============================================================
 {
+    _teamMateUIDs = (units group _x) apply {getPlayerUID _x};
     _teamNamespace = _x getVariable [QGVAR(teamNamespace),objNull];
-    _teamNamespace setVariable [QGVAR(teamMates),units group _x,true];
+    _teamNamespace setVariable [QGVAR(teamMateUIDs),_teamMateUIDs,true];
 } forEach GVAR(teamLeaders);
 
 
@@ -87,6 +90,7 @@ GVAR(currentRanking) = [];
 
     _teamNamespace setVariable [QGVAR(displayName),_groupDisplayName,true];
     _teamNamespace setVariable [QGVAR(currentScore),0,true];
+    _teamNamespace setVariable [QGVAR(groupRankingID),_groupRankingID,true];
 } forEach _allPlayerGroups;
 publicVariable QGVAR(currentRanking);
 
