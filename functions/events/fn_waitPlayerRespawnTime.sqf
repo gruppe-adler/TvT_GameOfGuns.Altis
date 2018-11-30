@@ -15,7 +15,7 @@ private _lineBreak = parseText "<br />";
         hint composeText [_rule, _respawning, _lineBreak, _rule];
 
         [_handle] call CBA_fnc_removePerFrameHandler;
-        _respawnPos = [] call FUNC(findSoloRespawnPosition);
+        _respawnPos = [player] call FUNC(findSoloRespawnPosition);
         [_respawnPos] call FUNC(respawnPlayer);
     };
 

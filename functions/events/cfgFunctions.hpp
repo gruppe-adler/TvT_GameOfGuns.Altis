@@ -5,6 +5,7 @@ class gungame_events {
         class killCam {};
         class onIncreasedScore {};
         class onPlayerKilled {};
+        class onPlayerRespawn {};
         class onUnitKilledServer {};
         class respawnPlayer {};
         class respawnTeam {};

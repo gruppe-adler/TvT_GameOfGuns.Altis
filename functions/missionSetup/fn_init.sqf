@@ -7,6 +7,7 @@
         [] call FUNC(moveToMapStartPos);
 
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
+        player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
 
         [{!isNull (findDisplay 46)},{
             [] call EFUNC(votePlayzone,initPlayer);
@@ -50,7 +51,7 @@
             [{
 
                 [] call FUNC(moveTeamsToStartPositions);
-                {[_x,0] remoteExecCall [QEFUNC(events,onIncreasedScore),_x,false]} forEach playableUnits;
+                {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach playableUnits;
                 missionNamespace setVariable [QGVAR(gameStarted),true,true];
 
             },[],20] call CBA_fnc_waitAndExecute;

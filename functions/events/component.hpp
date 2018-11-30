@@ -1,2 +1,2 @@
-#define COMPONENT missionSetup
+#define COMPONENT events
 #include "..\component.hpp"

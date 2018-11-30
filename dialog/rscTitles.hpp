@@ -9,3 +9,6 @@
 
 #include "upgradeWeaponTitle\defines.hpp"
 #include "upgradeWeaponTitle\title.hpp"
+
+#include "scoreboard\defines.hpp"
+#include "scoreboard\title.hpp"
