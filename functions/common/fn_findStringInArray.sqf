@@ -1,14 +1,3 @@
-/*  Finds player name in subarrays within an array
-*
-*   Params:
-*   0:  array
-*   1:  string to find
-*   2:  index in subarrays to search
-*
-*   Returns:
-*   index of string in array (-1 if not found)
-*/
-
 params ["_array", "_string", ["_searchIndex", 0]];
 
 private _ID = -1;

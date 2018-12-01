@@ -9,4 +9,5 @@ private _groupRankingArray = GVAR(currentRanking) param [_groupRankingID,[]];
 _groupRankingArray set [0,_teamNamespace getVariable [QEGVAR(missionSetup,currentScore),0]];
 
 GVAR(currentRanking) sort false;
+
 publicVariable QEGVAR(missionSetup,currentRanking);

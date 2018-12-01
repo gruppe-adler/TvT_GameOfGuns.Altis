@@ -84,9 +84,10 @@ GVAR(currentRanking) = [];
 	_group = _x;
     _groupLeader = leader _group;
     _teamNamespace = _groupLeader getVariable [QGVAR(teamNamespace),objNull];
+    _leaderName = [_groupLeader] call ACE_common_fnc_getName;
 
-    _groupRankingID = GVAR(currentRanking) pushBack [0,_group,[_groupLeader] call ace_common_fnc_getName];
     _groupDisplayName = if (GVAR(teamSize) > 1) then {format ["Team %1", _leaderName]} else {_leaderName};
+    _groupRankingID = GVAR(currentRanking) pushBack [0,_group,_groupDisplayName];
 
     _teamNamespace setVariable [QGVAR(displayName),_groupDisplayName,true];
     _teamNamespace setVariable [QGVAR(currentScore),0,true];

@@ -17,4 +17,4 @@ player setVariable [QGVAR(lastPosition),_respawnPos];
 player setVariable [QGVAR(recentDistance), 0];
 player setVariable [QGVAR(isCamping), false];
 
-/* [] call EFUNC(missionSetup,scoreBoard); */
+[] call EFUNC(missionSetup,scoreBoard);

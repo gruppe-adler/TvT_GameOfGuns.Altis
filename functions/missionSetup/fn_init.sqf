@@ -9,6 +9,13 @@
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
 
+        // localhost
+        if (isServer) then {
+            [FUNC(scoreBoard),1,[]] call CBA_fnc_addPerFrameHandler;
+        } else {
+            QGVAR(currentRanking) addPublicVariableEventHandler FUNC(scoreBoard);
+        };
+
         [{!isNull (findDisplay 46)},{
             [] call EFUNC(votePlayzone,initPlayer);
         },[]] call CBA_fnc_waitUntilAndExecute;
@@ -51,6 +58,7 @@
             [{
 
                 [] call FUNC(moveTeamsToStartPositions);
+                [] remoteExec [QFUNC(scoreBoard),0,false];
                 {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach playableUnits;
                 missionNamespace setVariable [QGVAR(gameStarted),true,true];
 
