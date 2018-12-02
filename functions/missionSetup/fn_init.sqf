@@ -50,6 +50,7 @@
                 [{
                     [] call FUNC(moveTeamsToStartPositions);
                     [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
+                    [] remoteExec [QFUNC(initCampingProtection),0,false];
                     [] remoteExec [QFUNC(scoreBoard),0,false];
 
                     {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach playableUnits;

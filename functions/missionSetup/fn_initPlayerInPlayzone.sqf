@@ -11,7 +11,7 @@ if (!alive player) exitWith {};
 
     if (player distance2d GVAR(playAreaCenter) > (GVAR(playAreaSize) + 1)) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
-        ["gungame_notification1",["GUNGAME","Get back inside or die!"]] call bis_fnc_showNotification;
+        ["gungame_notification1",["GUNGAME","Get back inside or die!"]] spawn bis_fnc_showNotification;
 
         [{
             params ["_args","_handle"];
