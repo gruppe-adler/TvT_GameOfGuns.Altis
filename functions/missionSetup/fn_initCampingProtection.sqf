@@ -5,11 +5,25 @@
 
 [{
     params ["_args","_handle"];
-    _args params ["_iteration","_currentArea"];
+    _args params ["_iteration","_currentArea","_lastPos"];
+
+    if (missionNamespace getVariable [QEGVAR(events,gameEnded),false]) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+    };
 
     if (!alive player) exitWith {
         _args set [1,nil];
+        _args set [2,nil];
     };
+
+    if (isNil "_lastPos") then {
+        _args set [2,getPos player];
+    } else {
+        _distance = player distance _lastPos;
+        _totalDistance = player getVariable [QGVAR(totalDistance),0];
+        player setVariable [QGVAR(totalDistance),_totalDistance + _distance];
+    };
+
 
     // player moved
     if (isNil "_currentArea" || {!(player inArea _currentArea)}) then {
@@ -31,7 +45,11 @@
 
         [{
             params ["_args","_handle"];
-            _args params ["_iteration","_currentArea"];
+            _args params ["_iteration","_currentArea","_lastPos"];
+
+            _distance = player distance _lastPos;
+            _totalDistance = player getVariable [QGVAR(totalDistance),0];
+            player setVariable [QGVAR(totalDistance),_totalDistance + _distance];
 
             // player stopped camping
             if (!(alive player) || !(player inArea _currentArea)) exitWith {
@@ -54,6 +72,6 @@
 
             _args set [0,_iteration + 1];
 
-        },1,[0,_currentArea]] call CBA_fnc_addPerFrameHandler;
+        },1,[0,_currentArea,_lastPos]] call CBA_fnc_addPerFrameHandler;
     };
 },1,[0]] call CBA_fnc_addPerFrameHandler;

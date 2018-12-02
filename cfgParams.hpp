@@ -27,6 +27,13 @@ class Params {
         default = 0;
     };
 
+    class RankedMode {
+        title = "Ranked Mode";
+        values[] = {0,1};
+        texts[] = {"off", "on"};
+        default = 1;
+    };
+
     class RandomTeams {
         title = "Random Teams";
         values[] = {1,0};

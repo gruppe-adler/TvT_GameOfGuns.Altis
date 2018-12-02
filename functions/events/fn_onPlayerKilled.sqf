@@ -1,6 +1,7 @@
 #include "component.hpp"
 
 if (didJIP && missionNamespace getVariable [QEGVAR(missionSetup,setupDone),false]) exitWith {};
+if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 
 //send killer to server
 private _shooter = player getVariable ["ACE_medical_lastDamageSource",player];

@@ -4,6 +4,7 @@
 #include "cfgParams.hpp"
 #include "cfgIslands.hpp"
 #include "cfgMission.hpp"
+#include "node_modules\grad-scoreboard\grad_scoreboard.hpp"
 
 
 // HEADER ======================================================================

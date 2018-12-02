@@ -25,7 +25,7 @@ private _newScore = (_teamNamespace getVariable [QEGVAR(missionSetup,currentScor
 _teamNamespace setVariable [QEGVAR(missionSetup,currentScore),_newScore, true];
 
 if (_newScore >= ("KillsForWin" call BIS_fnc_getParamValue)) exitWith {
-    [] call FUNC(endMissionServer);
+    [_teamNamespace] call FUNC(endMissionServer);
 };
 
 {
