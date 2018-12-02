@@ -29,8 +29,8 @@ class Params {
 
     class RankedMode {
         title = "Ranked Mode";
-        values[] = {0,1};
-        texts[] = {"off", "on"};
+        values[] = {1,0};
+        texts[] = {"On", "Off"};
         default = 1;
     };
 

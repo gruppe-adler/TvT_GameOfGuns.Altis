@@ -4,7 +4,6 @@ if (!isServer) exitWith {};
 
 private ["_allMuzzleItems","_scope"];
 
-GVAR(killsForWin) = "KillsForWin" call BIS_fnc_getParamValue;
 call compile preprocessFileLineNumbers "weaponConfig.sqf";
 
 GVAR(chosenWeapons) = [];
