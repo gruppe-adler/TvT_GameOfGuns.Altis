@@ -6,6 +6,12 @@
     if (hasInterface) then {
         [] call FUNC(moveToMapStartPos);
 
+        if (didJIP && missionNamespace getVariable [QGVAR(setupDone),false]) exitWith {
+            player setDamage 1;
+            ["Terminate"] call BIS_fnc_EGSpectator;
+            ["Initialize", [player, [WEST,EAST,INDEPENDENT], true]] call BIS_fnc_EGSpectator;
+        };
+
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
 

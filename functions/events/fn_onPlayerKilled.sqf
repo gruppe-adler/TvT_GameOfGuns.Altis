@@ -1,7 +1,6 @@
 #include "component.hpp"
 
-//reset recent distance
-player setVariable [QEGVAR(common,recentDistanceArray),[0]];
+if (didJIP && missionNamespace getVariable [QEGVAR(missionSetup,setupDone),false]) exitWith {};
 
 //send killer to server
 private _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
