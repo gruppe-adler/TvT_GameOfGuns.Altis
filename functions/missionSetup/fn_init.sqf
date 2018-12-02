@@ -19,21 +19,6 @@
         [{!isNull (findDisplay 46)},{
             [] call EFUNC(votePlayzone,initPlayer);
         },[]] call CBA_fnc_waitUntilAndExecute;
-
-        [{missionNamespace getVariable [QGVAR(setupDone),false]},{
-
-            ["gungame_notification1",["GUNGAME","Waiting 10s for synchronization."]] spawn bis_fnc_showNotification;
-            ["gungame_notification1",["GUNGAME","Server side setup done."]] spawn bis_fnc_showNotification;
-
-            [{
-
-                [] call FUNC(applyUniform);
-                /* [] call FUNC(setRadioFrequencies); */
-                ["gungame_notification1",["GUNGAME","Game starting in 10s."]] spawn bis_fnc_showNotification;
-
-            },[],10] call CBA_fnc_waitAndExecute;
-
-        },[]] call CBA_fnc_waitUntilAndExecute;
     };
 
     if (isServer) then {
@@ -54,18 +39,25 @@
             [] call FUNC(randomizeRadioFrequencies);
 
             missionNamespace setVariable [QGVAR(setupDone),true,true];
+            ["gungame_notification1",["GUNGAME","Setup done. Waiting 10s for synchronization."]] remoteExec ["bis_fnc_showNotification",0,false];
 
+            // wait for synchronization
             [{
+                ["gungame_notification1",["GUNGAME","Game starting in 10s."]] remoteExec ["bis_fnc_showNotification",0,false];
+                [] remoteExec [QFUNC(applyUniform),0,false];
 
-                [] call FUNC(moveTeamsToStartPositions);
-                [] remoteExec [QFUNC(scoreBoard),0,false];
-                {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach playableUnits;
-                missionNamespace setVariable [QGVAR(gameStarted),true,true];
+                // wait 10s
+                [{
+                    [] call FUNC(moveTeamsToStartPositions);
+                    [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
+                    [] remoteExec [QFUNC(scoreBoard),0,false];
 
-            },[],20] call CBA_fnc_waitAndExecute;
+                    {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach playableUnits;
+                    missionNamespace setVariable [QGVAR(gameStarted),true,true];
 
+                },[],10] call CBA_fnc_waitAndExecute;
+            },[],10] call CBA_fnc_waitAndExecute;
         },[]] call CBA_fnc_waitUntilAndExecute;
-
     };
 
 },[]] call CBA_fnc_waitUntilAndExecute;

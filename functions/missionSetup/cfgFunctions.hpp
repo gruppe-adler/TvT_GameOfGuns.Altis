@@ -4,6 +4,7 @@ class gungame_missionSetup {
         class applyWeapon {};
         class buildTheWall {};
         class init {postInit = 1;};
+        class initPlayerInPlayzone {};
         class initStatsArray {preInit = 1;};
         class moveTeamsToStartPositions {};
         class moveToMapStartPos {};

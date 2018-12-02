@@ -1,5 +1,7 @@
 #include "component.hpp"
 
+if (!hasInterface) exitWith {};
+
 params [["_unit",objNull],["_score",0]];
 
 private _weapon = GVAR(chosenWeapons) param [_score,""];
