@@ -55,6 +55,7 @@
                 // wait 10s
                 [{
                     [] call FUNC(moveTeamsToStartPositions);
+                    [] remoteExec [QFUNC(setRadioFrequencies),0,false];
                     [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
                     [] remoteExec [QFUNC(initCampingProtection),0,false];
                     [] remoteExec [QFUNC(scoreBoard),0,false];
