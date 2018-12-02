@@ -12,6 +12,8 @@
             ["Initialize", [player, [WEST,EAST,INDEPENDENT], true]] call BIS_fnc_EGSpectator;
         };
 
+        [] call FUNC(removeInitialWeapon);
+
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
 
