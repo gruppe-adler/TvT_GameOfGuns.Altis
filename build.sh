@@ -5,22 +5,23 @@ cpbo_path="$1"
 missionname="TvT_GameOfGuns"
 
 islands=(
-	Altis
-	Beketov
-	Chernarus
-	Desert_Island
-	fallujah
-	fata
-	lythium
-	Malden
-	mbg_celle2
-	Porto
-	Sara_dbe1
-	Stratis
-	Takistan
-	Tanoa
-	utes
-	Zargabad
+    Altis
+    Chernarus
+    Chernarus_Summer
+    Intro
+    lythium
+    Malden
+    Porto
+    prei_khmaoch_luong
+    WL_Rosche
+    ruha
+    Stratis
+    Sara_dbe1
+    Shapur_BAF
+    Takistan
+    Tanoa
+    utes
+    Woodland_ACR
 )
 
 ### AS AS USER, DONT EDIT BELOW THIS LINE ###
