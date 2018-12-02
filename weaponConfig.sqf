@@ -66,26 +66,16 @@ weaponstier_1 = [
   "rhs_weap_svdp",
   "rhs_weap_svdp_npz",
   "rhs_weap_svds",
-  "rhs_weap_svds_npz"
+  "rhs_weap_svds_npz",
 
-  //thai
-  /*"Auto762x54_SVD63",
-  "Auto556x45_Minimi_A",
-  "Auto762x51_SCARH_DES",
-  "Auto762x51_SCARH",
-  "Bolt762x51_M24SWS_Blk",
-  "Bolt762x51_M24SWS_Grn",
-  "Auto762x51_SR25EC"*/
-
-  //sma
-  /*"SMA_ACRREM",
-  "SMA_ACRREMblk",
-  "SMA_HK417_16in_afg",
-  "SMA_HK417_16in_afg_tan",
-  "SMA_ACR",
-  "SMA_ACRblk",
-  "SMA_Mk17_16",
-  "SMA_Mk17_16_black"*/
+  //hlc
+  "hlc_lmg_MG3KWS_b",
+  "hlc_lmg_mg42kws_b",
+  "hlc_lmg_mg42kws_g",
+  "hlc_lmg_MG3_optic",
+  "hlc_rifle_g3ka4",
+  "hlc_rifle_g3a3v",
+  "hlc_rifle_g3a3"
 ];
 
 scopestier_1 = [
@@ -152,32 +142,8 @@ weaponstier_2 = [
   "rhs_weap_m4a1_blockII",
   "rhs_weap_m4a1",
   "rhs_weap_mk18",
-  "rhs_weap_pkm"
-
-  //thai
-  /*"Auto762x39_AK104",
-  "Auto556x45_TAR20",
-  "Auto556x45_Minimi_A",
-  "Auto556x45_SCARL",
-  "Auto556x45_HK416",
-  "Auto556x45_M4A3",
-  "Auto762x51_MG3",
-  "Auto556x45_MK18SBR",
-  "Auto556x45_CQM4",
-  "Auto762x51_SR25",
-  "Auto556x45_TAR21",
-  "Auto762x54_UK59L"*/
-
-  //sma
-  /*"SMA_HK416afg",
-  "SMA_M4afg",
-  "SMA_M4afg_OD",
-  "SMA_ACR",
-  "SMA_ACRblk",
-  "SMA_MK18afgBLK",
-  "SMA_MK18afgTANBLK_SM",
-  "SMA_Mk16QCB",
-  "SMA_MK16"*/
+  "rhs_weap_pkm",
+  "rhs_weap_m79"
 ];
 
 scopestier_2 = [
@@ -223,10 +189,6 @@ scopestier_2 = [
   "FHQ_optic_VCOG_tan",
   "FHQ_optic_ACOG",
   "FHQ_optic_ACOG_tan"
-
-  //sma
-  /*"SMA_AIMPOINT",
-  "SMA_AIMPOINT_GLARE"*/
 ];
 
 
@@ -250,27 +212,10 @@ weaponstier_3 = [
   "rhs_weap_sr25",
   "rhs_weap_ak74m",
   "rhs_weap_ak74m_camo",
-  "rhs_weap_ak74m_camo_npz"
+  "rhs_weap_ak74m_camo_npz",
 
-  //thai
-  /*"Auto762x39_AKMSU_RIS",
-  "Auto545x39_AKS74U_RIS",
-  "Auto762x51_FAL",
-  "Auto762x51_MAG58",
-  "Auto556x45_G36C",
-  "Auto762x51_G3A3",
-  "Auto762x51_G3A4",
-  "Auto556x45_HK33_A",
-  "Auto556x45_M16A1_RIS",
-  "Auto556x45_M16A2_RIS",
-  "Auto556x45_M16A4",
-  "Auto762x54_UK59L",
-  "Auto556x45_FAMASG2",
-  "Auto556x45_FAMASG2_C"*/
-
-  //sma
-  /*"SMA_ACRREMblk",
-  "SMA_ACRREM"*/
+  //hlc
+  "hlc_rifle_hl33a2RIS"
 ];
 
 scopestier_3 = [
@@ -309,9 +254,6 @@ scopestier_3 = [
   "FHQ_optic_MCCO_M_BLK",
   "FHQ_optic_MCCO_M_TAN",
   "FHQ_optic_MicroCCO_low_tan"
-
-  //sma
-  /*"SMA_AIMPOINT"*/
 ];
 
 //SMGs, SHOTGUNS, OLD RIFLES ===================================================
@@ -334,23 +276,18 @@ weaponstier_4 = [
   "rhs_weap_pp2000",
   "rhs_weap_asval",
   "rhs_weap_asval_grip",
-  "rhs_weap_asval_npz"
+  "rhs_weap_asval_npz",
+  "rhs_weap_m3a1",
+  "rhs_weap_scorpion",
+  "rhs_weap_pp2000_folded",
+  "rhs_wepa_lzh18",
 
-  //thai
-  /*"Bolt792x57_Kar98K_RIS",
-  "Bolt762x54_M9130_RIS",
-  "Bolt792x57_CZ550",
-  "Bolt77x56_SMLE_RIS",
-  "Smg9x19_BTMP9",
-  "Smg9x19_PP19",
-  "Smg9x19_MP5A5",
-  "Smg762x25_PPK74U",
-  "Smg762x25_PPS43",
-  "Smg762x25_PPSh41_A",
-  "Smg762x25_PPSh41_B",
-  "Auto792x33_MP44",
-  "Auto762x39_Type63",
-  "Auto762x51_M14_RIS"*/
+  //LOP
+  "LOP_Weap_LeeEnfield",
+
+  //hlc
+  "hlc_rifle_hk53",
+  "hlc_rifle_hk53RAS"
 ];
 
 scopestier_4 = [
@@ -382,10 +319,6 @@ scopestier_4 = [
   "FHQ_optic_MicroCCO_tan",
   "FHQ_optic_MicroCCO_low",
   "FHQ_optic_MicroCCO_low_tan"
-
-  //sma
-  /*"SMA_AIMPOINT",
-  "SMA_AIMPOINT_GLARE"*/
 ];
 
 
@@ -405,21 +338,6 @@ weaponstier_5 = [
   "rhs_weap_pya",
   "rhs_weap_makarov_pm",
   "rhs_weap_makarov_pmm"
-
-  //thai
-  /*"Pstl9x19_92FS",
-  "Pstl9x19_FNGP35",
-  "Pstl762x25_CZ52",
-  "Pstl9x19_CZSP01",
-  "Pstl9x19_CZ75B",
-  "Pstl11x23_M1911",
-  "Pstl9x19_N213B",
-  "Pstl9x19_NP22",
-  "Pstl9x19_NP42",
-  "Pstl9x19_P99",
-  "Pstl11x23_SAARevolver",
-  "Pstl762x25_TT33",
-  "Pstl11x23_Revolver"*/
 ];
 
 scopestier_5 = [
