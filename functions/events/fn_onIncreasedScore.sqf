@@ -8,4 +8,4 @@ if (_unit isEqualTo ACE_player) then {
 
 if (!alive _unit) exitWith {};
 
-[] call EFUNC(missionSetup,applyWeapon);
+[_unit,_newScore] call EFUNC(missionSetup,applyWeapon);

@@ -2,7 +2,12 @@
 
 if (!hasInterface) exitWith {};
 
-params [["_unit",objNull],["_score",0]];
+params [["_unit",objNull],"_score"];
+
+if (isNil "_score") then {
+    _teamNamespace = _unit getVariable [QGVAR(teamNamespace),objNull];
+    _score = _teamNamespace getVariable [QGVAR(currentScore),0];
+};
 
 private _weapon = GVAR(chosenWeapons) param [_score,""];
 private _muzzleItem = GVAR(muzzleItems) param [_score,""];
