@@ -38,7 +38,9 @@
         _timeOfDay = [] call FUNC(setTime);
         [_timeOfDay] call FUNC(setWeather);
 
-        [] call EFUNC(votePlayzone,initServer);
+        [{missionNamespace getVariable ["CBA_missionTime",0] > 0},{
+            [] call EFUNC(votePlayzone,initServer);
+        },[]] call CBA_fnc_waitUntilAndExecute;
 
         // wait until voting complete
         [{missionNamespace getVariable [QEGVAR(votePlayzone,votingComplete),false]},{
