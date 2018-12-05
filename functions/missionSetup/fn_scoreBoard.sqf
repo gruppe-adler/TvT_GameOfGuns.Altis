@@ -2,6 +2,7 @@
 #include "..\..\dialog\scoreboard\defines.hpp"
 
 if (!hasInterface) exitWith {};
+if !(missionNamespace getVariable [QGVAR(gameStarted),false]) exitWith {};
 
 private ["_display", "_teamScore", "_teamName"];
 if (!alive player) exitWith {};

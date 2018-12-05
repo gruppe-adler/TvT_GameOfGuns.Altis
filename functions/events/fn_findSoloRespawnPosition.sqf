@@ -12,7 +12,15 @@ private _respawnPos = [];
 private _searchPos = if (count _aliveTeamMates > 0) then {
     getPos selectRandom _aliveTeamMates
 } else {
-    [EGVAR(missionSetup,playAreaCenter),[0,EGVAR(missionSetup,playAreaSize) - 25],[0,360]] call EFUNC(common,randomPos);
+    _noWaterPos = [0,0,0];
+    for "_i" from 0 to 1000 do {
+        _noWaterPos = [EGVAR(missionSetup,playAreaCenter),[0,EGVAR(missionSetup,playAreaSize) - 25],[0,360]] call EFUNC(common,randomPos);
+        if (!surfaceIsWater _noWaterPos) exitWith {};
+    };
+    if (surfaceIsWater _noWaterPos) then {
+        _noWaterPos = EGVAR(missionSetup,playAreaCenter);
+    };
+    _noWaterPos
 };
 
 for "_i" from 0 to 10 do {
