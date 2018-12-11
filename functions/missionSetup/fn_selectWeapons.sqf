@@ -114,7 +114,7 @@ private _scopesProb = [missionConfigFile >> "cfgMission","scopesProbability",60]
 
             for [{_i=0}, {_i<50}, {_i=_i+1}] do {
                 _randomID = round (random ((count _compatibleScopes) - 1));
-                _scope = _compatibleScopes select _randomID;
+                _scope = _compatibleScopes param [_randomID,""];
                 if (_isSniper) then {
                     _scopeFound = [_scope] call compile format ["params ['_scope']; if (_scope in sniperscopes_0) then {true} else {false};"];
                 } else {
