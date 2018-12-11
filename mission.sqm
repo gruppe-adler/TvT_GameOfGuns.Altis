@@ -112,7 +112,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=50;
+									items=52;
 									class Item0
 									{
 										class data
@@ -813,6 +813,34 @@ class CustomAttributes
 											value="ace_markers_moverestriction";
 										};
 									};
+									class Item50
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="tfar_samesrfrequenciesforside";
+										};
+									};
+									class Item51
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="tfar_givemicrodagrtosoldier";
+										};
+									};
 								};
 							};
 						};
@@ -829,7 +857,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=50;
+									items=52;
 									class Item0
 									{
 										class data
@@ -3061,6 +3089,96 @@ class CustomAttributes
 															};
 														};
 														value=-1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item50
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=1;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item51
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"BOOL"
+															};
+														};
+														value=0;
 													};
 												};
 												class Item1
