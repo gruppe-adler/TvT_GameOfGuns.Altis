@@ -121,7 +121,7 @@ private _scopesProb = [missionConfigFile >> "cfgMission","scopesProbability",60]
                     _scopeFound = [_scope] call compile format ["params ['_scope']; if (_scope in scopestier_%1) then {true} else {false};", _currentTier];
                 };
 
-                if (_scopeFound) exitWith {};
+                if (_scopeFound || count _compatibleScopes == 0) exitWith {};
 
                 _compatibleScopes deleteAt _randomID;
             };
