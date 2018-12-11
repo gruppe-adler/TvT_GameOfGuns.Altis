@@ -93,7 +93,9 @@ GVAR(currentRanking) = [];
     _teamNamespace setVariable [QGVAR(currentScore),0,true];
     _teamNamespace setVariable [QGVAR(groupRankingID),_groupRankingID,true];
 } forEach _allPlayerGroups;
+GVAR(currentRankingSorted) = +GVAR(currentRanking);
 publicVariable QGVAR(currentRanking);
+publicVariable QGVAR(currentRankingSorted);
 
 
 // uniforms ====================================================================

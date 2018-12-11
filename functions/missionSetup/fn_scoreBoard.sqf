@@ -8,7 +8,7 @@ private ["_display", "_teamScore", "_teamName"];
 if (!alive player) exitWith {};
 disableSerialization;
 
-private _numberOfDisplayedRanks = (count GVAR(currentRanking)) min 3;
+private _numberOfDisplayedRanks = (count GVAR(currentRankingSorted)) min 3;
 
 private _createDisplay = false;
 private _display = uiNamespace getVariable "ScoreBoard_Display";
@@ -36,7 +36,7 @@ private _groupName = _teamNamespace getVariable [QGVAR(displayName),""];
 private _teamScore = _teamNamespace getVariable [QGVAR(currentScore),0];
 
 for [{_i=0}, {_i < _numberOfDisplayedRanks}, {_i=_i+1}] do {
-    _teamRankArray = GVAR(currentRanking) select _i;
+    _teamRankArray = GVAR(currentRankingSorted) select _i;
     _teamScore = _teamRankArray select 0;
     _teamName = _teamRankArray select 2;
     _scoreBoardItem = _display displayCtrl SCOREBOARD_ITEM1 + _i;
@@ -50,7 +50,7 @@ for [{_i=0}, {_i < _numberOfDisplayedRanks}, {_i=_i+1}] do {
 private _scoreBoardItem = _display displayCtrl SCOREBOARD_ITEM4;
 private _scoreBoardScore = _display displayCtrl SCOREBOARD_SCORE4;
 
-if (([GVAR(currentRanking), _groupName, 1] call EFUNC(common,findStringInArray)) > 2) then {
+if (([GVAR(currentRankingSorted), _groupName, 1] call EFUNC(common,findStringInArray)) > 2) then {
     _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0.4];
     _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0.4];
     _scoreBoardItem ctrlSetText _teamName;

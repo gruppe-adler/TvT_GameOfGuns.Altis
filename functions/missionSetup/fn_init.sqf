@@ -21,7 +21,7 @@
         if (isServer) then {
             [FUNC(scoreBoard),1,[]] call CBA_fnc_addPerFrameHandler;
         } else {
-            QGVAR(currentRanking) addPublicVariableEventHandler FUNC(scoreBoard);
+            QGVAR(currentRankingSorted) addPublicVariableEventHandler FUNC(scoreBoard);
         };
 
         [{!isNull (findDisplay 46)},{

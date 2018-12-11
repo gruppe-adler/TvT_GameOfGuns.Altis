@@ -48,8 +48,6 @@ diag_log "======================================================================
 
 
 //UPDATE POINTS ================================================================
-//CURRENTRANKING: [score, group displayname, groupname, [groupmemberUID, groupmemberUID, ...]]
-
 //EGVAR(missionSetup,currentRanking): [points,group,groupDisplayName]
 
 //get average elo of all teams
