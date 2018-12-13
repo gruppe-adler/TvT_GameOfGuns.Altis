@@ -18,11 +18,11 @@ _this spawn {
     sleep 2;
 
     _teamName = _winnerTeamNamespace getVariable [QEGVAR(missionSetup,displayName),"someone"];
-    ["gungame_notification1",["GUNGAME",format ["%1 wins!"]]] remoteExec ["bis_fnc_showNotification",0,false];
+    ["gungame_notification1",["GUNGAME",format ["%1 wins!",_teamName]]] remoteExec ["bis_fnc_showNotification",0,false];
 
     sleep 8;
 
-    if (QEGVAR(missionSetup,rankedMode)) then {
+    if (EGVAR(missionSetup,rankedMode)) then {
         _stats = [] call EFUNC(common,updateLeaderboard);
         _compiledStats = [_stats] call EFUNC(common,compileForGRADScoreboard);
         [_compiledStats] remoteExec [QEFUNC(common,showGRADScoreboard),0,false];
