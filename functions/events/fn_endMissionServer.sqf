@@ -5,12 +5,15 @@ if (!isServer) exitWith {};
 params [["_winnerTeamNamespace",objNull]];
 
 missionNamespace setVariable [QGVAR(gameEnded),true,true];
+[[],{removeAllWeapons player}] remoteExecCall ["call",0,false];
 
 _this spawn {
     params [["_winnerTeamNamespace",objNull]];
 
+    sleep 1;
+
     _centerPos = ([EGVAR(missionSetup,playAreaCenter),[0,50]] call EFUNC(common,randomPos)) findEmptyPosition [0,30,"B_Soldier_F"];
-    if ((count _centerPos) > 0) then {_centerPos = EGVAR(missionSetup,playAreaCenter)};
+    if ((count _centerPos) == 0) then {_centerPos = EGVAR(missionSetup,playAreaCenter)};
 
     [nil,_centerPos] remoteExec [QEFUNC(common,teleport),0,false];
     [_centerPos] remoteExec [QFUNC(respawnPlayer),0,false];

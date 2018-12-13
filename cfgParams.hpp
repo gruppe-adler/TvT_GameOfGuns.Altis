@@ -15,9 +15,16 @@ class Params {
 
     class KillsForWin {
         title = "Kills Needed To Win (Per Team)";
-        values[] = {10,20,30,40,50,60};
-        texts[] = {"10","20","30","40","50","60"};
-        default = 20;
+        values[] = {1,3,5,10,15,20,30,40,50,60};
+        texts[] = {"1","3","5","10","15","20","30","40","50","60"};
+        default = 15;
+    };
+
+    class RespawnTime {
+        title = "Respawn Time (Seconds)";
+        values[] = {5,10,20,30,40,50,60,70,80,90,100,110,120};
+        texts[] = {"5","10","20","30","40","50","60","70","80","90","100","110","120"};
+        default = 10;
     };
 
     class GameMode {
@@ -46,12 +53,5 @@ class Params {
         values[] = {1,2,3,4,5};
         texts[] = {"1","2","3","4","5"};
         default = 1;
-    };
-
-    class RespawnTime {
-        title = "Respawn Time (Seconds)";
-        values[] = {5,10,20,30,40,50,60,70,80,90,100,110,120};
-        texts[] = {"5","10","20","30","40","50","60","70","80","90","100","110","120"};
-        default = 10;
     };
 };

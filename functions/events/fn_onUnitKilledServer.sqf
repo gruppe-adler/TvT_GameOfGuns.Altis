@@ -24,6 +24,8 @@ private _teamNamespace = _shooter getVariable [QEGVAR(missionSetup,teamNamespace
 private _newScore = (_teamNamespace getVariable [QEGVAR(missionSetup,currentScore),0]) + 1;
 _teamNamespace setVariable [QEGVAR(missionSetup,currentScore),_newScore, true];
 
+[_teamNamespace] call FUNC(updateRanking);
+
 if (_newScore >= ("KillsForWin" call BIS_fnc_getParamValue)) exitWith {
     [_teamNamespace] call FUNC(endMissionServer);
 };
@@ -31,5 +33,3 @@ if (_newScore >= ("KillsForWin" call BIS_fnc_getParamValue)) exitWith {
 {
     [_x,_newScore] remoteExec [QFUNC(onIncreasedScore),_x,false];
 } forEach (units group _shooter);
-
-[_teamNamespace] call FUNC(updateRanking);
