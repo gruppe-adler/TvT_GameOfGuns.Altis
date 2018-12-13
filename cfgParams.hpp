@@ -48,15 +48,8 @@ class Params {
         default = 1;
     };
 
-    class SoloRespawnTime {
-        title = "Solo Respawn Time (Seconds)";
-        values[] = {5,10,20,30,40,50,60,70,80,90,100,110,120};
-        texts[] = {"5","10","20","30","40","50","60","70","80","90","100","110","120"};
-        default = 20;
-    };
-
-    class TeamRespawnTime {
-        title = "Team Respawn Time (Seconds)";
+    class RespawnTime {
+        title = "Respawn Time (Seconds)";
         values[] = {5,10,20,30,40,50,60,70,80,90,100,110,120};
         texts[] = {"5","10","20","30","40","50","60","70","80","90","100","110","120"};
         default = 10;

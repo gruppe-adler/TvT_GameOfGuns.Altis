@@ -30,8 +30,7 @@
     };
 
     if (isServer) then {
-        missionNamespace setVariable [QGVAR(soloRespawnTime),"SoloRespawnTime" call BIS_fnc_getParamValue,true];
-        missionNamespace setVariable [QGVAR(teamRespawnTime),"TeamRespawnTime" call BIS_fnc_getParamValue,true];
+        missionNamespace setVariable [QGVAR(respawnTime),"RespawnTime" call BIS_fnc_getParamValue,true];
         missionNamespace setVariable [QGVAR(rankedMode),("RankedMode" call BIS_fnc_getParamValue) == 1,true];
         missionNamespace setVariable [QGVAR(killsForWin),"KillsForWin" call BIS_fnc_getParamValue,true];
 

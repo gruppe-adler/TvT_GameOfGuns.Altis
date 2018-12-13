@@ -14,20 +14,8 @@ private _lineBreak = parseText "<br />";
         _respawning = parseText format ["<t align='center' color='#00ff00' size='1.4'>Respawning...</t>"];
         hint composeText [_rule, _respawning, _lineBreak, _rule];
 
-        [_handle] call CBA_fnc_removePerFrameHandler;
-        _respawnPos = [player] call FUNC(findSoloRespawnPosition);
+        _respawnPos = [player] call FUNC(findRespawnPosition);
         [_respawnPos] call FUNC(respawnPlayer);
-    };
-
-    //check if teammates alive
-    _teamMatesAlive = false;
-    {
-        _unit = [_x] call BIS_fnc_getUnitByUid;
-        if (alive _unit) then {_teammatesalive = true};
-    } forEach _teammateUIDs;
-
-    if (!_teammatesalive) exitWith {
-        [_timeLeft] call FUNC(waitTeamRespawnTime);
         [_handle] call CBA_fnc_removePerFrameHandler;
     };
 

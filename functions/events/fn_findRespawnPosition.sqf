@@ -2,11 +2,7 @@
 
 params [["_respawnUnit",objNull]];
 
-private _teamNamespace = _respawnUnit getVariable [QEGVAR(missionSetup,teamNamespace),objNull];
-private _teamMateUIDs = _teamNamespace getVariable [QEGVAR(missionSetup,teamMateUIDs),[]];
-private _teamMates = _teamMateUIDs apply {[_x] call BIS_fnc_getUnitByUid};
-private _aliveTeamMates = _teamMates select {alive _x};
-
+private _aliveTeamMates = ([_respawnUnit] call EFUNC(common,teamMates)) select {alive _x};
 private _respawnPos = [];
 
 private _searchPos = if (count _aliveTeamMates > 0) then {

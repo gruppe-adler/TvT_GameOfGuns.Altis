@@ -1,7 +1,7 @@
 class gungame_events {
     class events {
         class endMissionServer {};
-        class findSoloRespawnPosition {};
+        class findRespawnPosition {};
         class killCam {};
         class onIncreasedScore {};
         class onPlayerKilled {};
@@ -12,6 +12,5 @@ class gungame_events {
         class updateRanking {};
         class upgradeWeaponTitleOnLoad {};
         class waitPlayerRespawnTime {};
-        class waitTeamRespawnTime {};
     };
 };

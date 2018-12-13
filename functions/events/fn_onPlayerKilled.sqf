@@ -10,10 +10,10 @@ private _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [getPos player,profileName] remoteExecCall [QEFUNC(common,weaponCleanup),2,false];
 
 //create kill cam
-private _killCamHandle = [(EGVAR(missionSetup,soloRespawnTime) min EGVAR(missionSetup,teamRespawnTime)) min 10,player,_shooter] spawn FUNC(killCam);
+private _killCamHandle = [EGVAR(missionSetup,respawnTime) min 10,player,_shooter] spawn FUNC(killCam);
 player setVariable [QGVAR(killCamHandle),_killCamHandle];
 
 //keep player from respawning
 setPlayerRespawnTime 9999;
 
-[EGVAR(missionSetup,soloRespawnTime)] call FUNC(waitPlayerRespawnTime);
+[EGVAR(missionSetup,respawnTime)] call FUNC(waitPlayerRespawnTime);
