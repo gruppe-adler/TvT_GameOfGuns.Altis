@@ -16,13 +16,12 @@
         _args set [2,nil];
     };
 
-    if (isNil "_lastPos") then {
-        _args set [2,getPos player];
-    } else {
+    if (!isNil "_lastPos") then {
         _distance = player distance _lastPos;
         _totalDistance = player getVariable [QGVAR(totalDistance),0];
         player setVariable [QGVAR(totalDistance),_totalDistance + _distance];
     };
+    _args set [2,getPos player];
 
 
     // player moved
@@ -35,7 +34,7 @@
     // player didnt move
     } else {
         if !(player getvariable "ACE_isUnconscious") then {
-            _args set [0,_iteration + 1];            
+            _args set [0,_iteration + 1];
         };
     };
 
