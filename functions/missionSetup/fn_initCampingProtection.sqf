@@ -1,7 +1,7 @@
 #include "component.hpp"
 
-#define AREASIZE 20
-#define CAMPTIME 60
+#define AREASIZE 15
+#define CAMPTIME 70
 
 [{
     params ["_args","_handle"];
@@ -34,7 +34,9 @@
 
     // player didnt move
     } else {
-        _args set [0,_iteration + 1];
+        if !(player getvariable "ACE_isUnconscious") then {
+            _args set [0,_iteration + 1];            
+        };
     };
 
     // player is camping
