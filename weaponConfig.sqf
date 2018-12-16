@@ -142,8 +142,7 @@ weaponstier_2 = [
   "rhs_weap_m4a1_blockII",
   "rhs_weap_m4a1",
   "rhs_weap_mk18",
-  "rhs_weap_pkm",
-  "rhs_weap_m79"
+  "rhs_weap_pkm"
 ];
 
 scopestier_2 = [
