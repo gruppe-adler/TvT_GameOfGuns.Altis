@@ -4,7 +4,9 @@ if (!isServer) exitWith {};
 
 params [["_winnerTeamNamespace",objNull]];
 
+if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 missionNamespace setVariable [QGVAR(gameEnded),true,true];
+
 [[],{removeAllWeapons player}] remoteExecCall ["call",0,false];
 
 _this spawn {
