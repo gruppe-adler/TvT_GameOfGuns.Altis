@@ -10,7 +10,7 @@ private _searchPos = if (count _aliveTeamMates > 0) then {
 } else {
     _noWaterPos = [0,0,0];
     for "_i" from 0 to 1000 do {
-        _noWaterPos = [EGVAR(missionSetup,playAreaCenter),[0,EGVAR(missionSetup,playAreaSize) - 25],[0,360]] call EFUNC(common,randomPos);
+        _noWaterPos = [EGVAR(missionSetup,playAreaCenter),[0,EGVAR(missionSetup,playAreaSize) - 35],[0,360]] call EFUNC(common,randomPos);
         if (!surfaceIsWater _noWaterPos) exitWith {};
     };
     if (surfaceIsWater _noWaterPos) then {
