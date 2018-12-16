@@ -5,7 +5,7 @@ params ["_totalTime",["_killedUnit",objNull],["_shooter",objNull]];
 disableSerialization;
 
 private _shooterName = [_shooter] call ACE_common_fnc_getName;
-private _killMessage = format ["YOU GOT KILLED BY %1", _shooterName];
+private _killMessage = format ["YOU GOT KILLED BY %1", toUpper _shooterName];
 
 private _layer = (["kcTitleLayer"] call BIS_fnc_rscLayer);
 _layer cutRsc ["KillCamTitle", "PLAIN", 1];
