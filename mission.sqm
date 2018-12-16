@@ -112,7 +112,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=52;
+									items=53;
 									class Item0
 									{
 										class data
@@ -841,6 +841,20 @@ class CustomAttributes
 											value="tfar_givemicrodagrtosoldier";
 										};
 									};
+									class Item52
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"STRING"
+												};
+											};
+											value="tfar_setting_defaultfrequencies_sr_west";
+										};
+									};
 								};
 							};
 						};
@@ -857,7 +871,7 @@ class CustomAttributes
 								};
 								class value
 								{
-									items=52;
+									items=53;
 									class Item0
 									{
 										class data
@@ -3179,6 +3193,51 @@ class CustomAttributes
 															};
 														};
 														value=0;
+													};
+												};
+												class Item1
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"SCALAR"
+															};
+														};
+														value=1;
+													};
+												};
+											};
+										};
+									};
+									class Item52
+									{
+										class data
+										{
+											class type
+											{
+												type[]=
+												{
+													"ARRAY"
+												};
+											};
+											class value
+											{
+												items=2;
+												class Item0
+												{
+													class data
+													{
+														class type
+														{
+															type[]=
+															{
+																"STRING"
+															};
+														};
+														value="100,110,120,130,140,150";
 													};
 												};
 												class Item1

@@ -13,6 +13,7 @@
         };
 
         [] call FUNC(removeInitialWeapon);
+        [] call FUNC(saveRadioInstance);
 
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];

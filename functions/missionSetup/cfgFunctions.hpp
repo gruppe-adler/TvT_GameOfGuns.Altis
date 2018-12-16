@@ -14,6 +14,7 @@ class gungame_missionSetup {
         class randomizeTeams {};
         class randomizeUniforms {};
         class removeInitialWeapon {};
+        class saveRadioInstance {};
         class scoreBoard {};
         class selectWeapons {};
         class setRadioFrequencies {};
