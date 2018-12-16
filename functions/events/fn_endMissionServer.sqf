@@ -15,6 +15,7 @@ _this spawn {
     _centerPos = ([EGVAR(missionSetup,playAreaCenter),[0,50]] call EFUNC(common,randomPos)) findEmptyPosition [0,30,"B_Soldier_F"];
     if ((count _centerPos) == 0) then {_centerPos = EGVAR(missionSetup,playAreaCenter)};
 
+    {_x setDamage 0} forEach allPlayers;
     [nil,_centerPos] remoteExec [QEFUNC(common,teleport),0,false];
     [_centerPos] remoteExec [QFUNC(respawnPlayer),0,false];
 
