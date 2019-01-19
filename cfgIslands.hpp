@@ -62,6 +62,17 @@ class CfgIslands {
         locationBlacklist[] = {};
     };
 
+    class tem_ihantala {
+        displayName = "Ihantala";
+        type = "russian";
+        isWoodland = true;
+        spawnPosBlu[] = {3990.35,-61,0};
+        spawnPosOpf[] = {3790.35,-61,0};
+        previewCamPos[] = {2783,916,13};
+        previewCamTarget[] = {2939,1018,2};
+        locationBlacklist[] = {};
+    };
+
 	class Beketov {
 		displayName = "Beketov";
 		type = "russian";
