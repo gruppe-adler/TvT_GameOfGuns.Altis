@@ -8,7 +8,7 @@ private _allPlayerUIDs = (allPlayers apply {getPlayerUID _x});
     _playerUID = _x;
     _ID = [_stats, _playerUID, 1] call FUNC(findStringInArray);
     if (_ID == -1) then {
-        diag_log format ["updateLeaderboard.sqf - ERROR: COULD NOT FIND PLAYER %1 DURING UPDATE.", name _x];
+        diag_log format ["updateLeaderboard.sqf - ERROR: COULD NOT FIND PLAYER WITH UID %1 DURING UPDATE.", _x];
     } else {
         _playerArray = _stats select _ID;
         _playerStats = _playerArray select 3;
