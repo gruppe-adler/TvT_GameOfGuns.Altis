@@ -211,10 +211,7 @@ weaponstier_3 = [
   "rhs_weap_sr25",
   "rhs_weap_ak74m",
   "rhs_weap_ak74m_camo",
-  "rhs_weap_ak74m_camo_npz",
-
-  //hlc
-  "hlc_rifle_hl33a2RIS"
+  "rhs_weap_ak74m_camo_npz"
 ];
 
 scopestier_3 = [
