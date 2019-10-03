@@ -7,8 +7,6 @@ params [["_winnerTeamNamespace",objNull]];
 if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 missionNamespace setVariable [QGVAR(gameEnded),true,true];
 
-[[],{removeAllWeapons player}] remoteExecCall ["call",0,false];
-
 _this spawn {
     params [["_winnerTeamNamespace",objNull]];
 
@@ -20,6 +18,15 @@ _this spawn {
     {_x setDamage 0} forEach allPlayers;
     [nil,_centerPos] remoteExec [QEFUNC(common,teleport),0,false];
     [_centerPos] remoteExec [QFUNC(respawnPlayer),0,false];
+
+    [[],{
+        waitUntil {alive player};
+        removeAllWeapons player;
+        player setDamage 0;
+        player allowDamage false;
+        sleep 1;
+        removeAllWeapons player;
+    }] remoteExec ["spawn",0,false];
 
     sleep 2;
 
