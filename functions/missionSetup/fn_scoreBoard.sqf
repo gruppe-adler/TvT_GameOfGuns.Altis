@@ -8,56 +8,53 @@ private ["_display", "_teamScore", "_teamName"];
 if (!alive player) exitWith {};
 disableSerialization;
 
-private _numberOfDisplayedRanks = (count GVAR(currentRankingSorted)) min 3;
+private _allPlayingPlayers = allPlayers select {_x getVariable [QGVAR(isPlaying),false]};
+private _allPlayingPlayersScores = _allPlayingPlayers apply {[_x getVariable [QGVAR(currentScore),0],_x]};
+_allPlayingPlayersScores sort false;
 
-private _createDisplay = false;
 private _display = uiNamespace getVariable "ScoreBoard_Display";
-if (isNil "_display") then {
-    _createDisplay = true;
-} else {
-    if (isNull _display) then {
-        _createDisplay = true;
-    };
-};
-
-if (_createDisplay) then {
+if (isNil "_display" || {isNull _display}) then {
     cutRsc ["ScoreBoard", "PLAIN", 1];
     _display = uiNamespace getVariable "ScoreBoard_Display";
-    for [{_i=0}, {_i < _numberOfDisplayedRanks}, {_i=_i+1}] do {
-        _scoreBoardItem = _display displayCtrl SCOREBOARD_ITEM1 + _i;
-        _scoreBoardScore = _display displayCtrl SCOREBOARD_SCORE1 + _i;
-        _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0.4];
-        _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0.4];
-    };
 };
 
-private _teamNamespace = player getVariable [QGVAR(teamNamespace),objNull];
-private _groupName = _teamNamespace getVariable [QGVAR(displayName),""];
-private _teamScore = _teamNamespace getVariable [QGVAR(currentScore),0];
+private _fnc_addUnitScore = {
+    _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0.4];
+    _scoreBoardItem ctrlSetText (_unit getVariable ["ACE_Name","ERROR: NO NAME"]);
+    _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0.4];
+    _scoreBoardScore ctrlSetText str _score;
+};
 
-for [{_i=0}, {_i < _numberOfDisplayedRanks}, {_i=_i+1}] do {
-    _teamRankArray = GVAR(currentRankingSorted) select _i;
-    _teamScore = _teamRankArray select 0;
-    _teamName = _teamRankArray select 2;
+private _fnc_hideRow = {
+    _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0];
+    _scoreBoardItem ctrlSetText "";
+    _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0];
+    _scoreBoardScore ctrlSetText "";
+};
+
+private _playerRank = _allPlayingPlayersScores find [player getVariable [QGVAR(currentScore),0],player];
+private _maxID = count _allPlayingPlayers;
+for [{_i=0}, {_i < 5}, {_i=_i+1}] do {
     _scoreBoardItem = _display displayCtrl SCOREBOARD_ITEM1 + _i;
     _scoreBoardScore = _display displayCtrl SCOREBOARD_SCORE1 + _i;
-    _scoreBoardItem ctrlSetText _teamName;
-    _scoreBoardScore ctrlSetText (str _teamScore);
-};
 
+    if (_i < _maxID) then {
+        (_allPlayingPlayersScores param [_i,[0,objNull]]) params ["_score","_unit"];
 
-//player team is not in top 3
-private _scoreBoardItem = _display displayCtrl SCOREBOARD_ITEM4;
-private _scoreBoardScore = _display displayCtrl SCOREBOARD_SCORE4;
+        // skip fourth row if player is lower than rank 5 to indicate gap
+        if (_i == 3 && _playerRank > 4) then {
+            _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0.4];
+            _scoreBoardItem ctrlSetText "...";
+            _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0];
+            _scoreBoardScore ctrlSetText "";
+        } else {
+            // display player in fifth row even if rank is lower
+            if (_i == 4 && _playerRank > 4) then {
+                _score = player getVariable [QGVAR(currentScore),0];
+                _unit = player;
+                call _fnc_addUnitScore;
+            } else _fnc_addUnitScore;
+        };
+    } else _fnc_hideRow;
 
-if (([GVAR(currentRankingSorted), _groupName, 1] call EFUNC(common,findStringInArray)) > 2) then {
-    _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0.4];
-    _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0.4];
-    _scoreBoardItem ctrlSetText _teamName;
-    _scoreBoardScore ctrlSetText (str _teamScore);
-} else {
-    _scoreBoardItem ctrlSetBackgroundColor [0,0,0,0];
-    _scoreBoardScore ctrlSetBackgroundColor [0,0,0,0];
-    _scoreBoardItem ctrlSetText "";
-    _scoreBoardScore ctrlSetText "";
 };

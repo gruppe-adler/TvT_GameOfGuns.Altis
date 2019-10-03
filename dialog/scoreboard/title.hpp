@@ -80,5 +80,17 @@ class ScoreBoard
 			idc = SCOREBOARD_SCORE4;
 			y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 3);
 		};
+
+        class Item5: ScoreBoardItem
+        {
+            idc = SCOREBOARD_ITEM5;
+            y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 4);
+        };
+
+        class Score5: ScoreBoardScore
+        {
+            idc = SCOREBOARD_SCORE5;
+            y = sb_totalY + ((sb_itemSpacingY + sb_itemH) * 4);
+        };
 	};
 };

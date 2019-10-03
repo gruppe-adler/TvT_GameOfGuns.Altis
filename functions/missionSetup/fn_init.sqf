@@ -3,33 +3,30 @@
 
 [{!isNull player || isDedicated},{
 
+    // PLAYER ==================================================================
     if (hasInterface) then {
         [] call FUNC(moveToMapStartPos);
 
         if (didJIP && missionNamespace getVariable [QGVAR(setupDone),false]) exitWith {
+            player setVariable [QGVAR(isSpectator),true,true];
             player setDamage 1;
             ["Terminate"] call BIS_fnc_EGSpectator;
             ["Initialize", [player, [WEST,EAST,INDEPENDENT], true]] call BIS_fnc_EGSpectator;
         };
 
         [] call FUNC(removeInitialWeapon);
-        [] call FUNC(saveRadioInstance);
 
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
 
-        // localhost
-        if (isServer) then {
-            [FUNC(scoreBoard),1,[]] call CBA_fnc_addPerFrameHandler;
-        } else {
-            QGVAR(currentRankingSorted) addPublicVariableEventHandler FUNC(scoreBoard);
-        };
+        [{[] call FUNC(scoreBoard)},1,[]] call CBA_fnc_addPerFrameHandler;
 
         [{!isNull (findDisplay 46)},{
             [] call EFUNC(votePlayzone,initPlayer);
         },[]] call CBA_fnc_waitUntilAndExecute;
     };
 
+    // SERVER ==================================================================
     if (isServer) then {
         missionNamespace setVariable [QGVAR(respawnTime),"RespawnTime" call BIS_fnc_getParamValue,true];
         missionNamespace setVariable [QGVAR(rankedMode),("RankedMode" call BIS_fnc_getParamValue) == 1,true];
@@ -45,28 +42,27 @@
         // wait until voting complete
         [{missionNamespace getVariable [QEGVAR(votePlayzone,votingComplete),false]},{
 
+            [] call FUNC(initPlayersServer);
             [] call FUNC(playAreaSetup);
-            [] call FUNC(teamSetup);
             [] call FUNC(selectWeapons);
-            [] call FUNC(randomizeRadioFrequencies);
 
             missionNamespace setVariable [QGVAR(setupDone),true,true];
-            ["gungame_notification1",["GUNGAME","Setup done. Waiting 10s for synchronization."]] remoteExec ["bis_fnc_showNotification",0,false];
 
             // wait for synchronization
+            ["gungame_notification1",["GUNGAME","Setup done. Waiting 10s for synchronization."]] remoteExec ["bis_fnc_showNotification",0,false];
             [{
                 ["gungame_notification1",["GUNGAME","Game starting in 10s."]] remoteExec ["bis_fnc_showNotification",0,false];
                 [] remoteExec [QFUNC(applyUniform),0,false];
 
                 // wait 10s
                 [{
-                    [] call FUNC(moveTeamsToStartPositions);
+                    [] call FUNC(movePlayerToStartPos);
                     [] remoteExec [QFUNC(setRadioFrequencies),0,false];
                     [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
                     [] remoteExec [QFUNC(initCampingProtection),0,false];
                     [] remoteExec [QFUNC(scoreBoard),0,false];
 
-                    {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach playableUnits;
+                    {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach (allPlayers select {_x getVariable [QGVAR(isPlaying),false]});
                     missionNamespace setVariable [QGVAR(gameStarted),true,true];
 
                 },[],10] call CBA_fnc_waitAndExecute;

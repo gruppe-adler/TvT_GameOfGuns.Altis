@@ -4,9 +4,7 @@
 
 params ["_dialog"];
 
-private _teamNamespace = player getVariable [QEGVAR(missionSetup,teamNamespace),objNull];
-private _score = _teamNamespace getVariable [QEGVAR(missionSetup,currentScore),0];
-
+private _score = player getVariable [QEGVAR(missionSetup,currentScore),0];
 private _weapon = EGVAR(missionSetup,chosenWeapons) param [_score,""];
 
 //weapon text

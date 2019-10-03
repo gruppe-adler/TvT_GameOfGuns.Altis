@@ -3,7 +3,6 @@
 params [["_respawnPos",[0,0,0]]];
 
 if (!hasInterface) exitWith {};
-
 if (alive player) exitWith {};
 
 player setVariable [QGVAR(respawnPos),_respawnPos];

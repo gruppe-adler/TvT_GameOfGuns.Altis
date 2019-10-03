@@ -1,6 +1,6 @@
 #include "component.hpp"
 
-if (didJIP && missionNamespace getVariable [QEGVAR(missionSetup,setupDone),false]) exitWith {};
+if (player getVariable [QEGVAR(missionSetup,isSpectator),false]) exitWith {};
 if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 
 //send killer to server

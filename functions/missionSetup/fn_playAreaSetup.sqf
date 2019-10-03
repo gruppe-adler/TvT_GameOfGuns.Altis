@@ -90,3 +90,5 @@ _marker setMarkerSize [GVAR(playAreaSize),GVAR(playAreaSize)];
 
 //BUILD WALL ===================================================================
 [] call FUNC(buildTheWall);
+
+INFO("fn_playAreaSetup done");

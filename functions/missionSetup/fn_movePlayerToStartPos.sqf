@@ -4,18 +4,17 @@ private _spawnGroupsMinDist = [missionConfigFile >> "cfgMission","spawnGroupMinD
 private _startPositions = [];
 
 {
-	//Position for teamleader
 	_repetitions = 0;
 	_tooCloseFound = true;
-    _teamLeadPos = GVAR(playAreaCenter);
+    _startPos = GVAR(playAreaCenter);
 
 	while {_tooCloseFound} do {
 
 		//find position that is not over water
 		_isWater = true;
 		for [{_i=0}, {_i<100}, {_i = _i + 1}] do {
-			_teamleadpos = [GVAR(playAreaCenter),[0,GVAR(playAreaSize) - 25],[0,360]] call EFUNC(common,randomPos);
-			_isWater = surfaceIsWater _teamleadpos;
+			_startPos = [GVAR(playAreaCenter),[0,GVAR(playAreaSize) - 25],[0,360]] call EFUNC(common,randomPos);
+			_isWater = surfaceIsWater _startPos;
             if (!_isWater) exitWith {};
 		};
 
@@ -24,7 +23,7 @@ private _startPositions = [];
 		//make sure position is at least SPAWNGROUPMINDIST away from other positions
 		_tooCloseFound = false;
 		{
-			if ((_x distance2D _teamleadpos) < _spawnGroupsMinDist) exitWith {_tooCloseFound = true; INFO_1("Start position for %1 to close to other position. Repeating.", name _x)};
+			if ((_x distance2D _startPos) < _spawnGroupsMinDist) exitWith {_tooCloseFound = true; INFO_1("Start position for %1 to close to other position. Repeating.", name _x)};
 		} forEach _startPositions;
 
 		//unless this has been repeated too often -> use position anyway
@@ -35,17 +34,7 @@ private _startPositions = [];
 		_repetitions = _repetitions + 1;
 	};
 
-    {
-        _isWater = true;
-        _memberpos = GVAR(playAreaCenter);
+    _startPositions pushBack _startPos;
+    [_x,_startPos] remoteExec [QEFUNC(common,teleport),_x,false];
 
-        while {_isWater} do {
-            _memberpos = [_teamLeadPos,[0,30],[0,360]] call EFUNC(common,randomPos);
-            _isWater = surfaceIsWater _memberpos;
-        };
-
-        [_x,_memberPos] remoteExec [QEFUNC(common,teleport),_x,false];
-	} forEach (units group _x);
-
-    [_x,_teamLeadPos] remoteExec [QEFUNC(common,teleport),_x,false];
-} forEach GVAR(teamLeaders);
+} forEach (allPlayers select {_x getVariable [QGVAR(isPlaying),false]});

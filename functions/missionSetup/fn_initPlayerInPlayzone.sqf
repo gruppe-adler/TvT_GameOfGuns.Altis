@@ -1,7 +1,6 @@
 #include "component.hpp"
 
 if (!hasInterface) exitWith {};
-
 if (!alive player) exitWith {};
 
 [{

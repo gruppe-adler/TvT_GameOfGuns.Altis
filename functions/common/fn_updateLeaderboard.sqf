@@ -1,7 +1,10 @@
 #include "component.hpp"
 
 private _stats = EGVAR(missionSetup,statsArray);
-private _allPlayerUIDs = (allPlayers apply {getPlayerUID _x});
+private _allPlayerUIDs = EGVAR(missionSetup,allPlayerUIDs);
+private _allPlayingPlayers = allPlayers select {_x getVariable [QGVAR(isPlaying),false]};
+private _allPlayingPlayersScores = _allPlayingPlayers apply {[_x getVariable [QGVAR(currentScore),0],_x]};
+_allPlayingPlayersScores sort false;
 
 //UPDATE STATS =================================================================
 {
@@ -48,69 +51,40 @@ diag_log "======================================================================
 
 
 //UPDATE POINTS ================================================================
-//EGVAR(missionSetup,currentRanking): [points,group,groupDisplayName]
-
-//get average elo of all teams
-private _eloArray = [];
-private _memberElo = 100;
-{
-    _x params ["_groupScore","_group","_groupDisplayName"];
-
-    _groupTeamNamespace = (leader _group) getVariable [QEGVAR(missionSetup,teamNamespace),objNull];
-    _groupMemberUIDs = _groupTeamNamespace getVariable [QEGVAR(missionSetup,teamMateUIDs),[]];
-
-    _totalElo = 0;
-    {
-        _memberUID = _x;
-        _pointsID = [_stats, _memberUID, 1] call FUNC(findStringInArray);
-        if (_pointsID == -1) then {
-            diag_log format ["updateLeaderboard.sqf - ERROR: COULD NOT FIND %1 ELO.", _memberUID];
-            _memberElo = 100;
-        } else {
-            _memberElo = (_stats select _pointsID) select 0;
-            diag_log format ["updateLeaderboard.sqf - Group %1: Player %2 currently has %3 elo.", _groupDisplayName, _memberUID, _memberElo];
-        };
-        _totalElo = _totalElo + _memberElo;
-    } forEach _groupMemberUIDs;
-
-    _averagePoints = _totalElo / (count _groupMemberUIDs);
-    _eloArray pushBack _averagePoints;
-
-    diag_log format ["updateLeaderboard.sqf - Team %1 has an average of %2 points.", _groupDisplayName, _averagePoints];
-} forEach EGVAR(missionSetup,currentRanking);
-
 //update elo for all players
 {
     _playerUID = _x;
     _playerUnit = [_playerUID] call BIS_fnc_getUnitByUID;
     _playerEloGain = 0;
-    _playerEloIndex = [_stats, _playerUID, 1] call FUNC(findStringInArray);
+    _playerEloIndex = [_stats,_playerUID,1] call FUNC(findStringInArray);
     if (_playerEloIndex == -1) exitWith {diag_log format ["updateLeaderboard.sqf - ERROR: COULD NOT FIND %1 POINTS.", name _playerUnit]};
     _playerStats = _stats select _playerEloIndex;
     _playerElo = _playerStats select 0;
 
-
     _rankIndex = -1;
     {
-        _x params ["_groupScore","_group","_groupDisplayName"];
-        _groupTeamNamespace = (leader _group) getVariable [QEGVAR(missionSetup,teamNamespace),objNull];
-        _groupMemberUIDs = _groupTeamNamespace getVariable [QEGVAR(missionSetup,teamMateUIDs),[]];
+        _x params ["_score","_unit"];
 
-        if (_playerUID in _groupMemberUIDs) exitWith {
+        if (_playerUnit == _unit) exitWith {
             _rankIndex = _forEachIndex;
         };
-    } forEach EGVAR(missionSetup,currentRanking);
+    } forEach _allPlayingPlayersScores;
+
     if (_rankIndex == -1) exitWith {diag_log format ["updateLeaderboard.sqf - ERROR: COULD NOT FIND %1 IN CURRENTRANKING.", name _playerUnit]};
 
     //negative points
     for [{_i=0}, {_i<_rankIndex}, {_i=_i+1}] do {
-        _otherPlayerElo = _eloArray select _i;
+        _unit = (_allPlayingPlayersScores param [_i,[]]) param [1,objNull];
+        _pointsID = [_stats,getPlayerUID _unit,1] call FUNC(findStringInArray);
+        _otherPlayerElo = (_stats param [_pointsID,[100]]) select 0;
         _playerEloGain = _playerEloGain - ((_playerElo/_otherPlayerElo)*1.25);
     };
 
     //positive points
-    for [{_i=_rankIndex+1}, {_i<(count _eloArray)}, {_i=_i+1}] do {
-        _otherPlayerElo = _eloArray select _i;
+    for [{_i=_rankIndex+1}, {_i<(count _allPlayingPlayersScores)}, {_i=_i+1}] do {
+        _unit = (_allPlayingPlayersScores param [_i,[]]) param [1,objNull];
+        _pointsID = [_stats,getPlayerUID _unit,1] call FUNC(findStringInArray);
+        _otherPlayerElo = (_stats param [_pointsID,[100]]) select 0;
         _playerEloGain = _playerEloGain + (_otherPlayerElo/_playerElo);
     };
 

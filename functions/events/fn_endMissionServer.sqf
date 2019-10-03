@@ -2,13 +2,13 @@
 
 if (!isServer) exitWith {};
 
-params [["_winnerTeamNamespace",objNull]];
+params [["_winner",objNull]];
 
 if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 missionNamespace setVariable [QGVAR(gameEnded),true,true];
 
 _this spawn {
-    params [["_winnerTeamNamespace",objNull]];
+    params [["_winner",objNull]];
 
     sleep 1;
 
@@ -30,8 +30,7 @@ _this spawn {
 
     sleep 2;
 
-    _teamName = _winnerTeamNamespace getVariable [QEGVAR(missionSetup,displayName),"someone"];
-    ["gungame_notification1",["GUNGAME",format ["%1 wins!",_teamName]]] remoteExec ["bis_fnc_showNotification",0,false];
+    ["gungame_notification1",["GUNGAME",format ["%1 wins!",_winner getVariable ["ACE_Name",name _winner]]]] remoteExec ["bis_fnc_showNotification",0,false];
 
     sleep 8;
 

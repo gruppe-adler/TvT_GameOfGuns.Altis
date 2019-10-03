@@ -12,7 +12,4 @@ player setVariable [QEGVAR(missionSetup,isCamping),false,false];
 
 if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 
-private _teamNamespace = player getVariable [QEGVAR(missionSetup,teamNamespace),objNull];
-[player,_teamNamespace getVariable [QEGVAR(missionSetup,currentScore),0]] call EFUNC(missionSetup,applyWeapon);
-
-[] call EFUNC(missionSetup,scoreBoard);
+[player,player getVariable [QEGVAR(missionSetup,currentScore),0]] call EFUNC(missionSetup,applyWeapon);

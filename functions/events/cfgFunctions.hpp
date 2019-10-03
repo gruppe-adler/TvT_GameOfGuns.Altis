@@ -8,8 +8,6 @@ class gungame_events {
         class onPlayerRespawn {};
         class onUnitKilledServer {};
         class respawnPlayer {};
-        class respawnTeam {};
-        class updateRanking {};
         class upgradeWeaponTitleOnLoad {};
         class waitPlayerRespawnTime {};
     };
