@@ -2,7 +2,7 @@
 *
 */
 
-private _isWoodLand = toLower ([missionConfigFile >> "CfgIslands" >> worldName,"isWoodland",1] call BIS_fnc_returnConfigEntry) == "true";
+private _isWoodLand = toLower ([missionConfigFile >> "cfgGradIslands" >> worldName,"isWoodland",1] call BIS_fnc_returnConfigEntry) == "true";
 
 
 //WOODLAND =====================================================================
