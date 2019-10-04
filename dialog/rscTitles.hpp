@@ -7,8 +7,10 @@
 #include "killcam\defines.hpp"
 #include "killcam\title.hpp"
 
-#include "upgradeWeaponTitle\defines.hpp"
-#include "upgradeWeaponTitle\title.hpp"
 
+// DO NOT CHANGE ORDER --> upgradeWeaponTitle is dependant on scoreboard
 #include "scoreboard\defines.hpp"
 #include "scoreboard\title.hpp"
+
+#include "upgradeWeaponTitle\defines.hpp"
+#include "upgradeWeaponTitle\title.hpp"
