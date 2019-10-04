@@ -4,24 +4,8 @@
 cpbo_path="$1"
 missionname="TvT_GameOfGuns"
 
-islands=(
-	Altis
-	Beketov
-	Chernarus
-	Desert_Island
-	fallujah
-	fata
-	lythium
-	Malden
-	mbg_celle2
-	Porto
-	Sara_dbe1
-	Stratis
-	Takistan
-	Tanoa
-	utes
-	Zargabad
-)
+islands=($(curl -k https://raw.githubusercontent.com/gruppe-adler/grad-islandconfig/master/islands.txt))
+islands=("${islands[@]%%:*}")
 
 ### AS AS USER, DONT EDIT BELOW THIS LINE ###
 
