@@ -24,7 +24,7 @@ while {!_allFound} do {
 };
 
 //create new markers
-_voteMarker setMarkerText format ["Votes: (%1)", count _voters];
+_voteMarker setMarkerText format ["Diam.: %1m, Votes: %2", round ((getMarkerSize _areaMarker) param [0,0]) * 2,count _voters];
 for [{_i=0}, {_i < count _voters}, {_i=_i+1}] do {
     _voterMarkerName = format ["%1_%2", _voteMarker, _i];
     _voterMarkerPos = _pos vectorAdd [0,_ySpacing * (_i+1),0];
