@@ -43,7 +43,7 @@
         private _fnc_setup = {
 
             [] call FUNC(initPlayersServer);
-            [] call FUNC(playAreaSetup);            
+            [] call FUNC(playAreaSetup);
 
             missionNamespace setVariable [QGVAR(setupDone),true,true];
 
@@ -61,7 +61,6 @@
                     // wait 10s
                     [{
                         [] call FUNC(movePlayerToStartPos);
-                        [] remoteExec [QFUNC(setRadioFrequencies),0,false];
                         [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
                         [] remoteExec [QFUNC(initCampingProtection),0,false];
                         [] remoteExec [QFUNC(scoreBoard),0,false];

@@ -12,8 +12,7 @@ class gungame_missionSetup {
         class moveToMapStartPos {};
         class playAreaSetup {};
         class removeInitialWeapon {};
-        class scoreBoard {};        
-        class setRadioFrequencies {};
+        class scoreBoard {};
         class setTime {};
         class setWeather {};
     };
