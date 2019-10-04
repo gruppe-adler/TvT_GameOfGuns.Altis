@@ -1,7 +1,5 @@
 #include "component.hpp"
 
-if (!hasInterface) exitWith {};
-
 params [["_unit",objNull],"_score"];
 
 if (isNil "_score") then {

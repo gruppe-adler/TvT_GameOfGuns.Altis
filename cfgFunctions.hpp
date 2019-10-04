@@ -1,4 +1,5 @@
 class CfgFunctions {
+    #include "functions\chatCommands\cfgFunctions.hpp"
     #include "functions\chooseUniform\cfgFunctions.hpp"
     #include "functions\common\cfgFunctions.hpp"
     #include "functions\events\cfgFunctions.hpp"

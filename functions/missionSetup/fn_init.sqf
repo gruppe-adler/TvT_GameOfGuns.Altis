@@ -50,14 +50,15 @@
             missionNamespace setVariable [QGVAR(setupDone),true,true];
 
             [{
-
-
-                ["gungame_notification1",["GUNGAME","Select uniforms!"]] remoteExec ["bis_fnc_showNotification",0,false];
+                /* ["gungame_notification1",["GUNGAME","Select uniforms!"]] remoteExec ["bis_fnc_showNotification",0,false]; */
                 [CHOOSEUNIFORM_TIMEOUT] remoteExec [QEFUNC(chooseUniform,createChooseUniformDialog),0,false];
 
                 private _fnc_startGame = {
                     ["gungame_notification1",["GUNGAME","Game starting in 10s."]] remoteExec ["bis_fnc_showNotification",0,false];
                     [] remoteExec [QFUNC(applyUniform),0,false];
+                    [{
+                        ["gungame_notification1",["GUNGAME","Use '#gungame help' for a list of chatcommands."]] remoteExec ["bis_fnc_showNotification",0,false];
+                    },[],3] call CBA_fnc_waitAndExecute;
 
                     // wait 10s
                     [{
@@ -74,7 +75,7 @@
                 };
                 [{(allPlayers findIf {!(_x getVariable [QEGVAR(chooseUniform,uniformChosen),false])}) < 0},_fnc_startGame,[],CHOOSEUNIFORM_TIMEOUT + 5,_fnc_startGame] call CBA_fnc_waitUntilAndExecute;
             },[],5] call CBA_fnc_waitAndExecute;
+
         },[]] call CBA_fnc_waitUntilAndExecute;
     };
-
 },[]] call CBA_fnc_waitUntilAndExecute;
