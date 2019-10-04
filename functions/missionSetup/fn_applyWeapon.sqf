@@ -6,9 +6,9 @@ if (isNil "_score") then {
     _score = _unit getVariable [QGVAR(currentScore),0];
 };
 
-private _weapon = GVAR(chosenWeapons) param [_score,""];
-private _muzzleItem = GVAR(muzzleItems) param [_score,""];
-private _scope = GVAR(scopes) param [_score,""];
+private _weapon = EGVAR(selectWeapons,chosenWeapons) param [_score,""];
+private _muzzleItem = EGVAR(selectWeapons,muzzleItems) param [_score,""];
+private _scope = EGVAR(selectWeapons,scopes) param [_score,""];
 
 //get magazine
 private _magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");

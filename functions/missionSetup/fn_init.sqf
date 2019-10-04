@@ -40,12 +40,10 @@
             [] call EFUNC(votePlayzone,initServer);
         },[]] call CBA_fnc_waitUntilAndExecute;
 
-        // wait until voting complete
-        [{missionNamespace getVariable [QEGVAR(votePlayzone,votingComplete),false]},{
+        private _fnc_setup = {
 
             [] call FUNC(initPlayersServer);
             [] call FUNC(playAreaSetup);
-            [] call FUNC(selectWeapons);
 
             missionNamespace setVariable [QGVAR(setupDone),true,true];
 
@@ -75,7 +73,12 @@
                 };
                 [{(allPlayers findIf {!(_x getVariable [QEGVAR(chooseUniform,uniformChosen),false])}) < 0},_fnc_startGame,[],CHOOSEUNIFORM_TIMEOUT + 5,_fnc_startGame] call CBA_fnc_waitUntilAndExecute;
             },[],5] call CBA_fnc_waitAndExecute;
+        };
 
-        },[]] call CBA_fnc_waitUntilAndExecute;
+        // wait until voting complete
+        [{
+            missionNamespace getVariable [QEGVAR(votePlayzone,votingComplete),false] &&
+            missionNamespace getVariable [QEGVAR(selectWeapons,selectWeaponsComplete),false]
+        },_fnc_setup,[],([missionConfigFile >> "cfgMission","votingTime",60] call BIS_fnc_returnConfigEntry) + 20,_fnc_setup] call CBA_fnc_waitUntilAndExecute;
     };
 },[]] call CBA_fnc_waitUntilAndExecute;

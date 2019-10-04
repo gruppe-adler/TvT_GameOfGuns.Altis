@@ -5,7 +5,7 @@
 params ["_dialog"];
 
 private _score = player getVariable [QEGVAR(missionSetup,currentScore),0];
-private _weapon = EGVAR(missionSetup,chosenWeapons) param [_score,""];
+private _weapon = EGVAR(selectWeapons,chosenWeapons) param [_score,""];
 
 //weapon text
 private _displayName = getText (configFile >> "CfgWeapons" >> _weapon >> "displayName");

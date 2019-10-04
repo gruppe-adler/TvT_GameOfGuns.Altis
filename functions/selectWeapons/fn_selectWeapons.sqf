@@ -1,21 +1,56 @@
 #include "component.hpp"
 
+#define INITIALWAITTIME     10
+#define WAITTIMEOUT         60
+
 if (!isServer) exitWith {};
 
-private ["_allMuzzleItems","_scope"];
+private _fnc_selectWeapons = {
+    GVAR(chosenWeapons) = [];
+    GVAR(muzzleItems) = [];
+    GVAR(scopes) = [];
+    private _weaponsNeeded = EGVAR(missionSetup,killsForWin);
 
-call compile preprocessFileLineNumbers "weaponConfig.sqf";
+    ([] call FUNC(getAllAvailableWeapons)) params ["_availableRifles","_availablePistols"];
 
-GVAR(chosenWeapons) = [];
-GVAR(muzzleItems) = [];
-GVAR(scopes) = [];
+    private _numberOfPistols = (round (_weaponsNeeded / 5)) min 6;
+    for "_i" from 1 to (_weaponsNeeded - _numberOfPistols) do {
+        GVAR(chosenWeapons) pushBack selectRandom _availableRifles;
+        GVAR(muzzleItems) pushBack "";
+        GVAR(scopes) pushBack "";
+    };
+    for "_j" from 1 to _numberOfPistols do {
+        GVAR(chosenWeapons) pushBack selectRandom _availablePistols;
+        GVAR(muzzleItems) pushBack "";
+        GVAR(scopes) pushBack "";
+    };
 
-// CALCULATE NUMBER OF WEAPONS =================================================
-private _weaponsNeeded = GVAR(killsForWin);
-private _weaponsPerTier = ceil (_weaponsNeeded / numberOfTiers);
+    //BROADCAST ================================================================
+    publicVariable QGVAR(chosenWeapons);
+    publicVariable QGVAR(muzzleItems);
+    publicVariable QGVAR(scopes);
+
+    //LOG ======================================================================
+    INFO("Weapons selected:");
+    {
+        _muzzle = GVAR(muzzleItems) param [_forEachIndex,""];
+        _scope = GVAR(scopes) param [_forEachIndex,""];
+        INFO_3("%1, %2, %3",_x,_muzzle,_scope);
+    } forEach GVAR(chosenWeapons);
+
+    // COMPLETE ================================================================
+    missionNamespace setVariable [QGVAR(selectWeaponsComplete),true,true];
+};
+
+[{
+    [{count allPlayers == GVAR(receivedDlcsCount)},_this,[],WAITTIMEOUT,_this] call CBA_fnc_waitUntilAndExecute;
+},_fnc_selectWeapons,INITIALWAITTIME] call CBA_fnc_waitAndExecute;
 
 
-// CHOOSE WEAPONS ==============================================================
+
+
+
+/* // CHOOSE WEAPONS ==============================================================
 private _currentTier = 1;
 private _tierWeaponsNeeded = _weaponsPerTier;
 while {_currentTier <= numberOfTiers} do {
@@ -155,16 +190,4 @@ switch ("GameMode" call BIS_fnc_getParamValue) do {
         [GVAR(chosenWeapons), GVAR(muzzleItems), GVAR(scopes)] call mcd_fnc_randomizeArrays;
     };
 };
-
-//BROADCAST ====================================================================
-publicVariable QGVAR(chosenWeapons);
-publicVariable QGVAR(muzzleItems);
-publicVariable QGVAR(scopes);
-
-//LOG ==========================================================================
-INFO("Weapons selected:");
-{
-    _muzzle = GVAR(muzzleItems) param [_forEachIndex,""];
-    _scope = GVAR(scopes) param [_forEachIndex,""];
-    INFO_3("%1, %2, %3",_x,_muzzle,_scope);
-} forEach GVAR(chosenWeapons);
+*/
