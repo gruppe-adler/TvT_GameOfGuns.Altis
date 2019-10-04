@@ -16,6 +16,6 @@ if (isNil QGVAR(allAvailableUniforms)) then {
 for "_i" from 0 to 2 do {
     private _ctrlUniform = _display displayCtrl (CHOOSEUNIFORM_IDC_ITEM0 + _i);
     private _randomUniform = selectRandom GVAR(allAvailableUniforms);
-    _ctrlUniform ctrlSetText ([_randomUniform] call FUNC(getPicturePath));
+    _ctrlUniform ctrlSetText ([_randomUniform] call EFUNC(common,getPicturePath));
     _ctrlUniform setVariable [QGVAR(uniformClass),_randomUniform];
 };

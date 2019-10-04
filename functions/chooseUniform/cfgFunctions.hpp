@@ -1,8 +1,7 @@
 class gungame_chooseUniform {
     class chooseUniform {
         class createChooseUniformDialog {};
-        class getAllAvailableUniforms {};
-        class getPicturePath {};
+        class getAllAvailableUniforms {};        
         class hasUniformDLC {};
         class onButtonConfirm {};
         class onButtonReroll {};

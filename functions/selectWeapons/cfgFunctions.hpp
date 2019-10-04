@@ -1,5 +1,6 @@
 class gungame_selectWeapons {
     class selectWeapons {
+        class blacklistUtility {};
         class getAllAvailableWeapons {};
         class hasDamagingDefaultMag {};
         class receiveOwnedDlcs {};

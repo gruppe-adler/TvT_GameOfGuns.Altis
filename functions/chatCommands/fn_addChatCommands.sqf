@@ -25,4 +25,8 @@
     };
 
 
-}, "all"] call CBA_fnc_registerChatCommand;
+},"all"] call CBA_fnc_registerChatCommand;
+
+["blacklistUtility", {
+    [] call EFUNC(selectWeapons,blacklistUtility);
+},"admin"] call CBA_fnc_registerChatCommand;
