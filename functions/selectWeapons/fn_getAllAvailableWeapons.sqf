@@ -7,9 +7,13 @@ private _allCfgWeapons = "(getNumber (_x >> 'scope')) == 2" configClasses (confi
 private _allAvailableRifles = [];
 private _allAvailablePistols = [];
 
+private _weaponBlacklist = [missionConfigFile >> "cfgMission","weaponBlacklist",[]] call BIS_fnc_returnConfigEntry;
+
 {
     if (
-        [_x] call FUNC(weaponInOwnedDlcs)
+        [_x] call FUNC(weaponInOwnedDlcs) &&
+        {!(_x in _weaponBlacklist)} &&
+        {[_x] call FUNC(hasDamagingDefaultMag)}
     ) then {
         _baseWeapon = [configFile >> "cfgWeapons" >> _x,"baseWeapon",_x] call BIS_fnc_returnConfigEntry;
         if (_baseWeapon isKindOf ["Rifle",configFile >> "cfgWeapons"]) then {

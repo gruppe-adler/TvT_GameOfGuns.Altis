@@ -6,4 +6,8 @@ class cfgMission {
     scopesProbability = 60;
 
     spawnGroupMinDist = 50;
+
+    weaponBlacklist[] = {
+
+    };
 };

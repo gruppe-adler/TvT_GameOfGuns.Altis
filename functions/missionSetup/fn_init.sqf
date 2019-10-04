@@ -43,7 +43,7 @@
         private _fnc_setup = {
 
             [] call FUNC(initPlayersServer);
-            [] call FUNC(playAreaSetup);
+            [] call FUNC(playAreaSetup);            
 
             missionNamespace setVariable [QGVAR(setupDone),true,true];
 

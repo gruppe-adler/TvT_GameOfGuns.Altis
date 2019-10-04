@@ -12,13 +12,16 @@ private _scope = EGVAR(selectWeapons,scopes) param [_score,""];
 
 //get magazine
 private _magazines = getArray (configFile / "CfgWeapons" / _weapon / "magazines");
-private _isBlank = true;
+private _magazine = _magazines param [0,""];
+
+// disable magazine randomization for now
+/* private _isBlank = true;
 private _magazine = "";
 for [{_i=0},{_i<20},{_i=_i+1}] do {
     _magazine = selectRandom _magazines;
     _isBlank = ([configFile >> "CfgMagazines" >> _magazine >> "initSpeed", "number", 900] call CBA_fnc_getConfigEntry) < 15;
     if (!_isBlank) exitWith {};
-};
+}; */
 
 //remove old weapon and magazines
 {_unit removeWeapon _x} forEach weapons _unit;
