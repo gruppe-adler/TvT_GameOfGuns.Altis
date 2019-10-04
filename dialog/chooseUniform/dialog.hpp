@@ -24,7 +24,7 @@ class gungame_rscChooseUniform {
             h = CHOOSEUNIFORM_TOPBAR_H;
 
             text = "CHOOSE UNIFORM";
-            font = "RobotoCondensedLight";
+            font = "EtelkaMonospacePro";
         };
 	};
 	class controls {
@@ -61,7 +61,7 @@ class gungame_rscChooseUniform {
             y = CHOOSEUNIFORM_Y + CHOOSEUNIFORM_TOTAL_H + CHOOSEUNIFORM_TOPBAR_SPACER_H;
             w = CHOOSEUNIFORM_TOTAL_W / 2 - CHOOSEUNIFORM_SPACER_W / 2;
             h = CHOOSEUNIFORM_TOPBAR_H;
-
+            font = "EtelkaMonospacePro";
             onButtonClick = "_this call gungame_chooseUniform_fnc_onButtonReroll";
         };
         class buttonConfirm: mcd_RscButton {
@@ -70,14 +70,15 @@ class gungame_rscChooseUniform {
             y = CHOOSEUNIFORM_Y + CHOOSEUNIFORM_TOTAL_H + CHOOSEUNIFORM_TOPBAR_SPACER_H;
             w = CHOOSEUNIFORM_TOTAL_W / 2 - CHOOSEUNIFORM_SPACER_W / 2;
             h = CHOOSEUNIFORM_TOPBAR_H;
-
+            font = "EtelkaMonospacePro";
             text = "CONFIRM";
             onButtonClick = "_this call gungame_chooseUniform_fnc_onButtonConfirm";
         };
         class countdown: mcd_RscText {
             idc = CHOOSEUNIFORM_IDC_COUNTDOWN;
             style = ST_RIGHT;
-
+            font = "EtelkaMonospacePro";
+            
             x = CHOOSEUNIFORM_X;
             y = CHOOSEUNIFORM_Y - CHOOSEUNIFORM_TOPBAR_H - CHOOSEUNIFORM_TOPBAR_SPACER_H;
             w = CHOOSEUNIFORM_TOTAL_W;
