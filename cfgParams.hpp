@@ -40,18 +40,4 @@ class Params {
         texts[] = {"On", "Off"};
         default = 1;
     };
-
-    class RandomTeams {
-        title = "Random Teams";
-        values[] = {1,0};
-        texts[] = {"On", "Off"};
-        default = 1;
-    };
-
-    class TeamSize {
-        title = "Random Teams - Size";
-        values[] = {1,2,3,4,5};
-        texts[] = {"1","2","3","4","5"};
-        default = 1;
-    };
 };
