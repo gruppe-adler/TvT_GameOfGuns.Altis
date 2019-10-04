@@ -4,8 +4,6 @@
 
 if (count (_this select 0) <= 1) exitWith {};
 
-diag_log str _this;
-
 //check if all arrays have same number of elements
 _numberOfElements = count (_this select 0);
 _theyAreTheSameBrah = true;
