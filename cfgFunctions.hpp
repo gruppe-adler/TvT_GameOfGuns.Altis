@@ -1,4 +1,5 @@
 class CfgFunctions {
+    #include "functions\chooseUniform\cfgFunctions.hpp"
     #include "functions\common\cfgFunctions.hpp"
     #include "functions\events\cfgFunctions.hpp"
 	#include "functions\missionSetup\cfgFunctions.hpp"

@@ -33,10 +33,11 @@ respawnDialog = 0;
 disabledAI = 0;
 enableDebugConsole = 1;
 
-// TITLES ======================================================================
+// TITLES AND DIALOGS ==========================================================
 class RscTitles {
     #include "dialog\rscTitles.hpp"
 };
+#include "dialog\dialogs.hpp"
 
 // NOTIFICATIONS ===============================================================
 class CfgNotifications {

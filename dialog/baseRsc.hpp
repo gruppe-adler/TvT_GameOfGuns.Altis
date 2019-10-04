@@ -42,6 +42,11 @@ class mcd_RscText
 	linespacing = 1;
 };
 
+class mcd_RscBackground: mcd_RscText {
+    colorBackground[] = {0,0,0,0.90};
+    colorText[] = {0,0,0,0};
+};
+
 class mcd_RscMapText: mcd_RscText
 {
 	idc = -1;
@@ -87,4 +92,60 @@ class mcd_RscPicture
 	tooltipColorText[] = {1,1,1,1};
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
+};
+
+class mcd_RscActivePictureKeepAspect {
+    idc = -1;
+    access = 0;
+    color[] = {1,1,1,0.5};
+    colorActive[] = {1,1,1,1};
+    colorDisabled[] = {1,1,1,0.25};
+    default = 0;
+    deletable = 0;
+    fade = 0;
+    font = "RobotoCondensed";
+    shadow = 2;
+    sizeEx = "(((((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    soundClick[] = {"",0.1,1};
+    soundEnter[] = {"",0.1,1};
+    soundEscape[] = {"",0.1,1};
+    soundPush[] = {"",0.1,1};
+    style = "0x30 + 0x800";
+    text = "";
+    tooltipColorBox[] = {1,1,1,1};
+    tooltipColorShade[] = {0,0,0,0.65};
+    tooltipColorText[] = {1,1,1,1};
+    type = 11;
+    url = "";
+};
+
+class mcd_RscButton {
+    idc = -1;
+    access = 0;
+    borderSize = 0;
+    colorBackground[] = {0,0,0,0.9};
+    colorBackgroundActive[] = {0,0,0,0.9};
+    colorBackgroundDisabled[] = {0,0,0,0.5};
+    colorBorder[] = {0,0,0,1};
+    colorDisabled[] = {1,1,1,0.25};
+    colorFocused[] = {0,0,0,1};
+    colorShadow[] = {0,0,0,0};
+    colorText[] = {1,1,1,1};
+    deletable = 0;
+    fade = 0;
+    font = "RobotoCondensed";
+    offsetPressedX = 0;
+    offsetPressedY = 0;
+    offsetX = 0;
+    offsetY = 0;
+    shadow = 2;
+    sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+    soundClick[] = {"\A3\ui_f\data\sound\RscButton\soundClick",0.09,1};
+    soundEnter[] = {"\A3\ui_f\data\sound\RscButton\soundEnter",0.09,1};
+    soundEscape[] = {"\A3\ui_f\data\sound\RscButton\soundEscape",0.09,1};
+    soundPush[] = {"\A3\ui_f\data\sound\RscButton\soundPush",0.09,1};
+    style = 2;
+    text = "";
+    type = 1;
+    url = "";
 };

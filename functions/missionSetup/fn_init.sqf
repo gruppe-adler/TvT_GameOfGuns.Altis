@@ -1,5 +1,6 @@
 #include "component.hpp"
 
+#define CHOOSEUNIFORM_TIMEOUT       30
 
 [{!isNull player || isDedicated},{
 
@@ -48,25 +49,31 @@
 
             missionNamespace setVariable [QGVAR(setupDone),true,true];
 
-            // wait for synchronization
-            ["gungame_notification1",["GUNGAME","Setup done. Waiting 10s for synchronization."]] remoteExec ["bis_fnc_showNotification",0,false];
             [{
-                ["gungame_notification1",["GUNGAME","Game starting in 10s."]] remoteExec ["bis_fnc_showNotification",0,false];
-                [] remoteExec [QFUNC(applyUniform),0,false];
 
-                // wait 10s
-                [{
-                    [] call FUNC(movePlayerToStartPos);
-                    [] remoteExec [QFUNC(setRadioFrequencies),0,false];
-                    [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
-                    [] remoteExec [QFUNC(initCampingProtection),0,false];
-                    [] remoteExec [QFUNC(scoreBoard),0,false];
 
-                    {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach (allPlayers select {_x getVariable [QGVAR(isPlaying),false]});
-                    missionNamespace setVariable [QGVAR(gameStarted),true,true];
+                ["gungame_notification1",["GUNGAME","Select uniforms!"]] remoteExec ["bis_fnc_showNotification",0,false];
+                [CHOOSEUNIFORM_TIMEOUT] remoteExec [QEFUNC(chooseUniform,createChooseUniformDialog),0,false];
 
-                },[],10] call CBA_fnc_waitAndExecute;
-            },[],10] call CBA_fnc_waitAndExecute;
+                private _fnc_startGame = {
+                    ["gungame_notification1",["GUNGAME","Game starting in 10s."]] remoteExec ["bis_fnc_showNotification",0,false];
+                    [] remoteExec [QFUNC(applyUniform),0,false];
+
+                    // wait 10s
+                    [{
+                        [] call FUNC(movePlayerToStartPos);
+                        [] remoteExec [QFUNC(setRadioFrequencies),0,false];
+                        [] remoteExec [QFUNC(initPlayerInPlayzone),0,false];
+                        [] remoteExec [QFUNC(initCampingProtection),0,false];
+                        [] remoteExec [QFUNC(scoreBoard),0,false];
+
+                        {[_x,0] remoteExecCall [QFUNC(applyWeapon),_x,false]} forEach (allPlayers select {_x getVariable [QGVAR(isPlaying),false]});
+                        missionNamespace setVariable [QGVAR(gameStarted),true,true];
+
+                    },[],10] call CBA_fnc_waitAndExecute;
+                };
+                [{(allPlayers findIf {!(_x getVariable [QEGVAR(chooseUniform,uniformChosen),false])}) < 0},_fnc_startGame,[],CHOOSEUNIFORM_TIMEOUT + 5,_fnc_startGame] call CBA_fnc_waitUntilAndExecute;
+            },[],5] call CBA_fnc_waitAndExecute;
         },[]] call CBA_fnc_waitUntilAndExecute;
     };
 
