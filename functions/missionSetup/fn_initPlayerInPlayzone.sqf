@@ -27,8 +27,6 @@ if (!alive player) exitWith {};
                 [] call FUNC(initPlayerInPlayzone);
             };
 
-            diag_log ["_iterations",_iterations];
-
             // player has not moved back inside in 5s
             if (_iterations >= 5) exitWith {
                 player setDamage 1;
