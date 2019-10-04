@@ -118,5 +118,5 @@ private _fnc_selectWeapons = {
 };
 
 [{
-    [{count allPlayers == GVAR(receivedDlcsCount)},_this,[],WAITTIMEOUT,_this] call CBA_fnc_waitUntilAndExecute;
+    [{count allPlayers >= GVAR(receivedDlcsCount)},_this,[],WAITTIMEOUT,_this] call CBA_fnc_waitUntilAndExecute;
 },_fnc_selectWeapons,INITIALWAITTIME] call CBA_fnc_waitAndExecute;
