@@ -8,6 +8,8 @@ disableSerialization;
 createDialog "gungame_rscChooseUniform";
 private _display = findDisplay CHOOSEUNIFORM_IDD_DIALOG;
 
+GVAR(escEH) = _display displayAddEventHandler ["KeyDown",{_this#1 == 1}];
+
 private _ctrlButtonReroll = _display displayCtrl CHOOSEUNIFORM_IDC_REROLL;
 _ctrlButtonReroll ctrlSetText "REROLL (0/2)";
 
