@@ -3,7 +3,7 @@ class cfgMission {
     playAreaMinSize = 80;
     playAreaMaxSize = 2000;
     muzzleAttachmentProbability = 40;
-    scopesProbability = 60;
+    scopesProbability = 40;
 
     spawnGroupMinDist = 50;
 
