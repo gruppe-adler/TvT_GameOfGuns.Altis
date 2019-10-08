@@ -8,10 +8,10 @@ private _otherPlayers = allPlayers select {_x != _respawnUnit && alive _x};
 
 for "_i" from 0 to 10 do {
     _respawnPos = [];
-    _searchPos = [EGVAR(missionSetup,playAreaCenter),[0,EGVAR(missionSetup,playAreaSize) - 35],[0,360]] call EFUNC(common,randomPos);
+    _searchPos = [EGVAR(missionSetup,playAreaCenter),[0,(EGVAR(missionSetup,playAreaSize) - 80) max 1],[0,360]] call EFUNC(common,randomPos);
 
     for "_k" from 0 to 10 do {
-        _houseList = (_searchPos nearObjects ["House",75]) select {!((_x buildingPos 0) isEqualTo [0,0,0])};
+        _houseList = (_searchPos nearObjects ["House",75 min (EGVAR(missionSetup,playAreaSize)/2)]) select {!((_x buildingPos 0) isEqualTo [0,0,0])};
         if (count _houseList > 0) then {
             _house = selectRandom _houseList;
             _respawnPos = selectRandom ([_house] call BIS_fnc_buildingPositions);
