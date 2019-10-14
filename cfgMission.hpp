@@ -7,7 +7,7 @@ class cfgMission {
 
     spawnGroupMinDist = 50;
 
-    chooseUniformRerolls = 999;
+    chooseUniformRerolls = 2;
 
     weaponBlacklist[] = {
         arifle_Katiba_C_F,
