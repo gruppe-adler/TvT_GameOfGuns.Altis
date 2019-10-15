@@ -4,6 +4,7 @@ private _spawnGroupsMinDist = [missionConfigFile >> "cfgMission","spawnGroupMinD
 private _startPositions = [];
 
 {
+    _player = _x;
 	_repetitions = 0;
 	_tooCloseFound = true;
     _startPos = GVAR(playAreaCenter);
@@ -23,7 +24,7 @@ private _startPositions = [];
 		//make sure position is at least SPAWNGROUPMINDIST away from other positions
 		_tooCloseFound = false;
 		{
-			if ((_x distance2D _startPos) < _spawnGroupsMinDist) exitWith {_tooCloseFound = true; INFO_1("Start position for %1 to close to other position. Repeating.", name _x)};
+			if ((_x distance2D _startPos) < _spawnGroupsMinDist) exitWith {_tooCloseFound = true; INFO_1("Start position for %1 to close to other position. Repeating.", name _player)};
 		} forEach _startPositions;
 
 		//unless this has been repeated too often -> use position anyway
