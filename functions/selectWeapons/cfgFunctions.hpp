@@ -1,6 +1,7 @@
 class gungame_selectWeapons {
     class selectWeapons {
         class blacklistUtility {};
+        class filterNvScopes {};
         class getAllAvailableWeapons {};
         class hasDamagingDefaultMag {};
         class isSniper {};

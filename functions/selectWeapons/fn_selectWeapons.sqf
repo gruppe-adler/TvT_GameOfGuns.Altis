@@ -76,6 +76,8 @@ private _fnc_selectWeapons = {
                 _compatibleScopes = getArray (configFile >> "CfgWeapons" >> _weapon >> "WeaponSlotsInfo" >> "CowsSlot" >> "compatibleItems");
             };
 
+            _compatibleScopes = [_compatibleScopes] call FUNC(filterNvScopes);
+
             if (count _compatibleScopes > 0) then {
                 GVAR(scopes) pushBack selectRandom _compatibleScopes;
             } else {
