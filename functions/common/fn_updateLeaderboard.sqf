@@ -2,8 +2,8 @@
 
 private _stats = EGVAR(missionSetup,statsArray);
 private _allPlayerUIDs = EGVAR(missionSetup,allPlayerUIDs);
-private _allPlayingPlayers = allPlayers select {_x getVariable [QGVAR(isPlaying),false]};
-private _allPlayingPlayersScores = _allPlayingPlayers apply {[_x getVariable [QGVAR(currentScore),0],_x]};
+private _allPlayingPlayers = allPlayers select {_x getVariable [QEGVAR(missionSetup,isPlaying),false]};
+private _allPlayingPlayersScores = _allPlayingPlayers apply {[_x getVariable [QEGVAR(missionSetup,currentScore),0],_x]};
 _allPlayingPlayersScores sort false;
 
 //UPDATE STATS =================================================================
