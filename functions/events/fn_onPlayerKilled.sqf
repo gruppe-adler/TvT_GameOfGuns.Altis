@@ -3,9 +3,20 @@
 if (player getVariable [QEGVAR(missionSetup,isSpectator),false]) exitWith {};
 if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 
+
+// WORKAROUND FOR KILLED EH BEING FIRED TWICE UPON DEATH (ACE or BI, not sure)
+// TODO: REMOVE ONCE BUG IS FIXED
+params ["_unit"];
+if (_unit getVariable ["PZG_lock1", objNull] == _unit) exitWith {};
+_unit setVariable ["PZG_lock1", _unit];
+// END OF WORKAROUND
+
+
 //send killer to server
 private _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
 [player,_shooter,getPos player,profileName] remoteExecCall [QFUNC(onUnitKilledServer),2,false];
+
+diag_log ["fn_onPlayerKilled",_shooter,player];
 
 [getPos player,profileName] remoteExecCall [QEFUNC(common,weaponCleanup),2,false];
 
