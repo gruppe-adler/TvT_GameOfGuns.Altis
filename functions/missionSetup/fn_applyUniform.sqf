@@ -3,7 +3,7 @@
 if (!hasInterface) exitWith {};
 
 private _uniform = player getVariable [QGVAR(playerUniform),"U_Marshal"];
-private _isWoodLand = toLower ([missionConfigFile >> "cfgGradIslands" >> worldName,"isWoodland",1] call BIS_fnc_returnConfigEntry) == "true";
+private _isWoodLand = toLower ([missionConfigFile >> "cfgGradIslands" >> worldName,"isWoodland","true"] call BIS_fnc_returnConfigEntry) == "true";
 private _vest = ["V_TacVest_khk","V_TacVest_oli"] select _isWoodland;
 
 private _radio = player getVariable [QGVAR(radioInstance),"TFAR_anprc152"];
