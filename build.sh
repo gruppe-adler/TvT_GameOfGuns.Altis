@@ -53,8 +53,6 @@ rm "$tmpdir/README.md"
 rm -fr "$tmpdir/.git"
 rm "$tmpdir/.gitattributes"
 rm "$tmpdir/.gitignore"
-rm "$tmpdir/addUniformHelper.sqf"
-rm "$tmpdir/addWeaponsHelper.sqf"
 
 echo "building PBO...";
 $cpbo_path -y -p "$tmpdir" > /dev/null
