@@ -10,6 +10,7 @@ class cfgMission {
     chooseUniformRerolls = 2;
 
     weaponBlacklist[] = {
+        ACE_Flashlight_Maglite_ML300L,
         arifle_Katiba_C_F,
         arifle_Katiba_GL_F,
         arifle_Mk20C_F,
