@@ -1,6 +1,8 @@
 {
-        "dependencies": {
-                "grad-scoreboard": ">=0.0.1",
-                "grad-islandconfig": ">0.0.1"
-        }
+    "name": "tvt-gameofguns",
+    "version": "2.0.5",
+    "dependencies": {
+            "grad-scoreboard": ">=0.0.1",
+            "grad-islandconfig": ">0.0.1"
+    }
 }
