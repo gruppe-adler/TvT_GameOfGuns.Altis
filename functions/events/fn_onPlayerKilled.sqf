@@ -5,9 +5,8 @@ if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 
 // WORKAROUND FOR KILLED EH BEING FIRED TWICE UPON DEATH (ACE or BI, not sure)
 // TODO: REMOVE ONCE BUG IS FIXED
-params ["_unit"];
-if (_unit getVariable ["PZG_lock1", objNull] == _unit) exitWith {};
-_unit setVariable ["PZG_lock1", _unit];
+if (player getVariable ["PZG_lock1", objNull] == player) exitWith {};
+player setVariable ["PZG_lock1", player];
 // END OF WORKAROUND
 
 //send killer to server
