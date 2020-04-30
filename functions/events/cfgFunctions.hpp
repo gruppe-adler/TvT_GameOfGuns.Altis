@@ -6,6 +6,7 @@ class gungame_events {
         class onIncreasedScore {};
         class onPlayerKilled {};
         class onPlayerRespawn {};
+        class onUnconscious {};
         class onUnitKilledServer {};
         class respawnPlayer {};
         class upgradeWeaponTitleOnLoad {};

@@ -4,6 +4,8 @@
 
 [{!isNull player || isDedicated},{
 
+    ["ace_unconscious",EFUNC(events,onUnconscious)] call CBA_fnc_addEventHandler;
+
     // PLAYER ==================================================================
     if (hasInterface) then {
         [] call FUNC(moveToMapStartPos);
