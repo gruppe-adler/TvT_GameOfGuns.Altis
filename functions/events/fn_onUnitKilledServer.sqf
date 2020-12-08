@@ -2,17 +2,18 @@
 
 params ["_victim",["_shooter",objNull],["_victimPos", [0,0,0]],["_victimName", "Someone"],["_weapon",""]];
 
+if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {
+    INFO_2("%1 killed %2 after game had already ended.",_shooter,_victimName);
+};
 if (isNull _shooter) exitWith {};
 
+[_shooter,_victim,_victimName,_weapon] call FUNC(killfeedMessage);
+
 //exit if self-kill
-if (_victim == _shooter) exitWith {
-    (format ["%1 died.",_victimName]) remoteExec ["systemChat",0,false];
-};
+if (_victim == _shooter) exitWith {};
 
 _victim setVariable [QEGVAR(missionSetup,deaths),(_victim getVariable [QEGVAR(missionSetup,deaths), 0]) + 1, true];
 _shooter setVariable [QEGVAR(missionSetup,kills),(_shooter getVariable [QEGVAR(missionSetup,kills), 0]) + 1, true];
-
-[_shooter,_victimName,_weapon] call FUNC(killfeedMessage);
 
 private _shotDistance = (getPos _shooter) distance2D _victimPos;
 if (_shotDistance > (_shooter getVariable [QEGVAR(missionSetup,longestKill), 0])) then {
