@@ -11,7 +11,7 @@ player setVariable ["PZG_lock1", player];
 
 //send killer to server
 private _shooter = player getVariable ["ACE_medical_lastDamageSource",player];
-[player,_shooter,getPos player,profileName] remoteExecCall [QFUNC(onUnitKilledServer),2,false];
+[player,_shooter,getPos player,profileName,primaryWeapon _shooter] remoteExecCall [QFUNC(onUnitKilledServer),2,false];
 
 [getPos player,profileName] remoteExecCall [QEFUNC(common,weaponCleanup),2,false];
 

@@ -1,6 +1,6 @@
 #include "component.hpp"
 
-params ["_victim",["_shooter",objNull],["_victimPos", [0,0,0]],["_victimName", "Someone"]];
+params ["_victim",["_shooter",objNull],["_victimPos", [0,0,0]],["_victimName", "Someone"],["_weapon",""]];
 
 if (isNull _shooter) exitWith {};
 
@@ -12,8 +12,7 @@ if (_victim == _shooter) exitWith {
 _victim setVariable [QEGVAR(missionSetup,deaths),(_victim getVariable [QEGVAR(missionSetup,deaths), 0]) + 1, true];
 _shooter setVariable [QEGVAR(missionSetup,kills),(_shooter getVariable [QEGVAR(missionSetup,kills), 0]) + 1, true];
 
-private _shooterName = _shooter getVariable ["ACE_Name",name _shooter];
-(format ["%1 killed %2.",_shooterName,_victimName]) remoteExec ["systemChat",0,false];
+[_shooter,_victimName,_weapon] call FUNC(killfeedMessage);
 
 private _shotDistance = (getPos _shooter) distance2D _victimPos;
 if (_shotDistance > (_shooter getVariable [QEGVAR(missionSetup,longestKill), 0])) then {

@@ -3,6 +3,7 @@ class gungame_events {
         class endMissionServer {};
         class findRespawnPosition {};
         class killCam {};
+        class killfeedMessage {};
         class onIncreasedScore {};
         class onPlayerKilled {};
         class onPlayerRespawn {};
