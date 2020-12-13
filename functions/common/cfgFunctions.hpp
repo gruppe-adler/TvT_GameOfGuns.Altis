@@ -8,7 +8,6 @@ class gungame_common {
         class randomPos {};
         class showCamper {};
         class showGRADScoreboard {};
-        class teamMates {};
         class teleport {};
         class updateLeaderboard {};
         class weaponCleanup {};
