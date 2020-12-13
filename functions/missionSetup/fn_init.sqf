@@ -21,6 +21,9 @@
 
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
+        player addEventHandler ["Fired", {
+            player setVariable [QGVAR(shotsCounter),(player getVariable [QGVAR(shotsCounter),0]) + 1];
+        }];
         [QGVAR(onTangentEvent),"OnTangent", {
             // only count on button down
             if (param [4,false]) then {
