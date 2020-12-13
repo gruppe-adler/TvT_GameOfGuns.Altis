@@ -12,12 +12,13 @@ _this spawn {
 
     sleep 1;
 
-    _centerPos = ([EGVAR(missionSetup,playAreaCenter),[0,50]] call EFUNC(common,randomPos)) findEmptyPosition [0,30,"B_Soldier_F"];
-    if ((count _centerPos) == 0) then {_centerPos = EGVAR(missionSetup,playAreaCenter)};
+    private _mapStartPos = [missionConfigFile >> "cfgGradIslands" >> worldName,"spawnPosBlu",[0,0,0]] call BIS_fnc_returnConfigEntry;
+    private _teleportPos = ([_mapStartPos,[0,50]] call EFUNC(common,randomPos)) findEmptyPosition [0,30,"B_Soldier_F"];
+    if ((count _teleportPos) == 0) then {_teleportPos = _mapStartPos};
 
     {_x setDamage 0} forEach allPlayers;
-    [nil,_centerPos] remoteExec [QEFUNC(common,teleport),0,false];
-    [_centerPos] remoteExec [QFUNC(respawnPlayer),0,false];
+    [nil,_teleportPos] remoteExec [QEFUNC(common,teleport),0,false];
+    [_teleportPos] remoteExec [QFUNC(respawnPlayer),0,false];
 
     [[],{
         waitUntil {alive player};
