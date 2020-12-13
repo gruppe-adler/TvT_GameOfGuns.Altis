@@ -21,6 +21,12 @@
 
         player addEventHandler ["Killed", EFUNC(events,onPlayerKilled)];
         player addEventHandler ["Respawn", EFUNC(events,onPlayerRespawn)];
+        [QGVAR(onTangentEvent),"OnTangent", {
+            // only count on button down
+            if (param [4,false]) then {
+                player setVariable [QGVAR(radioUsedCounter),(player getVariable [QGVAR(radioUsedCounter),0]) + 1];
+            };
+        },player] call TFAR_fnc_addEventHandler;
 
         [{[] call FUNC(scoreBoard)},1,[]] call CBA_fnc_addPerFrameHandler;
 
