@@ -7,9 +7,12 @@ GVAR(allPlayerUIDs) = [];
     _unit setVariable [QGVAR(isPlaying),true,true];
 	_unit setVariable [QGVAR(kills),0,true];
 	_unit setVariable [QGVAR(deaths),0,true];
+    _unit setVariable [QGVAR(currentKillstreak),0,true];
+    _unit setVariable [QGVAR(highestKillstreak),0,true];
 	_unit setVariable [QGVAR(longestKill),0,true];
     _unit setVariable [QGVAR(eloThisGame),0,true];
     _unit setVariable [QGVAR(currentScore),0,true];
+    _unit setVariable [QGVAR(campingCounter),0,true];
     _unit setVariable [QGVAR(radioInstance),format ["TFAR_anprc152_%1",_forEachIndex + 1],true];
 
 	//save UID of everyone who is playing

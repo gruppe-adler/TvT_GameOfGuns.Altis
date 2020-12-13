@@ -41,6 +41,7 @@
     // player is camping
     if (_iteration > CAMPTIME) exitWith {
 
+        player setVariable [QGVAR(campingCounter),player getVariable [QGVAR(campingCounter),0] + 1,true];
         ["gungame_notification1",["GUNGAME","Looks like you are camping. You better move."]] spawn bis_fnc_showNotification;
         [_handle] call CBA_fnc_removePerFrameHandler;
 
