@@ -1,5 +1,6 @@
 class gungame_events {
     class events {
+        class broadcastLocalVarsOnMissionEnd {};
         class endMissionServer {};
         class findRespawnPosition {};
         class killCam {};

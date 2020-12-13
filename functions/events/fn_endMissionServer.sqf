@@ -7,6 +7,8 @@ params [["_winner",objNull]];
 if (missionNamespace getVariable [QGVAR(gameEnded),false]) exitWith {};
 missionNamespace setVariable [QGVAR(gameEnded),true,true];
 
+[] remoteExec [QFUNC(broadcastLocalVarsOnMissionEnd),0,false];
+
 _this spawn {
     params [["_winner",objNull]];
 
