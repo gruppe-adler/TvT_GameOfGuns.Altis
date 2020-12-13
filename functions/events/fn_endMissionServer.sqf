@@ -10,7 +10,7 @@ missionNamespace setVariable [QGVAR(gameEnded),true,true];
 _this spawn {
     params [["_winner",objNull]];
 
-    sleep 1;
+    sleep 2;
 
     private _mapStartPos = [missionConfigFile >> "cfgGradIslands" >> worldName,"spawnPosBlu",[0,0,0]] call BIS_fnc_returnConfigEntry;
     private _teleportPos = ([_mapStartPos,[0,50]] call EFUNC(common,randomPos)) findEmptyPosition [0,30,"B_Soldier_F"];

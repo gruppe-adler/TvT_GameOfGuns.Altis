@@ -7,6 +7,9 @@ if (!alive player) exitWith {};
     params ["","_handle"];
 
     if (!alive player) exitWith {};
+    if (missionNamespace getVariable [QEGVAR(events,gameEnded),false]) exitWith {
+        [_handle] call CBA_fnc_removePerFrameHandler;
+    };
 
     if (player distance2d GVAR(playAreaCenter) > (GVAR(playAreaSize) + 1)) exitWith {
         [_handle] call CBA_fnc_removePerFrameHandler;
@@ -19,6 +22,10 @@ if (!alive player) exitWith {};
             if (!alive player) exitWith {
                 [_handle] call CBA_fnc_removePerFrameHandler;
                 [] call FUNC(initPlayerInPlayzone);
+            };
+
+            if (missionNamespace getVariable [QEGVAR(events,gameEnded),false]) exitWith {
+                [_handle] call CBA_fnc_removePerFrameHandler;
             };
 
             // player is back inside
